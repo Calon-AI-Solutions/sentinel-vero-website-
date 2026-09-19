@@ -1,4 +1,5 @@
 import { Check, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function DashboardVisual() {
   return (
@@ -16,5 +17,5 @@ export function DashboardVisual() {
 }
 
 export function FieldVisual() {
-  return <div className="phone-shell"><div className="phone-top"/><p className="eyebrow mt-5">Job 1048</p><h3 className="mt-2 font-display text-xl font-semibold">Fire alarm service</h3><p className="mt-1 text-sm text-muted-foreground">Apex House · Level 2</p><div className="mt-6 space-y-3">{['Arrived on site','Evidence captured','Customer sign-off'].map((item) => <div key={item} className="flex items-center gap-3 rounded-md border border-border p-3 text-sm"><span className="grid size-6 place-items-center rounded-full bg-primary text-primary-foreground"><Check className="size-3.5"/></span>{item}</div>)}</div><button className="mt-6 w-full rounded-md bg-primary p-3 text-sm font-bold text-primary-foreground">Complete job</button></div>;
+  return <div className="phone-shell"><div className="phone-top"/><p className="eyebrow mt-5">Job 1048</p><h3 className="mt-2 font-display text-xl font-semibold">Fire alarm service</h3><p className="mt-1 text-sm text-muted-foreground">Apex House · Level 2</p><div className="mt-6 space-y-3">{['Arrived on site','Evidence captured','Customer sign-off'].map((item) => <div key={item} className="flex items-center gap-3 rounded-md border border-border p-3 text-sm"><span className="grid size-6 place-items-center rounded-full bg-primary text-primary-foreground"><Check className="size-3.5"/></span>{item}</div>)}</div><Button variant="signal" className="mt-6 w-full">Complete job</Button></div>;
 }

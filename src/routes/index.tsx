@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
   ], links: [{ rel: "canonical", href: "/" }] }), component: HomePage,
 });
 
-const metrics = [['24','enquiries','waiting on you'],['18','quotes','sitting in limbo'],['56','jobs','running right now'],['342','sites',"someone’s responsible for"],['£126k','pipeline','still on the table'],['28','sites','overdue for service']];
+const metrics: Array<[string, string, string]> = [['24','enquiries','waiting on you'],['18','quotes','sitting in limbo'],['56','jobs','running right now'],['342','sites',"someone’s responsible for"],['£126k','pipeline','still on the table'],['28','sites','overdue for service']];
 const issues = [['The Stack','Timesheets in one app. Job tracking in another. Pricing living in someone’s head.'],['The Guess','Profit isn’t measured — it’s estimated, or patched together and hoped for.'],['The Headcount Fix','Compliance gets complicated, so the answer is always “hire another person”.']];
 const chain = ['Customer','Quote','Job','Field','Review','Advisory','Invoice','Payroll'];
 const promises = [['See','Every record, in context.'],['Verify','A trail you can trust, not a guess you hope is right.'],['Surface','The stuff that matters, first.'],['Improve','Decisions stay human. The system makes them easier to get right.']];
