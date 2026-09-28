@@ -25,13 +25,14 @@ const features = ['CRM, customers, contacts & sites','Enquiries & opportunities'
 const partnerLogos = [
   { name: 'Volt Secure', src: '/partners/volt-secure.png' },
   { name: 'HeatGlow', src: '/partners/heatglow.png' },
-  { name: 'JOC', src: '/partners/joc.png' },
+  { name: 'JOC Security Growth', src: '/partners/joc.png' },
   { name: 'Caerphilly Business Club', src: '/partners/caerphilly-business-club.png' },
 ];
 const testimonials = [
   { quote: 'We used to spend hours checking timesheets and mileage before payroll. Volt verifies it for us, so by the time it reaches Xero, it’s already right.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-award.png' },
   { quote: 'Quoting, compliance and payroll used to live in different places. Now it’s all in one system, and the AI advisory analyses photos from our engineers on site to spot new work, so we win more revenue, faster.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-desk.png' },
   { quote: 'In 17 years as an engineer, this is the easiest app I’ve used. Time and mileage log automatically, photos and notes go in on site, and I’m done. No paperwork at the end of the day.', name: '', role: 'Engineer', company: 'Volt Secure', photo: '/testimonials/volt-engineer.webp' },
+  { quote: 'My client looked at the big platforms, but this was built around how security companies actually work. It was set up quickly, the team listens, and new features arrive when we need them.', name: 'John O’Connell', role: 'Senior Security Partner', company: 'JOC Security Growth', photo: '/testimonials/john-oconnell.webp' },
 ];
 const platformTabs: Array<{ key: string; label: string; title: string; body: string; bullets?: string[]; visual: "dashboard" | "field" }> = [
   { key: 'core', label: 'Core operations', title: 'Everything the job needs.', body: 'CRM, enquiries, job management, service scheduling, documents and dashboards — all in one connected system.', bullets: features, visual: 'dashboard' },
@@ -53,7 +54,7 @@ function TestimonialCarousel({ items }: { items: typeof testimonials }) {
   const logo = partnerLogos.find((p) => p.name === t.company);
   return (
     <div className="grid gap-8 rounded-md border border-border bg-card p-6 shadow-sm lg:grid-cols-[1.1fr_1fr] lg:items-center lg:p-8">
-      <div className="overflow-hidden rounded-md border border-border"><img src={t.photo} alt={t.name || `${t.role}, ${t.company}`} className="aspect-video w-full object-cover" /></div>
+      <div className="overflow-hidden rounded-md border border-border"><img src={t.photo} alt={t.name || `${t.role}, ${t.company}`} className="aspect-video w-full object-cover object-[50%_30%]" /></div>
       <div>
         <div className="flex items-center justify-between gap-4 rounded-md bg-foreground px-5 py-4 text-background">
           {t.name ? <p className="font-display text-base font-bold">{t.name}<span className="block text-sm font-normal text-background/60">{t.role}</span></p> : <p className="text-sm font-semibold text-background/70">{t.role}, {t.company}</p>}
