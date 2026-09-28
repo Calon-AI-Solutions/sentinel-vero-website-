@@ -46,7 +46,7 @@ function SectionHeading({ eyebrow, title, body }: { eyebrow: string; title: stri
 function TestimonialCarousel({ items }: { items: typeof testimonials }) {
   const [index, setIndex] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), 1500);
+    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), 2000);
     return () => clearInterval(id);
   }, [items.length]);
   const t = items[index]!;
@@ -55,8 +55,8 @@ function TestimonialCarousel({ items }: { items: typeof testimonials }) {
     <div className="grid gap-8 rounded-md border border-border bg-card p-6 shadow-sm lg:grid-cols-[1.1fr_1fr] lg:items-center lg:p-8">
       <div className="overflow-hidden rounded-md border border-border"><img src={t.photo} alt={t.name || `${t.role}, ${t.company}`} className="aspect-video w-full object-cover" /></div>
       <div>
-        <div className="flex items-center justify-between gap-4">
-          {t.name ? <p className="font-display text-base font-bold">{t.name}<span className="block text-sm font-normal text-muted-foreground">{t.role}</span></p> : <p className="text-sm font-semibold text-muted-foreground">{t.role}, {t.company}</p>}
+        <div className="flex items-center justify-between gap-4 rounded-md bg-foreground px-5 py-4 text-background">
+          {t.name ? <p className="font-display text-base font-bold">{t.name}<span className="block text-sm font-normal text-background/60">{t.role}</span></p> : <p className="text-sm font-semibold text-background/70">{t.role}, {t.company}</p>}
           {logo && <img src={logo.src} alt={logo.name} className="h-6 w-auto max-w-24 object-contain" />}
         </div>
         <p className="mt-6 font-display text-2xl font-semibold leading-snug md:text-3xl">“{t.quote}”</p>
