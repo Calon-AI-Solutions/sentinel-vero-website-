@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, ChevronRight, Play, User } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, Play } from "lucide-react";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,10 @@ const partnerLogos = [
   { name: 'HeatGlow', src: '/partners/heatglow.png' },
   { name: 'JOC', src: '/partners/joc.png' },
   { name: 'Caerphilly Business Club', src: '/partners/caerphilly-business-club.png' },
+];
+const testimonials = [
+  { quote: 'We used to spend hours checking timesheets and mileage before payroll. Volt verifies it for us, so by the time it reaches Xero, it’s already right.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-award.png' },
+  { quote: 'Quoting, compliance and payroll used to live in different places. Now it’s all in one system, and the AI advisory analyses photos from our engineers on site to spot new work, so we win more revenue, faster.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-desk.png' },
 ];
 const platformTabs: Array<{ key: string; label: string; title: string; body: string; bullets?: string[]; visual: "dashboard" | "field" }> = [
   { key: 'core', label: 'Core operations', title: 'Everything the job needs.', body: 'CRM, enquiries, job management, service scheduling, documents and dashboards — all in one connected system.', bullets: features, visual: 'dashboard' },
@@ -59,13 +63,14 @@ function HomePage() {
           {[...partnerLogos, ...partnerLogos].map((partner, i) => <img key={partner.name + i} src={partner.src} alt={partner.name} className="h-10 w-auto shrink-0 object-contain md:h-12" />)}
         </div>
       </div>
-      <div className="mt-12 grid gap-8 rounded-md border border-background/15 bg-background p-8 text-foreground lg:grid-cols-[auto_1fr] lg:items-center lg:gap-12">
-        <div className="mx-auto grid size-16 shrink-0 place-items-center rounded-full bg-secondary text-muted-foreground lg:mx-0"><User className="size-7" /></div>
-        <div>
-          <p className="font-display text-xl font-semibold leading-snug md:text-2xl">“A real quote from this partner will go here once they’ve signed off on it.”</p>
-          <p className="mt-4 text-sm font-semibold">Partner contact name <span className="font-normal text-muted-foreground">· Role, Company</span></p>
-          <span className="review-pill mt-3 inline-block">Awaiting partner sign-off</span>
-        </div>
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
+        {testimonials.map((t) => <article key={t.quote} className="grid overflow-hidden rounded-md border border-background/15 bg-background text-foreground sm:grid-cols-[13rem_1fr]">
+          <img src={t.photo} alt={t.name} className="h-56 w-full object-cover sm:h-full" />
+          <div className="p-7">
+            <p className="font-display text-lg font-semibold leading-snug md:text-xl">“{t.quote}”</p>
+            <p className="mt-5 text-sm font-semibold">{t.name} <span className="font-normal text-muted-foreground">· {t.role}, {t.company}</span></p>
+          </div>
+        </article>)}
       </div>
     </div></section>
 
