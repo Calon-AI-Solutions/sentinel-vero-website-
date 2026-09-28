@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, ChevronRight, Play } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -42,6 +43,29 @@ const platformTabs: Array<{ key: string; label: string; title: string; body: str
 
 function SectionHeading({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) { return <div className="max-w-3xl"><p className="eyebrow">{eyebrow}</p><h2 className="mt-4 text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">{title}</h2>{body && <p className="mt-6 text-lg leading-8 text-muted-foreground">{body}</p>}</div>; }
 
+function TestimonialCarousel({ items }: { items: typeof testimonials }) {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), 1500);
+    return () => clearInterval(id);
+  }, [items.length]);
+  const t = items[index]!;
+  const logo = partnerLogos.find((p) => p.name === t.company);
+  return (
+    <div className="grid gap-8 rounded-md border border-border bg-card p-6 shadow-sm lg:grid-cols-[1.1fr_1fr] lg:items-center lg:p-8">
+      <div className="overflow-hidden rounded-md border border-border"><img src={t.photo} alt={t.name || `${t.role}, ${t.company}`} className="aspect-video w-full object-cover" /></div>
+      <div>
+        <div className="flex items-center justify-between gap-4">
+          {t.name ? <p className="font-display text-base font-bold">{t.name}<span className="block text-sm font-normal text-muted-foreground">{t.role}</span></p> : <p className="text-sm font-semibold text-muted-foreground">{t.role}, {t.company}</p>}
+          {logo && <img src={logo.src} alt={logo.name} className="h-6 w-auto max-w-24 object-contain" />}
+        </div>
+        <p className="mt-6 font-display text-2xl font-semibold leading-snug md:text-3xl">“{t.quote}”</p>
+        <div className="mt-6 flex gap-1.5">{items.map((_, i) => <span key={i} className={`h-1.5 w-6 rounded-full transition-colors ${i === index ? 'bg-primary' : 'bg-border'}`} />)}</div>
+      </div>
+    </div>
+  );
+}
+
 function HomePage() {
   return <>
     <section className="hero-grid overflow-hidden bg-foreground text-background">
@@ -64,14 +88,12 @@ function HomePage() {
           {[...partnerLogos, ...partnerLogos].map((partner, i) => <img key={partner.name + i} src={partner.src} alt={partner.name} className="h-10 w-auto shrink-0 object-contain md:h-12" />)}
         </div>
       </div>
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {testimonials.map((t) => <article key={t.quote} className="overflow-hidden rounded-md border border-background/15 bg-background text-foreground">
-          <img src={t.photo} alt={t.name || `${t.role}, ${t.company}`} className="h-56 w-full object-cover" />
-          <div className="p-6">
-            <p className="font-display text-base font-semibold leading-snug">“{t.quote}”</p>
-            <p className="mt-4 text-sm font-semibold">{t.name ? <>{t.name} <span className="font-normal text-muted-foreground">· {t.role}, {t.company}</span></> : <span className="text-muted-foreground">{t.role}, {t.company}</span>}</p>
-          </div>
-        </article>)}
+    </div></section>
+
+    <section className="section-space bg-secondary"><div className="site-container">
+      <p className="eyebrow text-center">What our partners say</p>
+      <div className="mt-8">
+        <TestimonialCarousel items={testimonials} />
       </div>
     </div></section>
 
