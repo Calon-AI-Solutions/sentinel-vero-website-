@@ -4,9 +4,9 @@ import { DiscoveryCta, PageIntro } from "@/components/site-shell";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About us — Sentinel Vero" },
-      { name: "description", content: "Sentinel Vero builds practical operational software for fire, security and field service businesses — developed and tested inside a live operation." },
-      { property: "og:title", content: "About Sentinel Vero — Built in the field" },
+      { title: "About us | Sentinel Vero" },
+      { name: "description", content: "Sentinel Vero builds practical operational software for fire, security and field service businesses, developed and tested inside a live operation." },
+      { property: "og:title", content: "About Sentinel Vero | Built in the field" },
       { property: "og:description", content: "One clearer operational environment for growing operators, built and tested inside a live fire and security business." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
