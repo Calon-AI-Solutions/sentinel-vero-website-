@@ -52,12 +52,14 @@ function HomePage() {
       </div>
     </section>
 
-    <section className="section-space bg-secondary"><div className="site-container">
-      <p className="eyebrow text-center">Trusted by our partners</p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-        {partnerLogos.map((partner) => <div key={partner.name} className="flex h-20 w-44 items-center justify-center rounded-md border border-border bg-background p-4 shadow-sm"><img src={partner.src} alt={partner.name} className="max-h-12 w-auto max-w-full object-contain" /></div>)}
+    <section className="section-space bg-foreground text-background"><div className="site-container">
+      <p className="eyebrow text-center text-primary">Trusted by our partners</p>
+      <div className="logo-marquee mt-8">
+        <div className="logo-marquee-track">
+          {[...partnerLogos, ...partnerLogos].map((partner, i) => <img key={partner.name + i} src={partner.src} alt={partner.name} className="h-10 w-auto shrink-0 object-contain md:h-12" />)}
+        </div>
       </div>
-      <div className="mt-12 grid gap-8 rounded-md border border-border bg-background p-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-12">
+      <div className="mt-12 grid gap-8 rounded-md border border-background/15 bg-background p-8 text-foreground lg:grid-cols-[auto_1fr] lg:items-center lg:gap-12">
         <div className="mx-auto grid size-16 shrink-0 place-items-center rounded-full bg-secondary text-muted-foreground lg:mx-0"><User className="size-7" /></div>
         <div>
           <p className="font-display text-xl font-semibold leading-snug md:text-2xl">“A real quote from this partner will go here once they’ve signed off on it.”</p>
