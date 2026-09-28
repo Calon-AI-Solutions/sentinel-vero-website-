@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Building2, Check, ChevronRight, Play, User } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, Play, User } from "lucide-react";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,12 @@ const issues = [['The Stack','Timesheets in one app. Job tracking in another. Pr
 const chain = ['Customer','Quote','Job','Field','Review','Advisory','Invoice','Payroll'];
 const promises = [['See','Every record, in context.'],['Verify','A trail you can trust, not a guess you hope is right.'],['Surface','The stuff that matters, first.'],['Improve','Decisions stay human. The system makes them easier to get right.']];
 const features = ['CRM, customers, contacts & sites','Enquiries & opportunities','Job management & engineer workflows','Service & maintenance scheduling','Documents & compliance','Dashboards & reporting'];
+const partnerLogos = [
+  { name: 'Volt Secure', src: '/partners/volt-secure.png' },
+  { name: 'HeatGlow', src: '/partners/heatglow.png' },
+  { name: 'JOC', src: '/partners/joc.png' },
+  { name: 'Caerphilly Business Club', src: '/partners/caerphilly-business-club.png' },
+];
 const platformTabs: Array<{ key: string; label: string; title: string; body: string; bullets?: string[]; visual: "dashboard" | "field" }> = [
   { key: 'core', label: 'Core operations', title: 'Everything the job needs.', body: 'CRM, enquiries, job management, service scheduling, documents and dashboards — all in one connected system.', bullets: features, visual: 'dashboard' },
   { key: 'quoting', label: 'AI Quoting', title: 'Stop rebuilding every quote from scratch.', body: 'The system already knows the pricing logic, the job history, the site. Let it write the first draft.', visual: 'dashboard' },
@@ -49,16 +55,16 @@ function HomePage() {
     </section>
 
     <section className="section-space bg-secondary"><div className="site-container">
-      <p className="eyebrow text-center">Built with real fire &amp; security operators</p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-        {[0, 1, 2].map((i) => <div key={i} className="flex h-16 w-44 items-center justify-center gap-2 rounded-md border border-dashed border-border bg-background text-muted-foreground"><Building2 className="size-4" /><span className="text-xs font-bold uppercase tracking-wide">Client logo</span></div>)}
+      <p className="eyebrow text-center">Trusted by our partners</p>
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+        {partnerLogos.map((partner) => <img key={partner.name} src={partner.src} alt={partner.name} className="h-12 w-auto object-contain grayscale opacity-80 transition hover:grayscale-0 hover:opacity-100" />)}
       </div>
       <div className="mt-12 grid gap-8 rounded-md border border-border bg-background p-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-12">
         <div className="mx-auto grid size-16 shrink-0 place-items-center rounded-full bg-secondary text-muted-foreground lg:mx-0"><User className="size-7" /></div>
         <div>
-          <p className="font-display text-xl font-semibold leading-snug md:text-2xl">“A real quote from this client will go here once they’ve signed off on it.”</p>
-          <p className="mt-4 text-sm font-semibold">Client contact name <span className="font-normal text-muted-foreground">· Role, Company</span></p>
-          <span className="review-pill mt-3 inline-block">Awaiting client sign-off</span>
+          <p className="font-display text-xl font-semibold leading-snug md:text-2xl">“A real quote from this partner will go here once they’ve signed off on it.”</p>
+          <p className="mt-4 text-sm font-semibold">Partner contact name <span className="font-normal text-muted-foreground">· Role, Company</span></p>
+          <span className="review-pill mt-3 inline-block">Awaiting partner sign-off</span>
         </div>
       </div>
     </div></section>
