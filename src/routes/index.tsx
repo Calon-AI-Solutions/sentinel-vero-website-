@@ -85,7 +85,7 @@ function HomePage() {
       <p className="eyebrow text-center text-primary">Trusted by our partners</p>
       <div className="logo-marquee mt-8">
         <div className="logo-marquee-track">
-          {[...partnerLogos, ...partnerLogos].map((partner, i) => <img key={partner.name + i} src={partner.src} alt={partner.name} className="h-10 w-auto shrink-0 object-contain md:h-12" />)}
+          {[...partnerLogos, ...partnerLogos].map((partner, i) => <div key={partner.name + i} className="flex h-16 shrink-0 items-center justify-center rounded-md bg-background px-6 py-3 shadow-sm"><img src={partner.src} alt={partner.name} className="h-8 w-auto max-w-32 object-contain md:h-9" /></div>)}
         </div>
       </div>
     </div></section>
