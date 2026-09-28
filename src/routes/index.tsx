@@ -30,6 +30,7 @@ const partnerLogos = [
 const testimonials = [
   { quote: 'We used to spend hours checking timesheets and mileage before payroll. Volt verifies it for us, so by the time it reaches Xero, it’s already right.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-award.png' },
   { quote: 'Quoting, compliance and payroll used to live in different places. Now it’s all in one system, and the AI advisory analyses photos from our engineers on site to spot new work, so we win more revenue, faster.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-desk.png' },
+  { quote: 'In 17 years as an engineer, this is the easiest app I’ve used. Time and mileage log automatically, photos and notes go in on site, and I’m done. No paperwork at the end of the day.', name: '', role: 'Engineer', company: 'Volt Secure', photo: '/testimonials/volt-engineer.webp' },
 ];
 const platformTabs: Array<{ key: string; label: string; title: string; body: string; bullets?: string[]; visual: "dashboard" | "field" }> = [
   { key: 'core', label: 'Core operations', title: 'Everything the job needs.', body: 'CRM, enquiries, job management, service scheduling, documents and dashboards — all in one connected system.', bullets: features, visual: 'dashboard' },
@@ -63,12 +64,12 @@ function HomePage() {
           {[...partnerLogos, ...partnerLogos].map((partner, i) => <img key={partner.name + i} src={partner.src} alt={partner.name} className="h-10 w-auto shrink-0 object-contain md:h-12" />)}
         </div>
       </div>
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {testimonials.map((t) => <article key={t.quote} className="grid overflow-hidden rounded-md border border-background/15 bg-background text-foreground sm:grid-cols-[13rem_1fr]">
-          <img src={t.photo} alt={t.name} className="h-56 w-full object-cover sm:h-full" />
-          <div className="p-7">
-            <p className="font-display text-lg font-semibold leading-snug md:text-xl">“{t.quote}”</p>
-            <p className="mt-5 text-sm font-semibold">{t.name} <span className="font-normal text-muted-foreground">· {t.role}, {t.company}</span></p>
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        {testimonials.map((t) => <article key={t.quote} className="overflow-hidden rounded-md border border-background/15 bg-background text-foreground">
+          <img src={t.photo} alt={t.name || `${t.role}, ${t.company}`} className="h-56 w-full object-cover" />
+          <div className="p-6">
+            <p className="font-display text-base font-semibold leading-snug">“{t.quote}”</p>
+            <p className="mt-4 text-sm font-semibold">{t.name ? <>{t.name} <span className="font-normal text-muted-foreground">· {t.role}, {t.company}</span></> : <span className="text-muted-foreground">{t.role}, {t.company}</span>}</p>
           </div>
         </article>)}
       </div>
