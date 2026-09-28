@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Building2, Check, ChevronRight, User } from "lucide-react";
+import { ArrowRight, Building2, Check, ChevronRight, Play, User } from "lucide-react";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -35,9 +35,15 @@ function SectionHeading({ eyebrow, title, body }: { eyebrow: string; title: stri
 function HomePage() {
   return <>
     <section className="hero-grid overflow-hidden bg-foreground text-background">
-      <div className="site-container grid items-center gap-12 py-16 lg:min-h-[44rem] lg:grid-cols-[1.05fr_.95fr] lg:py-20">
-        <div className="relative z-10"><p className="eyebrow text-primary">For fire & security contractors who are done guessing</p><h1 className="mt-5 max-w-3xl text-balance font-display text-5xl font-semibold leading-[0.98] md:text-7xl">You can’t measure what you can’t see.</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-background/70">You know the leaks are there. You just can’t see them all at once. Sentinel Vero puts every enquiry, quote, job, site and payroll run in one place — with AI already working in the background — so you stop finding out too late.</p><Button asChild variant="signal" size="xl" className="mt-8"><a href="mailto:hello@sentinelvero.com?subject=Book%20a%20Discovery">Book a Discovery <ArrowRight /></a></Button><p className="mt-4 max-w-md text-xs leading-5 text-background/50">We don’t publish a price. Because we don’t sell software. We sell control.</p></div>
-        <div className="relative"><DashboardVisual /></div>
+      <div className="site-container flex flex-col items-center py-16 text-center lg:py-24">
+        <p className="eyebrow text-primary">For fire & security contractors who are done guessing</p>
+        <h1 className="mt-5 max-w-4xl text-balance font-display text-5xl font-semibold leading-[0.98] md:text-7xl">You can’t measure what you can’t see.</h1>
+        <p className="mt-7 max-w-2xl text-lg leading-8 text-background/70">You know the leaks are there. You just can’t see them all at once. Sentinel Vero puts every enquiry, quote, job, site and payroll run in one place — with AI already working in the background — so you stop finding out too late.</p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <Button asChild variant="signal" size="xl"><a href="mailto:hello@sentinelvero.com?subject=Book%20a%20Discovery">Book a Discovery <ArrowRight /></a></Button>
+          <Button variant="outline" size="xl" className="border-background/30 bg-transparent text-background hover:bg-background/10 hover:text-background"><Play className="fill-current" /> Watch Demo</Button>
+        </div>
+        <p className="mt-4 max-w-md text-xs leading-5 text-background/50">We don’t publish a price. Because we don’t sell software. We sell control.</p>
       </div>
       <div className="border-t border-background/15"><div className="site-container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">{metrics.map(([number,label,note]) => <div key={number+label} className="border-b border-r border-background/15 p-5 lg:border-b-0"><strong className="font-mono text-2xl text-primary">{number}</strong><p className="mt-2 text-sm font-semibold">{label}</p><p className="mt-1 text-xs text-background/45">{note}</p></div>)}</div></div>
     </section>
