@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, ChevronRight } from "lucide-react";
+import { ArrowRight, Building2, Check, ChevronRight, User } from "lucide-react";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -42,6 +42,21 @@ function HomePage() {
       <div className="border-t border-background/15"><div className="site-container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">{metrics.map(([number,label,note]) => <div key={number+label} className="border-b border-r border-background/15 p-5 lg:border-b-0"><strong className="font-mono text-2xl text-primary">{number}</strong><p className="mt-2 text-sm font-semibold">{label}</p><p className="mt-1 text-xs text-background/45">{note}</p></div>)}</div></div>
     </section>
 
+    <section className="section-space bg-secondary"><div className="site-container">
+      <p className="eyebrow text-center">Built with real fire &amp; security operators</p>
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        {[0, 1, 2].map((i) => <div key={i} className="flex h-16 w-44 items-center justify-center gap-2 rounded-md border border-dashed border-border bg-background text-muted-foreground"><Building2 className="size-4" /><span className="text-xs font-bold uppercase tracking-wide">Client logo</span></div>)}
+      </div>
+      <div className="mt-12 grid gap-8 rounded-md border border-border bg-background p-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-12">
+        <div className="mx-auto grid size-16 shrink-0 place-items-center rounded-full bg-secondary text-muted-foreground lg:mx-0"><User className="size-7" /></div>
+        <div>
+          <p className="font-display text-xl font-semibold leading-snug md:text-2xl">“A real quote from this client will go here once they’ve signed off on it.”</p>
+          <p className="mt-4 text-sm font-semibold">Client contact name <span className="font-normal text-muted-foreground">· Role, Company</span></p>
+          <span className="review-pill mt-3 inline-block">Awaiting client sign-off</span>
+        </div>
+      </div>
+    </div></section>
+
     <section className="section-space"><div className="site-container"><SectionHeading eyebrow="The problem" title="Growth doesn’t break businesses. Spreadsheets do." body="Nobody plans to run a growing company like this. It happens one hire at a time, one workaround at a time — until the day nobody, including you, actually knows what’s going on. That’s not a technology problem. That’s a control problem."/><div className="mt-12 grid gap-3 md:grid-cols-3">{issues.map(([title,body],i) => <article key={title} className="issue-card"><span className="step-number">0{i+1}</span><h3>{title}.</h3><p>{body}</p></article>)}</div></div></section>
 
     <section className="section-space bg-secondary"><div className="site-container"><SectionHeading eyebrow="The connected platform" title="One truth. Everywhere it’s needed." body="A customer becomes a quote. A quote becomes a job. A job becomes a payroll entry. Right now, that’s five systems and a person holding it together in their head. An engineer’s notes and photos from the field turn straight into the next quote — the upsell writes itself instead of getting missed. Sentinel Vero makes it one thread, start to finish, so nothing gets lost between the field and the decision."/><div className="evidence-chain mt-12">{chain.map((item,i) => <div key={item} className="chain-item"><span>{String(i+1).padStart(2,'0')}</span><strong>{item}</strong>{i < chain.length-1 && <ChevronRight />}</div>)}</div><p className="mt-5 text-sm text-muted-foreground">Advisory auto-converts to quote. Payroll tracks every engineer.</p></div></section>
@@ -53,8 +68,8 @@ function HomePage() {
     <section className="section-space"><div className="site-container">
       <SectionHeading eyebrow="The platform" title="Everything the job needs. See it, don’t just read about it." body="Click through what the platform actually does — the same office and field views your team would use."/>
       <Tabs defaultValue="core" className="mt-12">
-        <TabsList className="h-auto flex-wrap justify-start gap-2 bg-transparent p-0">
-          {platformTabs.map((tab) => <TabsTrigger key={tab.key} value={tab.key} className="rounded-md border border-border bg-background px-4 py-2.5 text-sm font-semibold data-[state=active]:border-primary data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">{tab.label}</TabsTrigger>)}
+        <TabsList className="h-auto flex-wrap justify-start gap-1 bg-transparent p-0">
+          {platformTabs.map((tab) => <TabsTrigger key={tab.key} value={tab.key} className="rounded-full px-5 py-2.5 text-sm font-semibold text-muted-foreground shadow-none data-[state=active]:bg-primary/15 data-[state=active]:text-foreground data-[state=active]:shadow-none">{tab.label}</TabsTrigger>)}
         </TabsList>
         {platformTabs.map((tab) => <TabsContent key={tab.key} value={tab.key} className="mt-8 grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
