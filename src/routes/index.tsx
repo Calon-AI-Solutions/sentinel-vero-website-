@@ -54,8 +54,8 @@ function HomePage() {
 
     <section className="section-space bg-secondary"><div className="site-container">
       <p className="eyebrow text-center">Trusted by our partners</p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-        {partnerLogos.map((partner) => <img key={partner.name} src={partner.src} alt={partner.name} className="h-12 w-auto object-contain grayscale opacity-80 transition hover:grayscale-0 hover:opacity-100" />)}
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        {partnerLogos.map((partner) => <div key={partner.name} className="flex h-20 w-44 items-center justify-center rounded-md border border-border bg-background p-4 shadow-sm"><img src={partner.src} alt={partner.name} className="max-h-12 w-auto max-w-full object-contain" /></div>)}
       </div>
       <div className="mt-12 grid gap-8 rounded-md border border-border bg-background p-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-12">
         <div className="mx-auto grid size-16 shrink-0 place-items-center rounded-full bg-secondary text-muted-foreground lg:mx-0"><User className="size-7" /></div>
