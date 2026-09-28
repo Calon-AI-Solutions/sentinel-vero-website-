@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CustomBuildRouteImport } from './routes/custom-build'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as ProofRouteImport } from './routes/proof'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomBuildRoute = CustomBuildRouteImport.update({
+  id: '/custom-build',
+  path: '/custom-build',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlatformRoute = PlatformRouteImport.update({
@@ -38,12 +44,14 @@ const ProofRoute = ProofRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/custom-build': typeof CustomBuildRoute
   '/platform': typeof PlatformRoute
   '/proof': typeof ProofRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/custom-build': typeof CustomBuildRoute
   '/platform': typeof PlatformRoute
   '/proof': typeof ProofRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/custom-build': typeof CustomBuildRoute
   '/platform': typeof PlatformRoute
   '/proof': typeof ProofRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/platform' | '/proof'
+  fullPaths: '/' | '/about' | '/custom-build' | '/platform' | '/proof'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/platform' | '/proof'
-  id: '__root__' | '/' | '/about' | '/platform' | '/proof'
+  to: '/' | '/about' | '/custom-build' | '/platform' | '/proof'
+  id: '__root__' | '/' | '/about' | '/custom-build' | '/platform' | '/proof'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CustomBuildRoute: typeof CustomBuildRoute
   PlatformRoute: typeof PlatformRoute
   ProofRoute: typeof ProofRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-build': {
+      id: '/custom-build'
+      path: '/custom-build'
+      fullPath: '/custom-build'
+      preLoaderRoute: typeof CustomBuildRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/platform': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CustomBuildRoute: CustomBuildRoute,
   PlatformRoute: PlatformRoute,
   ProofRoute: ProofRoute,
 }

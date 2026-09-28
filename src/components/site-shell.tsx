@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
@@ -18,10 +19,12 @@ export function BrandMark({ compact = false }: { compact?: boolean }) {
 }
 
 const navItems = [
-  { to: "/platform" as const, label: "Platform" },
+  { to: "/platform" as const, label: "Features" },
+  { to: "/custom-build" as const, label: "Custom Build" },
   { to: "/proof" as const, label: "Proof" },
-  { to: "/about" as const, label: "About us" },
 ];
+
+const supportHref = "mailto:hello@sentinelvero.com?subject=Customer%20support";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -35,6 +38,15 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="nav-link inline-flex items-center gap-1 outline-none">
+              Resources <ChevronDown className="size-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="min-w-44">
+              <DropdownMenuItem asChild><Link to="/about">Our story</Link></DropdownMenuItem>
+              <DropdownMenuItem asChild><a href={supportHref}>Customer support</a></DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild variant="signal" size="lg"><a href="mailto:hello@sentinelvero.com?subject=Book%20a%20Discovery">Book a Discovery</a></Button>
@@ -50,6 +62,9 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <p className="eyebrow px-3 pt-3 text-muted-foreground">Resources</p>
+          <Link to="/about" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm font-semibold hover:bg-secondary">Our story</Link>
+          <a href={supportHref} className="rounded-md px-3 py-3 text-sm font-semibold hover:bg-secondary">Customer support</a>
         </nav>
       )}
     </header>
@@ -63,6 +78,8 @@ export function SiteFooter() {
         <div><BrandMark /><p className="mt-5 max-w-sm text-sm text-background/65">Operational truth, made visible for fire and security contractors.</p></div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-background/70">
           {navItems.map((item) => <Link key={item.to} to={item.to} className="hover:text-primary">{item.label}</Link>)}
+          <Link to="/about" className="hover:text-primary">Our story</Link>
+          <a href={supportHref} className="hover:text-primary">Customer support</a>
         </div>
       </div>
       <div className="site-container flex flex-col gap-2 border-t border-background/15 py-5 text-xs text-background/50 sm:flex-row sm:justify-between">
