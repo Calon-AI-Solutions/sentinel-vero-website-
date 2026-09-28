@@ -34,15 +34,29 @@ const testimonials = [
   { quote: 'In 17 years as an engineer, this is the easiest app I’ve used. Time and mileage log automatically, photos and notes go in on site, and I’m done. No paperwork at the end of the day.', name: '', role: 'Engineer', company: 'Volt Secure', photo: '/testimonials/volt-engineer.webp' },
   { quote: 'My client looked at the big platforms, but this was built around how security companies actually work. It was set up quickly, the team listens, and new features arrive when we need them.', name: 'John O’Connell', role: 'Senior Security Partner', company: 'JOC Security Growth', photo: '/testimonials/john-oconnell.webp' },
 ];
-const platformTabs: Array<{ key: string; label: string; title: string; body: string; bullets?: string[]; visual: "dashboard" | "field" }> = [
-  { key: 'core', label: 'Core operations', title: 'Everything the job needs.', body: 'CRM, enquiries, job management, service scheduling, documents and dashboards — all in one connected system.', bullets: features, visual: 'dashboard' },
-  { key: 'quoting', label: 'AI Quoting', title: 'Stop rebuilding every quote from scratch.', body: 'The system already knows the pricing logic, the job history, the site. Let it write the first draft.', visual: 'dashboard' },
-  { key: 'advisory', label: 'AI Advisory', title: 'Nothing gets missed after the job.', body: 'After a job wraps, the system flags what’s likely needed next — and turns it into a quote that’s ready to send.', visual: 'dashboard' },
+const platformTabs: Array<{ key: string; label: string; title: string; body: string; bullets?: string[]; visual: "dashboard" | "field"; screens?: string[] }> = [
+  { key: 'core', label: 'Core operations', title: 'Everything the job needs.', body: 'CRM, enquiries, job management, service scheduling, documents and dashboards — all in one connected system.', bullets: features, visual: 'dashboard', screens: ['/screens/dashboard.webp'] },
+  { key: 'quoting', label: 'AI Quoting', title: 'Stop rebuilding every quote from scratch.', body: 'The system already knows the pricing logic, the job history, the site. Let it write the first draft.', visual: 'dashboard', screens: ['/screens/ai-quote-studio.webp'] },
+  { key: 'advisory', label: 'AI Advisory', title: 'Nothing gets missed after the job.', body: 'After a job wraps, the system flags what’s likely needed next — and turns it into a quote that’s ready to send.', visual: 'dashboard', screens: ['/screens/advisory-queue.webp', '/screens/advisory-detail.webp', '/screens/advisory-quote.webp'] },
   { key: 'payroll', label: 'Time & Payroll', title: 'No timesheets. No chasing.', body: 'Engineers log time as they work. It flows straight into payroll, with mileage calculated automatically.', visual: 'dashboard' },
   { key: 'field', label: 'Field App', title: 'Built for the field, not the office.', body: 'Engineers capture evidence, update the job and log time while it’s happening — not after.', visual: 'field' },
 ];
 
 function SectionHeading({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) { return <div className="max-w-3xl"><p className="eyebrow">{eyebrow}</p><h2 className="mt-4 text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">{title}</h2>{body && <p className="mt-6 text-lg leading-8 text-muted-foreground">{body}</p>}</div>; }
+
+function ScreenRotator({ screens, alt }: { screens: string[]; alt: string }) {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    if (screens.length < 2) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % screens.length), 2500);
+    return () => clearInterval(id);
+  }, [screens.length]);
+  return (
+    <div className="overflow-hidden rounded-md border border-border bg-card shadow-lg">
+      <img src={screens[index]} alt={alt} className="aspect-[16/9] w-full object-cover object-top" />
+    </div>
+  );
+}
 
 function TestimonialCarousel({ items }: { items: typeof testimonials }) {
   const [index, setIndex] = useState(0);
@@ -112,13 +126,13 @@ function HomePage() {
         <TabsList className="h-auto flex-wrap justify-start gap-1 bg-transparent p-0">
           {platformTabs.map((tab) => <TabsTrigger key={tab.key} value={tab.key} className="rounded-full px-5 py-2.5 text-sm font-semibold text-muted-foreground shadow-none data-[state=active]:bg-primary/15 data-[state=active]:text-foreground data-[state=active]:shadow-none">{tab.label}</TabsTrigger>)}
         </TabsList>
-        {platformTabs.map((tab) => <TabsContent key={tab.key} value={tab.key} className="mt-8 grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        {platformTabs.map((tab) => <TabsContent key={tab.key} value={tab.key} className={`mt-8 grid items-center gap-10 ${tab.screens ? 'lg:grid-cols-[.7fr_1.3fr]' : 'lg:grid-cols-[1fr_auto]'}`}>
           <div>
             <h3 className="font-display text-2xl font-bold md:text-3xl">{tab.title}</h3>
             <p className="mt-3 max-w-lg text-muted-foreground">{tab.body}</p>
             {tab.bullets && <div className="mt-6 grid gap-2 sm:grid-cols-2">{tab.bullets.map((item) => <div key={item} className="flex items-center gap-2 text-sm font-semibold"><Check className="size-4 text-primary"/>{item}</div>)}</div>}
           </div>
-          {tab.visual === 'field' ? <FieldVisual/> : <DashboardVisual/>}
+          {tab.screens ? <ScreenRotator screens={tab.screens} alt={`${tab.label} screen`} /> : tab.visual === 'field' ? <FieldVisual/> : <DashboardVisual/>}
         </TabsContent>)}
       </Tabs>
       <div className="mt-8"><Button asChild variant="outline" size="lg"><Link to="/platform">See how to use the platform <ArrowRight /></Link></Button></div>
