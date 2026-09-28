@@ -38,7 +38,7 @@ const platformTabs: Array<{ key: string; label: string; title: string; body: str
   { key: 'core', label: 'Core operations', title: 'Everything the job needs.', body: 'CRM, enquiries, job management, service scheduling, documents and dashboards — all in one connected system.', bullets: features, visual: 'dashboard', screens: ['/screens/dashboard.webp'] },
   { key: 'quoting', label: 'AI Quoting', title: 'Stop rebuilding every quote from scratch.', body: 'The system already knows the pricing logic, the job history, the site. Let it write the first draft.', visual: 'dashboard', screens: ['/screens/ai-quote-studio.webp'] },
   { key: 'advisory', label: 'AI Advisory', title: 'Nothing gets missed after the job.', body: 'After a job wraps, the system flags what’s likely needed next — and turns it into a quote that’s ready to send.', visual: 'dashboard', screens: ['/screens/advisory-queue.webp', '/screens/advisory-detail.webp', '/screens/advisory-quote.webp'] },
-  { key: 'payroll', label: 'Time & Payroll', title: 'No timesheets. No chasing.', body: 'Engineers log time as they work. It flows straight into payroll, with mileage calculated automatically.', visual: 'dashboard' },
+  { key: 'payroll', label: 'Time & Payroll', title: 'No timesheets. No chasing.', body: 'Engineers log time as they work. It flows straight into payroll, with mileage calculated automatically.', visual: 'dashboard', screens: ['/screens/timesheet-review.webp', '/screens/payroll-week.webp'] },
   { key: 'field', label: 'Field App', title: 'Built for the field, not the office.', body: 'Engineers capture evidence, update the job and log time while it’s happening — not after.', visual: 'field' },
 ];
 
