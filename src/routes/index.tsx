@@ -52,8 +52,10 @@ function ScreenRotator({ screens, alt }: { screens: string[]; alt: string }) {
     return () => clearInterval(id);
   }, [screens.length]);
   return (
-    <div className="overflow-hidden rounded-md border border-border bg-card shadow-lg">
-      <img src={screens[index]} alt={alt} className="aspect-[16/9] w-full object-cover object-top" />
+    <div className="rounded-xl border border-border bg-secondary p-3 shadow-lg md:p-5">
+      <div className="grid overflow-hidden rounded-md border border-border bg-card">
+        {screens.map((src, i) => <img key={src} src={src} alt={i === index ? alt : ""} aria-hidden={i !== index} className={`col-start-1 row-start-1 w-full self-start transition-opacity duration-500 ${i === index ? "opacity-100" : "opacity-0"}`} />)}
+      </div>
     </div>
   );
 }
@@ -126,11 +128,11 @@ function HomePage() {
         <TabsList className="h-auto flex-wrap justify-start gap-1 bg-transparent p-0">
           {platformTabs.map((tab) => <TabsTrigger key={tab.key} value={tab.key} className="rounded-full px-5 py-2.5 text-sm font-semibold text-muted-foreground shadow-none data-[state=active]:bg-primary/15 data-[state=active]:text-foreground data-[state=active]:shadow-none">{tab.label}</TabsTrigger>)}
         </TabsList>
-        {platformTabs.map((tab) => <TabsContent key={tab.key} value={tab.key} className={`mt-8 grid items-center gap-10 ${tab.screens ? 'lg:grid-cols-[.7fr_1.3fr]' : 'lg:grid-cols-[1fr_auto]'}`}>
+        {platformTabs.map((tab) => <TabsContent key={tab.key} value={tab.key} className={`mt-8 grid gap-10 ${tab.screens ? '' : 'items-center lg:grid-cols-[1fr_auto]'}`}>
           <div>
             <h3 className="font-display text-2xl font-bold md:text-3xl">{tab.title}</h3>
             <p className="mt-3 max-w-lg text-muted-foreground">{tab.body}</p>
-            {tab.bullets && <div className="mt-6 grid gap-2 sm:grid-cols-2">{tab.bullets.map((item) => <div key={item} className="flex items-center gap-2 text-sm font-semibold"><Check className="size-4 text-primary"/>{item}</div>)}</div>}
+            {tab.bullets && <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{tab.bullets.map((item) => <div key={item} className="flex items-center gap-2 text-sm font-semibold"><Check className="size-4 text-primary"/>{item}</div>)}</div>}
           </div>
           {tab.screens ? <ScreenRotator screens={tab.screens} alt={`${tab.label} screen`} /> : tab.visual === 'field' ? <FieldVisual/> : <DashboardVisual/>}
         </TabsContent>)}
