@@ -8,9 +8,9 @@ import { DiscoveryCta } from "@/components/site-shell";
 export const Route = createFileRoute("/custom-build")({
   head: () => ({
     meta: [
-      { title: "Custom Build — Sentinel Vero" },
-      { name: "description", content: "Sentinel Vero is configured and extended around how your fire and security business already works — forms, pricing, integrations, reporting and automation." },
-      { property: "og:title", content: "Custom Build — Sentinel Vero" },
+      { title: "Custom Build | Sentinel Vero" },
+      { name: "description", content: "Sentinel Vero is configured and extended around how your fire and security business already works: forms, pricing, integrations, reporting and automation." },
+      { property: "og:title", content: "Custom Build | Sentinel Vero" },
       { property: "og:description", content: "Most platforms make you bend to fit them. We bend to fit you." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/custom-build")({
 });
 
 const builds = [
-  { icon: ClipboardCheck, title: "Inspection forms & checklists", body: "Your forms, your fields, your sign-off steps — not a generic template." },
+  { icon: ClipboardCheck, title: "Inspection forms & checklists", body: "Your forms, your fields, your sign-off steps. Not a generic template." },
   { icon: FileText, title: "Quote templates & pricing rules", body: "Your pricing logic built in, so every quote starts from the right numbers." },
   { icon: Link2, title: "Integrations", body: "Timesheets, mileage and invoices flowing straight into Xero or your accounting tools." },
   { icon: BarChart3, title: "Dashboards & reports", body: "The numbers you actually run the business on, in one view." },
@@ -40,7 +40,7 @@ const steps = [
 
 const faqs = [
   ["How long does a custom build take?", "It depends on scope. You’ll get a real timeline after the Discovery call, not a guess now."],
-  ["What happens when our needs change?", "We keep building with you. Changes are scoped and added properly — not bolted on."],
+  ["What happens when our needs change?", "We keep building with you. Changes are scoped and added properly, not bolted on."],
   ["Will platform updates break our setup?", "No. Your configuration is part of the platform, so it’s carried forward with every update."],
   ["How is it priced?", "Every build is scoped after an Operational Discovery. No generic tiers, no published price list."],
 ];
