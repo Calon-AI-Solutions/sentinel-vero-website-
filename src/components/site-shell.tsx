@@ -20,6 +20,7 @@ export function BrandMark({ compact = false }: { compact?: boolean }) {
 
 const navItems = [
   { to: "/platform" as const, label: "Features" },
+  { to: "/custom-build" as const, label: "Custom Build" },
   { to: "/proof" as const, label: "Proof" },
 ];
 
