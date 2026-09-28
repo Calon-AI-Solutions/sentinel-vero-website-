@@ -17,7 +17,6 @@ export const Route = createFileRoute("/")({
   ], links: [{ rel: "canonical", href: "/" }] }), component: HomePage,
 });
 
-const metrics: Array<[string, string, string]> = [['24','enquiries','waiting on you'],['18','quotes','sitting in limbo'],['56','jobs','running right now'],['342','sites',"someone’s responsible for"],['£126k','pipeline','still on the table'],['28','sites','overdue for service']];
 const issues = [['The Stack','Timesheets in one app. Job tracking in another. Pricing living in someone’s head.'],['The Guess','Profit isn’t measured — it’s estimated, or patched together by pasting numbers into ChatGPT or Claude and hoping for a clean answer.'],['The Headcount Fix','Compliance gets complicated, so the answer is always “hire another person” — never “build a system that handles it.”']];
 const chain = ['Customer','Quote','Job','Field','Review','Advisory','Invoice','Payroll'];
 const promises = [['See','Every record, in context.'],['Verify','A trail you can trust, not a guess you hope is right.'],['Surface','The stuff that matters, first.'],['Improve','Decisions stay human. The system makes them easier to get right.']];
@@ -51,7 +50,6 @@ function HomePage() {
         </div>
         <p className="mt-4 max-w-md text-xs leading-5 text-background/50">We don’t publish a price. Because we don’t sell software. We sell control.</p>
       </div>
-      <div className="border-t border-background/15"><div className="site-container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">{metrics.map(([number,label,note]) => <div key={number+label} className="border-b border-r border-background/15 p-5 lg:border-b-0"><strong className="font-mono text-2xl text-primary">{number}</strong><p className="mt-2 text-sm font-semibold">{label}</p><p className="mt-1 text-xs text-background/45">{note}</p></div>)}</div></div>
     </section>
 
     <section className="section-space bg-secondary"><div className="site-container">
