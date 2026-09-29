@@ -22,11 +22,11 @@ const issues = [['The Stack','Timesheets in one app. Job tracking in another. Pr
 const chain = ['Customer','Quote','Job','Field','Review','Advisory','Invoice','Payroll'];
 const promises = [['See','Every record, in context.'],['Verify','A trail you can trust, not a guess you hope is right.'],['Surface','The stuff that matters, first.'],['Improve','Decisions stay human. The system makes them easier to get right.']];
 const features = ['CRM, customers, contacts & sites','Enquiries & opportunities','Job management & engineer workflows','Service & maintenance scheduling','Documents & compliance','Dashboards & reporting'];
-const partnerLogos = [
-  { name: 'Volt Secure', src: '/partners/volt-secure.png' },
+const partnerLogos: Array<{ name: string; src: string; iconOnly?: boolean }> = [
+  { name: 'Volt Secure', src: '/partners/volt-secure.png', iconOnly: true },
   { name: 'HeatGlow', src: '/partners/heatglow.png' },
   { name: 'JOC Security Growth', src: '/partners/joc.png' },
-  { name: 'Caerphilly Business Club', src: '/partners/caerphilly-business-club.png' },
+  { name: 'Caerphilly Business Club', src: '/partners/caerphilly-business-club.png', iconOnly: true },
 ];
 const testimonials = [
   { quote: 'We used to spend hours checking timesheets and mileage before payroll. Volt verifies it for us, so by the time it reaches Xero, it’s already right.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-award.png' },
@@ -102,7 +102,7 @@ function HomePage() {
       <p className="eyebrow text-center text-primary">Trusted by our partners</p>
       <div className="logo-marquee mt-8">
         <div className="logo-marquee-track">
-          {[...partnerLogos, ...partnerLogos].map((partner, i) => <div key={partner.name + i} className="flex h-16 shrink-0 items-center justify-center rounded-md bg-background px-6 py-3 shadow-sm"><img src={partner.src} alt={partner.name} className="h-8 w-auto max-w-32 object-contain md:h-9" /></div>)}
+          {[...partnerLogos, ...partnerLogos].map((partner, i) => <div key={partner.name + i} className="flex h-20 shrink-0 items-center gap-3 md:h-24"><img src={partner.src} alt={partner.iconOnly ? "" : partner.name} className="h-14 w-auto max-w-56 object-contain md:h-16" />{partner.iconOnly && <span className="max-w-40 font-display text-base font-semibold leading-tight text-background md:text-lg">{partner.name}</span>}</div>)}
         </div>
       </div>
     </div></section>
