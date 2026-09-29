@@ -54,6 +54,7 @@ function contentPlaceholderGuard(): Plugin {
 
 export default defineConfig({
   plugins: [contentPlaceholderGuard()],
+  vite: { define: { __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()) } },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this

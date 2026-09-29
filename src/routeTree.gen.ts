@@ -15,11 +15,14 @@ import { Route as CustomBuildRouteImport } from './routes/custom-build'
 import { Route as LeakReport2026RouteImport } from './routes/leak-report-2026'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as SecurityRouteImport } from './routes/security'
+import { Route as SiteMapRouteImport } from './routes/site-map'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as GuidesIndexRouteImport } from './routes/guides.index'
 import { Route as GuidesSlugRouteImport } from './routes/guides.$slug'
+import { Route as LegalIndexRouteImport } from './routes/legal.index'
+import { Route as LegalSlugRouteImport } from './routes/legal.$slug'
 import { Route as ProofIndexRouteImport } from './routes/proof.index'
 import { Route as ProofSlugRouteImport } from './routes/proof.$slug'
 
@@ -53,6 +56,11 @@ const SecurityRoute = SecurityRouteImport.update({
   path: '/security',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SiteMapRoute = SiteMapRouteImport.update({
+  id: '/site-map',
+  path: '/site-map',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -78,6 +86,16 @@ const GuidesSlugRoute = GuidesSlugRouteImport.update({
   path: '/guides/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LegalIndexRoute = LegalIndexRouteImport.update({
+  id: '/legal/',
+  path: '/legal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalSlugRoute = LegalSlugRouteImport.update({
+  id: '/legal/$slug',
+  path: '/legal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProofIndexRoute = ProofIndexRouteImport.update({
   id: '/proof/',
   path: '/proof/',
@@ -96,12 +114,15 @@ export interface FileRoutesByFullPath {
   '/leak-report-2026': typeof LeakReport2026Route
   '/platform': typeof PlatformRoute
   '/security': typeof SecurityRoute
+  '/site-map': typeof SiteMapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/guides/$slug': typeof GuidesSlugRoute
+  '/legal/$slug': typeof LegalSlugRoute
   '/proof/$slug': typeof ProofSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/guides/': typeof GuidesIndexRoute
+  '/legal/': typeof LegalIndexRoute
   '/proof/': typeof ProofIndexRoute
 }
 export interface FileRoutesByTo {
@@ -111,12 +132,15 @@ export interface FileRoutesByTo {
   '/leak-report-2026': typeof LeakReport2026Route
   '/platform': typeof PlatformRoute
   '/security': typeof SecurityRoute
+  '/site-map': typeof SiteMapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/guides/$slug': typeof GuidesSlugRoute
+  '/legal/$slug': typeof LegalSlugRoute
   '/proof/$slug': typeof ProofSlugRoute
   '/blog': typeof BlogIndexRoute
   '/guides': typeof GuidesIndexRoute
+  '/legal': typeof LegalIndexRoute
   '/proof': typeof ProofIndexRoute
 }
 export interface FileRoutesById {
@@ -127,12 +151,15 @@ export interface FileRoutesById {
   '/leak-report-2026': typeof LeakReport2026Route
   '/platform': typeof PlatformRoute
   '/security': typeof SecurityRoute
+  '/site-map': typeof SiteMapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/guides/$slug': typeof GuidesSlugRoute
+  '/legal/$slug': typeof LegalSlugRoute
   '/proof/$slug': typeof ProofSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/guides/': typeof GuidesIndexRoute
+  '/legal/': typeof LegalIndexRoute
   '/proof/': typeof ProofIndexRoute
 }
 export interface FileRouteTypes {
@@ -144,12 +171,15 @@ export interface FileRouteTypes {
     | '/leak-report-2026'
     | '/platform'
     | '/security'
+    | '/site-map'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/guides/$slug'
+    | '/legal/$slug'
     | '/proof/$slug'
     | '/blog/'
     | '/guides/'
+    | '/legal/'
     | '/proof/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -159,12 +189,15 @@ export interface FileRouteTypes {
     | '/leak-report-2026'
     | '/platform'
     | '/security'
+    | '/site-map'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/guides/$slug'
+    | '/legal/$slug'
     | '/proof/$slug'
     | '/blog'
     | '/guides'
+    | '/legal'
     | '/proof'
   id:
     | '__root__'
@@ -174,12 +207,15 @@ export interface FileRouteTypes {
     | '/leak-report-2026'
     | '/platform'
     | '/security'
+    | '/site-map'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/guides/$slug'
+    | '/legal/$slug'
     | '/proof/$slug'
     | '/blog/'
     | '/guides/'
+    | '/legal/'
     | '/proof/'
   fileRoutesById: FileRoutesById
 }
@@ -190,12 +226,15 @@ export interface RootRouteChildren {
   LeakReport2026Route: typeof LeakReport2026Route
   PlatformRoute: typeof PlatformRoute
   SecurityRoute: typeof SecurityRoute
+  SiteMapRoute: typeof SiteMapRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
   GuidesSlugRoute: typeof GuidesSlugRoute
+  LegalSlugRoute: typeof LegalSlugRoute
   ProofSlugRoute: typeof ProofSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
+  LegalIndexRoute: typeof LegalIndexRoute
   ProofIndexRoute: typeof ProofIndexRoute
 }
 
@@ -243,6 +282,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SecurityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/site-map': {
+      id: '/site-map'
+      path: '/site-map'
+      fullPath: '/site-map'
+      preLoaderRoute: typeof SiteMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -278,6 +324,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal/': {
+      id: '/legal/'
+      path: '/legal'
+      fullPath: '/legal/'
+      preLoaderRoute: typeof LegalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/$slug': {
+      id: '/legal/$slug'
+      path: '/legal/$slug'
+      fullPath: '/legal/$slug'
+      preLoaderRoute: typeof LegalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/proof/': {
       id: '/proof/'
       path: '/proof'
@@ -302,12 +362,15 @@ const rootRouteChildren: RootRouteChildren = {
   LeakReport2026Route: LeakReport2026Route,
   PlatformRoute: PlatformRoute,
   SecurityRoute: SecurityRoute,
+  SiteMapRoute: SiteMapRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,
   GuidesSlugRoute: GuidesSlugRoute,
+  LegalSlugRoute: LegalSlugRoute,
   ProofSlugRoute: ProofSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   GuidesIndexRoute: GuidesIndexRoute,
+  LegalIndexRoute: LegalIndexRoute,
   ProofIndexRoute: ProofIndexRoute,
 }
 export const routeTree = rootRouteImport

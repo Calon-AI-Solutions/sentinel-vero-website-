@@ -240,3 +240,38 @@ html { scroll-padding-top: 96px; }
 
 /* `[[...]]` in content: a fact the owner must confirm. The production build fails while any remain. */
 mark.placeholder { background: #FDE047; color: #1C1917; padding: 0 .2em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+.prose-vero a { color: var(--color-mint); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.prose-vero a:hover { text-decoration-thickness: 2px; }
+.prose-vero a:focus-visible { outline: 2px solid var(--color-mint); outline-offset: 3px; border-radius: 2px; }
+/* Section anchors: hidden until the heading is hovered or the anchor is focused. */
+.prose-vero .heading-anchor { margin-left: .35em; color: var(--color-dim); text-decoration: none; opacity: 0; transition: opacity .15s ease; }
+.prose-vero h2:hover .heading-anchor, .prose-vero .heading-anchor:focus-visible { opacity: 1; }
+@media (hover: none) { .prose-vero .heading-anchor { opacity: 1; } }
+/* Site map: the link groups stack, then sit side by side as four columns on wide screens. */
+.site-map .prose-vero { max-width: none; }
+.site-map .prose-vero ul { list-style: none; padding-left: 0; }
+.site-map .prose-vero ul ul { padding-left: 1rem; margin-top: .45em; border-left: 1px solid rgba(240,239,234,.12); }
+.site-map .prose-vero > h2 { font-size: 1.1rem; }
+@media (min-width: 1100px) {
+  .site-map .prose-vero { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 3rem; }
+  .site-map .prose-vero > h2 { grid-row: 1; margin-top: 0; }
+  .site-map .prose-vero > ul { grid-row: 2; margin-top: .9em; }
+}
+
+/* Printing a page: content only, dark text on white. */
+@media print {
+  .print-hide, header.vh-header, .heading-anchor { display: none !important; }
+  *, *::before, *::after { color: #000 !important; background: transparent !important; box-shadow: none !important; }
+  body, main { background: #fff !important; }
+  .hero-grid { padding-top: 0 !important; background-image: none !important; }
+  .hero-grid > div, .hero-grid + div { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .prose-vero { max-width: none; }
+  .prose-vero a { text-decoration: underline; }
+  .prose-table { overflow: visible; border-color: #999; }
+  .prose-table table { min-width: 0; }
+  .prose-table th, .prose-table td { border-color: #ccc; }
+  mark.placeholder { background: #FDE047 !important; }
+  h1, h2, h3 { break-after: avoid; }
+  tr, li { break-inside: avoid; }
+}

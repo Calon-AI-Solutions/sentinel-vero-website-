@@ -50,7 +50,7 @@ Vero's compliance records were first built with a contractor following an SSAIB 
 
 ## Your data under UK GDPR
 
-**Who is responsible for what.** You are the data controller for your customer and employee data. Calon AI Solutions Ltd, which builds Vero, acts as your data processor. Our data processing agreement is available at [[DPA LINK]].
+**Who is responsible for what.** You are the data controller for your customer and employee data. Calon AI Solutions Ltd, which builds Vero, acts as your data processor. Our data processing agreement is available at [UK Data Protection Addendum](/legal/data-protection-addendum).
 
 **Where data is stored.** [[HOSTING REGION, for example "EU West (Netherlands)". State the real region your Railway services and database run in.]]
 
@@ -64,7 +64,7 @@ Vero's compliance records were first built with a contractor following an SSAIB 
 
 **Leaving Vero.** You can export your data at any time in [[FORMAT, for example CSV and PDF]]. When you leave, we delete your data within [[NUMBER]] days unless the law requires us to keep it.
 
-### Sub-processors
+### [Subprocessors](/legal/subprocessors)
 
 | Provider | What they do | Location |
 |---|---|---|
@@ -72,6 +72,8 @@ Vero's compliance records were first built with a contractor following an SSAIB 
 | Cloudflare | Network security and traffic routing | Global |
 | [[AI MODEL PROVIDER]] | [[Purpose, for example transcription or text structuring]] | [[REGION]] |
 | [[ADD OR DELETE ROWS]] | | |
+
+The full detail is in our [Data security policy](/legal/data-security).
 
 ## How Vero uses AI with your data
 
