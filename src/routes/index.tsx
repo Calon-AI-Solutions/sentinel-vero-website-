@@ -1,12 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, ChevronRight, Play } from "lucide-react";
+import { ArrowRight, ChevronRight, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DiscoveryCta } from "@/components/site-shell";
-import { DashboardVisual, FieldVisual } from "@/components/platform-visuals";
+import { FeatureTour } from "@/components/feature-tour";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -21,7 +20,6 @@ export const Route = createFileRoute("/")({
 const issues = [['The Stack','Timesheets in one app. Job tracking in another. Pricing living in someone’s head.'],['The Guess','Profit isn’t measured. It’s estimated, or patched together by pasting numbers into ChatGPT or Claude and hoping for a clean answer.'],['The Headcount Fix','Compliance gets complicated, so the answer is always “hire another person”, never “build a system that handles it.”']];
 const chain = ['Customer','Quote','Job','Field','Review','Advisory','Invoice','Payroll'];
 const promises = [['See','Every record, in context.'],['Verify','A trail you can trust, not a guess you hope is right.'],['Surface','The stuff that matters, first.'],['Improve','Decisions stay human. The system makes them easier to get right.']];
-const features = ['CRM, customers, contacts & sites','Enquiries & opportunities','Job management & engineer workflows','Service & maintenance scheduling','Documents & compliance','Dashboards & reporting'];
 const partnerLogos: Array<{ name: string; src: string; iconOnly?: boolean }> = [
   { name: 'Volt Secure', src: '/partners/volt-secure.png', iconOnly: true },
   { name: 'HeatGlow', src: '/partners/heatglow.png' },
@@ -34,31 +32,8 @@ const testimonials = [
   { quote: 'In 17 years as an engineer, this is the easiest app I’ve used. Time and mileage log automatically, photos and notes go in on site, and I’m done. No paperwork at the end of the day.', name: '', role: 'Engineer', company: 'Volt Secure', photo: '/testimonials/volt-engineer.webp' },
   { quote: 'My client looked at the big platforms, but this was built around how security companies actually work. It was set up quickly, the team listens, and new features arrive when we need them.', name: 'John O’Connell', role: 'Senior Security Partner', company: 'JOC Security Growth', photo: '/testimonials/john-oconnell.webp' },
 ];
-const platformTabs: Array<{ key: string; label: string; title: string; body: string; bullets?: string[]; visual: "dashboard" | "field"; screens?: string[]; phone?: string }> = [
-  { key: 'core', label: 'Core operations', title: 'Everything the job needs.', body: 'CRM, enquiries, job management, service scheduling, documents and dashboards, all in one connected system.', bullets: features, visual: 'dashboard', screens: ['/screens/dashboard.webp'] },
-  { key: 'quoting', label: 'AI Quoting', title: 'Stop rebuilding every quote from scratch.', body: 'The system already knows the pricing logic, the job history, the site. Let it write the first draft.', visual: 'dashboard', screens: ['/screens/ai-quote-studio.webp'] },
-  { key: 'advisory', label: 'AI Advisory', title: 'Nothing gets missed after the job.', body: 'After a job wraps, the system flags what’s likely needed next and turns it into a quote that’s ready to send.', visual: 'dashboard', screens: ['/screens/advisory-queue.webp', '/screens/advisory-detail.webp', '/screens/advisory-quote.webp'] },
-  { key: 'payroll', label: 'Time & Payroll', title: 'No timesheets. No chasing.', body: 'Engineers log time as they work. It flows straight into payroll, with mileage calculated automatically.', visual: 'dashboard', screens: ['/screens/timesheet-review.webp', '/screens/payroll-week.webp'] },
-  { key: 'field', label: 'Field App', title: 'Built for the field, not the office.', body: 'Engineers capture evidence, update the job and log time while it’s happening, not after.', visual: 'field', phone: '/screens/field-app-today.png' },
-];
 
 function SectionHeading({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) { return <div className="max-w-3xl"><p className="eyebrow">{eyebrow}</p><h2 className="mt-4 text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">{title}</h2>{body && <p className="mt-6 text-lg leading-8 text-muted-foreground">{body}</p>}</div>; }
-
-function ScreenRotator({ screens, alt }: { screens: string[]; alt: string }) {
-  const [index, setIndex] = useState(0);
-  useEffect(() => {
-    if (screens.length < 2) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % screens.length), 2500);
-    return () => clearInterval(id);
-  }, [screens.length]);
-  return (
-    <div className="rounded-xl border border-border bg-secondary p-3 shadow-lg md:p-5">
-      <div className="grid overflow-hidden rounded-md border border-border bg-card">
-        {screens.map((src, i) => <img key={src} src={src} alt={i === index ? alt : ""} aria-hidden={i !== index} className={`col-start-1 row-start-1 w-full self-start transition-opacity duration-500 ${i === index ? "opacity-100" : "opacity-0"}`} />)}
-      </div>
-    </div>
-  );
-}
 
 function TestimonialCarousel({ items }: { items: typeof testimonials }) {
   const [index, setIndex] = useState(0);
@@ -122,23 +97,7 @@ function HomePage() {
 
     <section className="section-space"><div className="site-container grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><SectionHeading eyebrow="Who it’s for" title="Too big for spreadsheets. Too specific for generic software." body="Wherever you are in that growth, the story’s the same: things have gotten complicated, but you haven’t slowed down. Good. You shouldn’t have to."/><div className="mt-8 border-l-2 border-primary pl-5"><p className="eyebrow">Who fits best</p><p className="mt-3 text-sm leading-7 text-muted-foreground">Running the business on Excel and good intentions · Outgrowing Out On Site · Paying for Simpro or Uptick and still doing half the work by hand</p></div></div><div className="divide-y divide-border border-y border-border">{[['10 to 20 people','Past DIY. Build the process before you hire your way out of it.'],['20 to 35 people','The workflows exist. They’re just not connected yet.'],['35 to 50 people','Stop depending on the three people who remember everything.']].map(([title,body]) => <div key={title} className="grid gap-3 py-6 sm:grid-cols-[9rem_1fr]"><h3 className="font-mono font-bold text-primary">{title}</h3><p className="text-muted-foreground">{body}</p></div>)}</div></div></section>
 
-    <section className="section-space"><div className="site-container">
-      <SectionHeading eyebrow="The platform" title="Everything the job needs. See it, don’t just read about it." body="Click through what the platform actually does: the same office and field views your team would use."/>
-      <Tabs defaultValue="core" className="mt-12">
-        <TabsList className="h-auto flex-wrap justify-start gap-1 bg-transparent p-0">
-          {platformTabs.map((tab) => <TabsTrigger key={tab.key} value={tab.key} className="rounded-full px-5 py-2.5 text-sm font-semibold text-muted-foreground shadow-none data-[state=active]:bg-primary/15 data-[state=active]:text-foreground data-[state=active]:shadow-none">{tab.label}</TabsTrigger>)}
-        </TabsList>
-        {platformTabs.map((tab) => <TabsContent key={tab.key} value={tab.key} className={`mt-8 grid gap-10 ${tab.screens ? '' : 'items-center lg:grid-cols-[1fr_auto]'}`}>
-          <div>
-            <h3 className="font-display text-2xl font-bold md:text-3xl">{tab.title}</h3>
-            <p className="mt-3 max-w-lg text-muted-foreground">{tab.body}</p>
-            {tab.bullets && <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{tab.bullets.map((item) => <div key={item} className="flex items-center gap-2 text-sm font-semibold"><Check className="size-4 text-primary"/>{item}</div>)}</div>}
-          </div>
-          {tab.screens ? <ScreenRotator screens={tab.screens} alt={`${tab.label} screen`} /> : tab.phone ? <div className="mx-auto w-full max-w-[19rem] rounded-[2.25rem] border border-border bg-secondary p-2.5 shadow-lg"><img src={tab.phone} alt={`${tab.label} screen`} className="w-full rounded-[1.75rem]" /></div> : tab.visual === 'field' ? <FieldVisual/> : <DashboardVisual/>}
-        </TabsContent>)}
-      </Tabs>
-      <div className="mt-8"><Button asChild variant="outline" size="lg"><Link to="/platform">See how to use the platform <ArrowRight /></Link></Button></div>
-    </div></section>
+    <FeatureTour />
 
     <section className="section-space bg-foreground text-background"><div className="site-container grid gap-8 md:grid-cols-[1fr_auto] md:items-end"><div><p className="eyebrow text-primary">Proof</p><h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold">We build this inside a real business, not a slide deck.</h2><p className="mt-4 text-background/60">Real client results, not slides.</p></div><Button asChild variant="inverse" size="lg"><Link to="/proof">View proof <ArrowRight /></Link></Button></div></section>
 
