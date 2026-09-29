@@ -383,10 +383,10 @@ export function FeatureTour() {
               Book a Discovery <ArrowRight className="size-5" />
             </a>
             <Link
-              to="/platform"
+              to="/proof"
               className="vh-focus vh-ghost flex h-14 items-center justify-center gap-2 rounded-[10px] px-8 text-base font-medium"
             >
-              Explore every feature
+              See the proof
             </Link>
           </div>
         </div>
