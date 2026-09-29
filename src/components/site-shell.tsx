@@ -1,9 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { ArrowRight } from "lucide-react";
+import { type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
@@ -25,51 +24,6 @@ const navItems = [
 ];
 
 const supportHref = "mailto:hello@sentinelvero.com?subject=Customer%20support";
-
-export function SiteHeader() {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/95 backdrop-blur">
-      <div className="site-container flex h-[4.75rem] items-center justify-between gap-4">
-        <Link to="/" className="text-foreground" aria-label="Sentinel Vero home"><BrandMark /></Link>
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
-          {navItems.map((item) => (
-            <Link key={item.to} to={item.to} activeProps={{ className: "text-primary" }} className="nav-link">
-              {item.label}
-            </Link>
-          ))}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="nav-link inline-flex items-center gap-1 outline-none">
-              Resources <ChevronDown className="size-4" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="min-w-44">
-              <DropdownMenuItem asChild><Link to="/about">Our story</Link></DropdownMenuItem>
-              <DropdownMenuItem asChild><a href={supportHref}>Customer support</a></DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </nav>
-        <div className="flex items-center gap-2">
-          <Button asChild variant="signal" size="lg"><a href="mailto:hello@sentinelvero.com?subject=Book%20a%20Discovery">Book a Discovery</a></Button>
-          <Button variant="ghost" size="icon" className="lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(!open)}>
-            {open ? <X /> : <Menu />}
-          </Button>
-        </div>
-      </div>
-      {open && (
-        <nav className="site-container grid gap-1 border-t border-border py-3 lg:hidden" aria-label="Mobile navigation">
-          {navItems.map((item) => (
-            <Link key={item.to} to={item.to} onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm font-semibold hover:bg-secondary">
-              {item.label}
-            </Link>
-          ))}
-          <p className="eyebrow px-3 pt-3 text-muted-foreground">Resources</p>
-          <Link to="/about" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm font-semibold hover:bg-secondary">Our story</Link>
-          <a href={supportHref} className="rounded-md px-3 py-3 text-sm font-semibold hover:bg-secondary">Customer support</a>
-        </nav>
-      )}
-    </header>
-  );
-}
 
 export function SiteFooter() {
   return (

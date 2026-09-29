@@ -47,7 +47,7 @@ const faqs = [
 
 function CustomBuildPage() {
   return <>
-    <section className="hero-grid bg-foreground text-background">
+    <section className="hero-grid text-background">
       <div className="site-container flex flex-col items-center py-20 text-center md:py-28">
         <p className="eyebrow text-primary">Custom build</p>
         <h1 className="mt-5 max-w-4xl text-balance font-display text-5xl font-semibold leading-[0.98] md:text-7xl">Built around how you already work.</h1>
