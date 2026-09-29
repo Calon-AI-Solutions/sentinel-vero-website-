@@ -22,7 +22,7 @@ const demoHref = placeholderHref;
 // Features and Resources are dropdown menus; these are the plain links between them.
 const navItems = [
   { to: "/custom-build" as const, label: "Custom Build" },
-  { to: "/proof" as const, label: "Proof" },
+  { to: "/proof" as const, label: "Our partners" },
 ];
 
 type MenuLink = { title: string; description: string } & (
