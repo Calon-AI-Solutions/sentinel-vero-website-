@@ -12,7 +12,7 @@ import {
 } from "react";
 
 // Pages that open on a dark hero. The header overlays these and stays transparent until scrolled.
-const overlayPaths = new Set(["/", "/custom-build"]);
+const overlayPaths = new Set(["/", "/custom-build", "/platform"]);
 
 const bookHref = "mailto:hello@sentinelvero.com?subject=Book%20a%20Discovery";
 // Placeholder until the demo video and resource pages exist.
