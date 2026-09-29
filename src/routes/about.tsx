@@ -8,13 +8,13 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Sentinel Vero started in 2025 on an industrial street in Caerphilly. Meet Joc, Alom, Fabrizio and Cai, the team building operational software for fire and security businesses.",
+          "Sentinel Vero started in 2025 in Caerphilly. Meet Joc, Alom, Fabrizio and Cai, the team building operational software for fire and security businesses.",
       },
       { property: "og:title", content: "Our story | Sentinel Vero" },
       {
         property: "og:description",
         content:
-          "Four people, one industrial street in Caerphilly, and a live fire and security business to test every idea against.",
+          "Four people in Caerphilly, one solution, and a live fire and security business to test every idea against.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -121,7 +121,7 @@ function AboutPage() {
               <MapPin className="size-3.5" /> Caerphilly, 2025
             </p>
             <h1 className="mt-5 text-balance font-display text-5xl font-semibold leading-[0.98] md:text-7xl">
-              Four people. One industrial street. One problem worth fixing.
+              4 people, 1 solution
             </h1>
             <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-muted-ink">
               Sentinel Vero is practical operational software for fire, security and field service
@@ -158,7 +158,7 @@ function AboutPage() {
           <div className="lg:sticky lg:top-28 lg:self-start">
             <p className="vh-eyebrow text-mint">Our story</p>
             <h2 className="mt-4 text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">
-              It started on an industrial street in Caerphilly.
+              It started in Caerphilly.
             </h2>
           </div>
           <div className="space-y-6 text-lg leading-8 text-muted-ink">
