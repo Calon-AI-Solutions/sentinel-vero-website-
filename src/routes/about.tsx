@@ -1,13 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DiscoveryCta, PageIntro } from "@/components/site-shell";
+import { ArrowRight, Check, Code2, Headset, MapPin, Quote } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About us | Sentinel Vero" },
-      { name: "description", content: "Sentinel Vero builds practical operational software for fire, security and field service businesses, developed and tested inside a live operation." },
-      { property: "og:title", content: "About Sentinel Vero | Built in the field" },
-      { property: "og:description", content: "One clearer operational environment for growing operators, built and tested inside a live fire and security business." },
+      {
+        name: "description",
+        content:
+          "Sentinel Vero started in 2025 on an industrial street in Caerphilly. Meet Joc, Alom, Fabrizio and Cai, the team building operational software for fire and security businesses.",
+      },
+      { property: "og:title", content: "Our story | Sentinel Vero" },
+      {
+        property: "og:description",
+        content:
+          "Four people, one industrial street in Caerphilly, and a live fire and security business to test every idea against.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -16,154 +24,304 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
+const bookHref = "mailto:hello@sentinelvero.com?subject=Book%20a%20Discovery";
+const talkHref = "mailto:hello@sentinelvero.com?subject=Question%20about%20Sentinel%20Vero";
+
+type Member = {
+  name: string;
+  first: string;
+  role: string;
+  photo: string;
+  bio: string;
+  highlights?: string[];
+  quote?: string;
+};
+
+const lead: Member = {
+    name: "Joc O’Connell",
+    first: "Joc",
+    role: "Industry & Partnerships",
+    photo: "/team/joc.webp",
+    bio: "Thirty years building fire and security businesses across the UK, Ireland, France, Spain, Canada and Russia. Joc has built and sold five of them, four to major PLCs including Chubb and Sensormatic, and has coached 14 more companies through acquisition. Joc knows what a strong security business looks like from the inside and brings that playbook to every Vero client.",
+    highlights: [
+      "Built and sold five fire and security businesses",
+      "Turned a Sensormatic branch from loss to £1.8m profit in two years",
+      "Lifted recurring revenue by 62% across 12 security companies",
+      "Developed the Eyewitness999 body worn CCTV in 2003/04",
+    ],
+    quote: "An uncanny habit of bringing people, businesses and opportunities together, profitably.",
+};
+
+const rest: Member[] = [
+  {
+    name: "Alom",
+    first: "Alom",
+    role: "Product & Technology",
+    photo: "/team/alom.webp",
+    bio: "Nine years building AI and cloud solutions, much of it for large safety and security enterprises. Alom turns the way your team actually works into software that is reliable, fast and simple to use.",
+  },
+  {
+    name: "Fabrizio Pierri",
+    first: "Fabrizio",
+    role: "Commercial & Growth",
+    photo: "/team/fabrizio.webp",
+    bio: "Fabrizio brings deep commercial strategy experience and makes sure every feature earns its place by solving a real, costly problem for founder led businesses.",
+  },
+  {
+    name: "Cai",
+    first: "Cai",
+    role: "Operations & Live Testing",
+    photo: "/team/cai.webp",
+    bio: "Cai has worked in the field for years and runs Volt Secure, where Vero is tested on real jobs, real engineers and real customers before it ever reaches yours.",
+  },
+];
+
+const team: Member[] = [lead, ...rest];
+
+const numbers: Array<[string, string]> = [
+  ["2025", "The year it started, in Caerphilly"],
+  ["30+", "Years Joc has spent in fire and security"],
+  ["9", "Years Alom has spent building AI and cloud systems"],
+  ["1", "Live business, Volt Secure, testing it every day"],
+];
+
+const crew = [
+  {
+    icon: Code2,
+    title: "Development",
+    body: "The engineers building and shipping the platform alongside Alom.",
+  },
+  {
+    icon: Headset,
+    title: "Support",
+    body: "The people who help your team get set up and keep things running.",
+  },
+];
+
+function Portrait({ member, className = "" }: { member: Member; className?: string }) {
+  return (
+    <img
+      src={member.photo}
+      alt={`Portrait of ${member.name}`}
+      width={480}
+      height={480}
+      loading="lazy"
+      className={`aspect-square w-full object-cover transition duration-500 md:grayscale md:group-hover:grayscale-0 ${className}`}
+    />
+  );
+}
+
 function AboutPage() {
-  const capabilities: Array<[string, string]> = [
-    ["01", "Enquiries and customer information"],
-    ["02", "Quotes and job management"],
-    ["03", "Scheduling and field activity"],
-    ["04", "Timesheets and labour visibility"],
-    ["05", "Project and job costing"],
-    ["06", "Certificates, service records and job history"],
-    ["07", "Operational reporting"],
-    ["08", "Evidence and paperwork control"],
-    ["09", "Workflow automation"],
-  ];
-
-  const team: Array<{ name: string; role: string; bio: string }> = [
-    {
-      name: "Fabrizio Pierri",
-      role: "Commercial strategy, positioning and growth",
-      bio: "Fabrizio leads the commercial development of Sentinel Vero. He focuses on understanding the problems faced by founder-led businesses, translating operational pain into a clear proposition and developing the relationships and route to market required for sustainable growth.",
-    },
-    {
-      name: "Alom",
-      role: "Technology, product development and systems architecture",
-      bio: "Alom leads the technical direction of the platform. He translates real operational requirements into reliable, scalable systems while ensuring the technology remains practical, intuitive and commercially viable.",
-    },
-    {
-      name: "Cai",
-      role: "Live operational insight and implementation",
-      bio: "Through Volt Secure, Cai provides the direct operational experience behind the platform. He brings an operator’s perspective to its development and provides the live environment in which Sentinel Vero can be tested, challenged and improved across real teams, jobs, customers and workflows.",
-    },
-    {
-      name: "Joc",
-      role: "Industry relationships and strategic growth",
-      bio: "Joc brings sector knowledge, industry relationships and a wider strategic perspective. He supports market access, partnerships and commercial opportunities while helping shape the long-term growth of Sentinel Vero.",
-    },
-  ];
-
   return (
     <>
-      <PageIntro eyebrow="About Sentinel Vero" title="Built in the field. Shaped by real operations.">
-        <p>Sentinel Vero is building practical operational software for fire, security and field service businesses.</p>
-        <p className="mt-4">
-          We help growing operators replace disconnected systems, spreadsheets and paperwork with one clearer operational environment that connects the information, people and processes required to run the business effectively.
-        </p>
-        <p className="mt-4">
-          From the first customer enquiry through to quoting, scheduling, field delivery, job costing and reporting, Sentinel Vero is designed to give operators greater control over how work moves through their business.
-        </p>
-      </PageIntro>
-
-      <section className="section-space bg-foreground text-background">
-        <div className="site-container grid gap-12 lg:grid-cols-[1fr_1fr]">
-          <div>
-            <p className="eyebrow text-primary">Software grounded in operational reality</p>
-            <h2 className="mt-4 font-display text-4xl font-semibold">Tested where it matters: inside a live business.</h2>
+      <section className="hero-grid overflow-hidden text-bone">
+        <div className="site-container py-16 lg:py-24">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="vh-eyebrow inline-flex items-center gap-2 text-mint">
+              <MapPin className="size-3.5" /> Caerphilly, 2025
+            </p>
+            <h1 className="mt-5 text-balance font-display text-5xl font-semibold leading-[0.98] md:text-7xl">
+              Four people. One industrial street. One problem worth fixing.
+            </h1>
+            <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-muted-ink">
+              Sentinel Vero is practical operational software for fire, security and field service
+              businesses, built by people who know the trade and tested every day inside a live
+              one.
+            </p>
+            <div className="mt-10 flex items-center justify-center">
+              <div className="flex -space-x-3">
+                {team.map((m) => (
+                  <img
+                    key={m.first}
+                    src={m.photo}
+                    alt={m.name}
+                    width={56}
+                    height={56}
+                    className="size-14 rounded-full border-2 border-surface object-cover"
+                  />
+                ))}
+              </div>
+              <p className="ml-4 text-left text-sm leading-5 text-muted-ink">
+                Joc, Alom, Fabrizio and Cai
+                <br />
+                <span className="text-bone">working together since day one</span>
+              </p>
+            </div>
           </div>
-          <div className="space-y-5 text-lg leading-8 text-background/70">
-            <p>Sentinel Vero was not conceived in isolation or built around assumptions.</p>
+        </div>
+      </section>
+
+      <section id="story" className="section-space scroll-mt-20 border-t border-bone/10 bg-ink text-bone">
+        <div className="site-container grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <p className="vh-eyebrow text-mint">Our story</p>
+            <h2 className="mt-4 text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">
+              It started on an industrial street in Caerphilly.
+            </h2>
+          </div>
+          <div className="space-y-6 text-lg leading-8 text-muted-ink">
             <p>
-              The platform is being developed and tested inside <strong className="font-semibold text-background">Volt Secure</strong>, a live fire and security business where it is used by the team every day. Real jobs, customers, engineers and workflows generate the feedback that shapes the product.
+              <span className="text-bone">2025.</span> Four people who each held a different piece
+              of the same problem decided to solve it together.
             </p>
             <p>
-              That gives us something we believe matters: direct visibility of how operational systems perform when they meet the realities of the field.
+              <span className="text-bone">Joc</span> had spent more than thirty years building,
+              turning around and selling fire and security businesses.{" "}
+              <span className="text-bone">Cai</span> was running Volt Secure, living the daily
+              reality of jobs, engineers and customers.{" "}
+              <span className="text-bone">Alom</span> had spent nine years building AI and cloud
+              systems for large safety and security enterprises.{" "}
+              <span className="text-bone">Fabrizio</span> brought the commercial strategy to turn
+              it all into something founder led businesses would actually want.
+            </p>
+            <p>
+              So we built it the only way that made sense to us: not in a lab, but inside Volt
+              Secure. Real jobs, real engineers and real customers shape every screen, and every
+              idea gets tested against a working day before it reaches yours.
+            </p>
+            <p className="border-l-2 border-mint pl-5 font-display text-2xl font-semibold leading-snug text-bone">
+              All four of us are still in the room. That is the point.
             </p>
           </div>
         </div>
-        <div className="site-container mt-12 grid gap-px border border-background/15 bg-background/15 md:grid-cols-3">
-          {[
-            ["Every workflow", "can be tested against genuine requirements."],
-            ["Every improvement", "can be informed by real usage."],
-            ["Every decision", "can remain focused on whether it makes the business clearer, faster and easier to control."],
-          ].map(([lead, body]) => (
-            <div key={lead} className="bg-foreground p-8">
-              <p className="font-display text-xl font-bold">{lead}</p>
-              <p className="mt-3 text-background/60">{body}</p>
+
+        <div className="site-container mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-bone/10 bg-bone/10 lg:grid-cols-4">
+          {numbers.map(([value, label]) => (
+            <div key={label} className="bg-panel p-6 md:p-8">
+              <p className="font-display text-4xl font-semibold text-mint md:text-5xl">{value}</p>
+              <p className="mt-3 text-sm leading-6 text-muted-ink">{label}</p>
             </div>
           ))}
         </div>
-        <div className="site-container mt-10 max-w-3xl">
-          <p className="text-lg leading-8 text-background/70">
-            This is not technology for technology’s sake. It is software built to solve the operational problems that growing service businesses encounter every day.
-          </p>
-        </div>
       </section>
 
-      <section className="section-space">
+      <section id="team" className="section-space scroll-mt-20 border-t border-bone/10 bg-surface text-bone">
         <div className="site-container">
-          <p className="eyebrow">One clearer operational environment</p>
-          <div className="mt-4 grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
-            <h2 className="font-display text-4xl font-semibold">The core areas required to manage work effectively.</h2>
-            <p className="max-w-xl text-lg leading-8 text-muted-foreground">
-              Sentinel Vero brings them together in one place. The aim is simple: reduce fragmentation, improve visibility and help operators make better decisions with greater confidence.
+          <div className="max-w-3xl">
+            <p className="vh-eyebrow text-mint">The team</p>
+            <h2 className="mt-4 text-balance font-display text-4xl font-semibold leading-tight md:text-5xl">
+              Built by operators, not observers.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-muted-ink">
+              Industry, technology, commercial strategy and live operations. Four seats at one
+              table, all of them filled by the people you will actually work with.
             </p>
           </div>
-          <div className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {capabilities.map(([num, label]) => (
-              <div key={num} className="bg-card p-6">
-                <p className="font-mono text-xs text-muted-foreground">{num}</p>
-                <p className="mt-3 font-display text-lg font-bold leading-snug">{label}</p>
-              </div>
+
+          <article className="group mt-12 grid overflow-hidden rounded-xl border border-bone/10 bg-panel transition-colors hover:border-mint/40 lg:grid-cols-[.9fr_1.1fr]">
+            <div className="relative">
+              <Portrait member={lead} className="h-full lg:aspect-auto" />
+              <span className="vh-eyebrow absolute left-4 top-4 rounded-full bg-ink/80 px-3 py-1.5 text-mint">
+                01
+              </span>
+            </div>
+            <div className="flex flex-col p-6 md:p-10">
+              <p className="vh-eyebrow text-mint">{lead.role}</p>
+              <h3 className="mt-3 font-display text-3xl font-semibold md:text-4xl">{lead.name}</h3>
+              <p className="mt-5 leading-7 text-muted-ink">{lead.bio}</p>
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                {lead.highlights?.map((h) => (
+                  <li key={h} className="flex items-start gap-3 text-sm font-medium leading-6 text-bone">
+                    <Check className="mt-0.5 size-4 shrink-0 text-mint" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+              {lead.quote && (
+                <blockquote className="mt-8 flex gap-3 border-t border-bone/10 pt-6 text-bone">
+                  <Quote className="size-5 shrink-0 text-mint" />
+                  <p className="font-display text-lg italic leading-7">{lead.quote}</p>
+                </blockquote>
+              )}
+            </div>
+          </article>
+
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {rest.map((m, i) => (
+              <article
+                key={m.first}
+                className="group flex flex-col overflow-hidden rounded-xl border border-bone/10 bg-panel transition-colors hover:border-mint/40"
+              >
+                <div className="relative">
+                  <Portrait member={m} />
+                  <span className="vh-eyebrow absolute left-4 top-4 rounded-full bg-ink/80 px-3 py-1.5 text-mint">
+                    0{i + 2}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="vh-eyebrow text-mint">{m.role}</p>
+                  <h3 className="mt-3 font-display text-2xl font-semibold">{m.name}</h3>
+                  <p className="mt-4 leading-7 text-muted-ink">{m.bio}</p>
+                </div>
+              </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="section-space bg-secondary">
-        <div className="site-container">
-          <p className="eyebrow">The team</p>
-          <h2 className="mt-4 max-w-2xl font-display text-4xl font-semibold">Built by four complementary perspectives.</h2>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
-            Commercial strategy, technical capability, live operational experience and industry relationships.
-          </p>
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {team.map((member) => (
-              <div key={member.name} className="border border-border bg-background p-8">
-                <div className="flex items-center gap-3">
-                  <span className="control-mark" aria-hidden="true"><i /></span>
+          <div className="mt-20 border-t border-bone/10 pt-16">
+            <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+              <div>
+                <p className="vh-eyebrow text-mint">Behind the four</p>
+                <h3 className="mt-4 text-balance font-display text-3xl font-semibold md:text-4xl">
+                  And the crew who keep it running.
+                </h3>
+              </div>
+              <p className="max-w-xl text-lg leading-8 text-muted-ink">
+                Our development and support team. Full profiles are on their way.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-4 md:grid-cols-2">
+              {crew.map(({ icon: Icon, title, body }) => (
+                <div
+                  key={title}
+                  className="flex items-start gap-5 rounded-xl border border-dashed border-bone/15 bg-bone/[.02] p-6"
+                >
+                  <span className="grid size-12 shrink-0 place-items-center rounded-lg bg-mint/10 text-mint">
+                    <Icon className="size-5" />
+                  </span>
                   <div>
-                    <h3 className="font-display text-2xl font-bold leading-tight">{member.name}</h3>
-                    <p className="mt-1 font-mono text-xs uppercase tracking-wide text-muted-foreground">{member.role}</p>
+                    <h4 className="font-display text-xl font-semibold">{title}</h4>
+                    <p className="mt-2 leading-7 text-muted-ink">{body}</p>
+                    <div className="mt-4 flex -space-x-2" aria-hidden="true">
+                      {[0, 1, 2].map((n) => (
+                        <span key={n} className="size-9 rounded-full border-2 border-surface bg-bone/10" />
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <p className="mt-5 leading-7 text-muted-foreground">{member.bio}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section-space">
-        <div className="site-container grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
-          <div>
-            <p className="eyebrow">Practical by design</p>
-            <h2 className="mt-4 font-display text-4xl font-semibold">The business should never work around the software.</h2>
-          </div>
-          <div className="space-y-5 text-lg leading-8 text-muted-foreground">
-            <p>
-              We believe operational software should reflect how a business actually works. It should never force the business to work around the software.
+      <section className="section-space hero-grid !pt-[clamp(5rem,10vw,8rem)] text-bone">
+        <div className="site-container">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="vh-eyebrow text-mint">Why it matters to you</p>
+            <h2 className="mt-5 text-balance font-display text-4xl font-semibold md:text-5xl">
+              Senior people, from day one.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted-ink">
+              No junior account managers, no paying a big firm for two rushed hours. We are local,
+              we sit with your team, and we build it with you.
             </p>
-            <p>
-              That is why Sentinel Vero is being built alongside the people using it, shaped by live operational evidence and focused on the areas that create meaningful commercial value: visibility, control, consistency, efficiency and stronger decision-making.
-            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href={bookHref}
+                className="vh-focus inline-flex h-14 items-center gap-2 rounded-[10px] bg-mint px-8 text-base font-semibold text-ink transition-colors hover:bg-mint-hover"
+              >
+                Book a Discovery <ArrowRight className="size-5" />
+              </a>
+              <a
+                href={talkHref}
+                className="vh-focus vh-ghost inline-flex h-14 items-center rounded-[10px] px-8 text-base font-medium"
+              >
+                Speak to us
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="site-container mt-12 border-t border-border pt-8">
-          <p className="font-display text-2xl font-semibold md:text-3xl">Sentinel Vero. Built around the realities of the field.</p>
         </div>
       </section>
-
-      <DiscoveryCta title="Let’s find the gaps before they cost you more." />
     </>
   );
 }

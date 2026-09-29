@@ -32,7 +32,7 @@ export function SiteFooter() {
         <div><BrandMark /><p className="mt-5 max-w-sm text-sm text-background/65">Operational truth, made visible for fire and security contractors.</p></div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-background/70">
           {navItems.map((item) => <Link key={item.to} to={item.to} className="hover:text-primary">{item.label}</Link>)}
-          <Link to="/about" className="hover:text-primary">Our story</Link>
+          <Link to="/about" hash="story" className="hover:text-primary">Our story</Link>
           <a href={supportHref} className="hover:text-primary">Customer support</a>
         </div>
       </div>
