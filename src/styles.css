@@ -213,6 +213,3 @@
 /* Feature tour: progress bar under the active feature, advances the tour when it fills. */
 .tour-progress { animation-name: tour-fill; animation-timing-function: linear; animation-fill-mode: both; }
 @keyframes tour-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-.sync-dot { animation: sync-move 2.4s ease-in-out infinite; }
-@keyframes sync-move { 0% { left: 0; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: calc(100% - 7px); opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .sync-dot { animation: none; left: calc(50% - 3.5px); } }
