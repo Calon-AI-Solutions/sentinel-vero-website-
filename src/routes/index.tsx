@@ -85,7 +85,7 @@ function TestimonialCarousel({ items }: { items: typeof testimonials }) {
 
 function HomePage() {
   return <>
-    <section className="hero-grid overflow-hidden bg-foreground text-background">
+    <section className="hero-grid overflow-hidden text-background">
       <div className="site-container flex flex-col items-center py-16 text-center lg:py-24">
         <p className="eyebrow text-primary">For fire & security contractors who are done guessing</p>
         <h1 className="mt-5 max-w-4xl text-balance font-display text-5xl font-semibold leading-[0.98] md:text-7xl">You can’t measure what you can’t see.</h1>

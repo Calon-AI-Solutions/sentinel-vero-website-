@@ -21,6 +21,16 @@
 @theme inline {
   --font-display: "Manrope", Arial, sans-serif;
   --font-sans: "Inter", Arial, sans-serif;
+  --font-ui: "Instrument Sans", Arial, sans-serif;
+  --font-label: "JetBrains Mono", ui-monospace, monospace;
+  --color-ink: #021414;
+  --color-surface: #031716;
+  --color-panel: #062220;
+  --color-bone: #F0EFEA;
+  --color-muted-ink: #9FB0AA;
+  --color-dim: #7C8C87; /* spec #5B6B66 is 3:1 on the panel; lifted to clear 4.5:1 */
+  --color-mint: #00D39A;
+  --color-mint-hover: #1BE5AE;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -161,7 +171,8 @@
 @utility phone-shell { width: min(100%, 19rem); min-height: 34rem; border: 5px solid var(--color-foreground); border-radius: 1.75rem; background: var(--color-card); padding: 1.25rem; box-shadow: 0 24px 50px oklch(0.17 0.034 191 / 18%); }
 @utility phone-top { width: 4rem; height: .35rem; margin-inline: auto; border-radius: 999px; background: var(--color-border); }
 @utility page-intro { position: relative; overflow: hidden; border-bottom: 1px solid var(--color-border); background: var(--color-secondary); &::after { content: ""; position: absolute; right: -10%; top: -35%; width: 50%; aspect-ratio: 1; border: 1px solid color-mix(in oklab, var(--color-primary) 45%, transparent); transform: rotate(45deg); } }
-@utility hero-grid { background-image: linear-gradient(color-mix(in oklab, var(--color-background) 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--color-background) 7%, transparent) 1px, transparent 1px); background-size: 48px 48px; }
+/* Dark hero that sits under the transparent site header, so it reserves the header's 84px at the top. */
+@utility hero-grid { background-color: var(--color-surface); background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 40px 40px; padding-top: 84px; }
 
 .control-mark { position: relative; display: inline-block; width: 2.2rem; height: 2.2rem; transform: rotate(45deg); }
 .control-mark::before,.control-mark::after { content:""; position:absolute; inset:0; border:2px solid currentColor; }
@@ -181,3 +192,21 @@
 .logo-marquee-track { display: flex; width: max-content; align-items: center; gap: 4.5rem; }
 @media (prefers-reduced-motion: no-preference) { .logo-marquee-track { animation: logo-scroll 26s linear infinite; } }
 @keyframes logo-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Site header */
+.vh-header { transition: background-color .2s ease, backdrop-filter .2s ease, -webkit-backdrop-filter .2s ease; }
+.vh-header[data-scrolled] { background-color: rgba(3,23,22,.8); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+/* A backdrop filter would trap the fixed mobile sheet inside the header. */
+.vh-header[data-sheet] { -webkit-backdrop-filter: none; backdrop-filter: none; }
+.vh-rule { background: linear-gradient(90deg, transparent, rgba(0,211,154,.5), transparent); }
+.vh-focus:focus-visible { outline: 2px solid var(--color-mint); outline-offset: 3px; }
+.vh-eyebrow { font-family: var(--font-label); font-size: 11px; line-height: 16px; letter-spacing: .14em; text-transform: uppercase; }
+.vh-nav { font-size: 15px; font-weight: 500; color: var(--color-muted-ink); transition: color .2s ease; }
+.vh-nav:hover, .vh-nav[data-active] { color: var(--color-bone); }
+.vh-nav-label { padding: 8px 0; border-bottom: 1px solid transparent; }
+.vh-nav[data-active] .vh-nav-label { border-bottom-color: var(--color-mint); }
+.vh-ghost { border: 1px solid rgba(240,239,234,.18); color: var(--color-bone); transition: border-color .2s ease; }
+.vh-ghost:hover { border-color: rgba(240,239,234,.45); }
+.vh-panel { transform: translateX(-50%); animation: vh-panel-in .18s ease-out both; }
+@keyframes vh-panel-in { from { opacity: 0; transform: translate(-50%, -6px); } to { opacity: 1; transform: translate(-50%, 0); } }
+@media (prefers-reduced-motion: reduce) { .vh-panel { animation: none; } }
