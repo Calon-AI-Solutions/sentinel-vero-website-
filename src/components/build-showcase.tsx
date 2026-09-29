@@ -64,6 +64,7 @@ type Capability = {
 const capabilities: Capability[] = [
   {
     key: "forms",
+    image: "/showcase/forms.webp",
     label: "Inspection forms",
     icon: ClipboardCheck,
     title: "Your forms, your fields, your sign off steps.",
@@ -78,6 +79,7 @@ const capabilities: Capability[] = [
   },
   {
     key: "quotes",
+    image: "/showcase/quotes.webp",
     label: "Quotes & pricing",
     icon: FileText,
     title: "Every quote starts from the right numbers.",
@@ -92,6 +94,7 @@ const capabilities: Capability[] = [
   },
   {
     key: "integrations",
+    image: "/showcase/integrations.webp",
     label: "Integrations",
     icon: Link2,
     title: "Timesheets, mileage and invoices flow straight through.",
@@ -106,6 +109,7 @@ const capabilities: Capability[] = [
   },
   {
     key: "dashboards",
+    image: "/showcase/dashboards.webp",
     label: "Dashboards",
     icon: BarChart3,
     title: "The numbers you run the business on, in one view.",
@@ -120,6 +124,7 @@ const capabilities: Capability[] = [
   },
   {
     key: "automations",
+    image: "/showcase/automations.webp",
     label: "Automations",
     icon: Bell,
     title: "Reminders and approvals that happen on their own.",
@@ -134,6 +139,7 @@ const capabilities: Capability[] = [
   },
   {
     key: "reports",
+    image: "/showcase/reports.webp",
     label: "Customer reports",
     icon: Palette,
     title: "Reports and certificates in your branding.",
