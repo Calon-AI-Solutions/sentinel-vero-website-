@@ -38,18 +38,18 @@ type Member = {
 };
 
 const lead: Member = {
-    name: "Joc O’Connell",
-    first: "Joc",
-    role: "Industry & Partnerships",
-    photo: "/team/joc.webp",
-    bio: "Thirty years building fire and security businesses across the UK, Ireland, France, Spain, Canada and Russia. Joc has built and sold five of them, four to major PLCs including Chubb and Sensormatic, and has coached 14 more companies through acquisition. Joc knows what a strong security business looks like from the inside and brings that playbook to every Vero client.",
-    highlights: [
-      "Built and sold five fire and security businesses",
-      "Turned a Sensormatic branch from loss to £1.8m profit in two years",
-      "Lifted recurring revenue by 62% across 12 security companies",
-      "Developed the Eyewitness999 body worn CCTV in 2003/04",
-    ],
-    quote: "An uncanny habit of bringing people, businesses and opportunities together, profitably.",
+  name: "Joc O’Connell",
+  first: "Joc",
+  role: "Industry & Partnerships",
+  photo: "/team/joc.webp",
+  bio: "Thirty years building fire and security businesses across the UK, Ireland, France, Spain, Canada and Russia. Joc has built and sold five of them, four to major PLCs including Chubb and Sensormatic, and has coached 14 more companies through acquisition. Joc knows what a strong security business looks like from the inside and brings that playbook to every Vero client.",
+  highlights: [
+    "Built and sold five fire and security businesses",
+    "Turned a Sensormatic branch from loss to £1.8m profit in two years",
+    "Lifted recurring revenue by 62% across 12 security companies",
+    "Developed the Eyewitness999 body worn CCTV in 2003/04",
+  ],
+  quote: "An uncanny habit of bringing people, businesses and opportunities together, profitably.",
 };
 
 const rest: Member[] = [
@@ -125,8 +125,7 @@ function AboutPage() {
             </h1>
             <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-muted-ink">
               Sentinel Vero is practical operational software for fire, security and field service
-              businesses, built by people who know the trade and tested every day inside a live
-              one.
+              businesses, built by people who know the trade and tested every day inside a live one.
             </p>
             <div className="mt-10 flex items-center justify-center">
               <div className="flex -space-x-3">
@@ -151,7 +150,10 @@ function AboutPage() {
         </div>
       </section>
 
-      <section id="story" className="section-space scroll-mt-20 border-t border-bone/10 bg-ink text-bone">
+      <section
+        id="story"
+        className="section-space scroll-mt-20 border-t border-bone/10 bg-ink text-bone"
+      >
         <div className="site-container grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <p className="vh-eyebrow text-mint">Our story</p>
@@ -168,11 +170,10 @@ function AboutPage() {
               <span className="text-bone">Joc</span> had spent more than thirty years building,
               turning around and selling fire and security businesses.{" "}
               <span className="text-bone">Cai</span> was running Volt Secure, living the daily
-              reality of jobs, engineers and customers.{" "}
-              <span className="text-bone">Alom</span> had spent nine years building AI and cloud
-              systems for large safety and security enterprises.{" "}
-              <span className="text-bone">Fabrizio</span> brought the commercial strategy to turn
-              it all into something founder led businesses would actually want.
+              reality of jobs, engineers and customers. <span className="text-bone">Alom</span> had
+              spent nine years building AI and cloud systems for large safety and security
+              enterprises. <span className="text-bone">Fabrizio</span> brought the commercial
+              strategy to turn it all into something founder led businesses would actually want.
             </p>
             <p>
               So we built it the only way that made sense to us: not in a lab, but inside Volt
@@ -195,7 +196,10 @@ function AboutPage() {
         </div>
       </section>
 
-      <section id="team" className="section-space scroll-mt-20 border-t border-bone/10 bg-surface text-bone">
+      <section
+        id="team"
+        className="section-space scroll-mt-20 border-t border-bone/10 bg-surface text-bone"
+      >
         <div className="site-container">
           <div className="max-w-3xl">
             <p className="vh-eyebrow text-mint">The team</p>
@@ -221,7 +225,10 @@ function AboutPage() {
               <p className="mt-5 leading-7 text-muted-ink">{lead.bio}</p>
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                 {lead.highlights?.map((h) => (
-                  <li key={h} className="flex items-start gap-3 text-sm font-medium leading-6 text-bone">
+                  <li
+                    key={h}
+                    className="flex items-start gap-3 text-sm font-medium leading-6 text-bone"
+                  >
                     <Check className="mt-0.5 size-4 shrink-0 text-mint" />
                     {h}
                   </li>
@@ -283,7 +290,10 @@ function AboutPage() {
                     <p className="mt-2 leading-7 text-muted-ink">{body}</p>
                     <div className="mt-4 flex -space-x-2" aria-hidden="true">
                       {[0, 1, 2].map((n) => (
-                        <span key={n} className="size-9 rounded-full border-2 border-surface bg-bone/10" />
+                        <span
+                          key={n}
+                          className="size-9 rounded-full border-2 border-surface bg-bone/10"
+                        />
                       ))}
                     </div>
                   </div>
