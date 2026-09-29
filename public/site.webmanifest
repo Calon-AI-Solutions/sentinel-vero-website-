@@ -1,0 +1,11 @@
+{
+  "name": "Sentinel Vero",
+  "short_name": "Sentinel Vero",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#031716",
+  "background_color": "#031716",
+  "display": "standalone"
+}
