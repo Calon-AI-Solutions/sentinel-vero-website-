@@ -212,6 +212,3 @@ html { scroll-padding-top: 96px; }
 .vh-panel { transform: translateX(-50%); animation: vh-panel-in .18s ease-out both; }
 @keyframes vh-panel-in { from { opacity: 0; transform: translate(-50%, -6px); } to { opacity: 1; transform: translate(-50%, 0); } }
 @media (prefers-reduced-motion: reduce) { .vh-panel { animation: none; } }
-/* Feature tour: progress bar under the active feature, advances the tour when it fills. */
-.tour-progress { animation-name: tour-fill; animation-timing-function: linear; animation-fill-mode: both; }
-@keyframes tour-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }

@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BarChart3, Bell, ClipboardCheck, FileText, Link2, Palette } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { BuildShowcase } from "@/components/build-showcase";
 import { Button } from "@/components/ui/button";
 import { DiscoveryCta } from "@/components/site-shell";
 
@@ -19,15 +20,6 @@ export const Route = createFileRoute("/custom-build")({
   }),
   component: CustomBuildPage,
 });
-
-const builds = [
-  { icon: ClipboardCheck, title: "Inspection forms & checklists", body: "Your forms, your fields, your sign-off steps. Not a generic template." },
-  { icon: FileText, title: "Quote templates & pricing rules", body: "Your pricing logic built in, so every quote starts from the right numbers." },
-  { icon: Link2, title: "Integrations", body: "Timesheets, mileage and invoices flowing straight into Xero or your accounting tools." },
-  { icon: BarChart3, title: "Dashboards & reports", body: "The numbers you actually run the business on, in one view." },
-  { icon: Bell, title: "Automations & approvals", body: "Reminders, hand-offs and sign-offs that happen without anyone chasing." },
-  { icon: Palette, title: "Customer-facing reports", body: "Reports and certificates in your branding, sent straight from the job." },
-];
 
 const steps = [
   ["Discover", "We learn how you actually work."],
@@ -56,13 +48,7 @@ function CustomBuildPage() {
       </div>
     </section>
 
-    <section className="section-space"><div className="site-container">
-      <p className="eyebrow">What we can build</p>
-      <h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight md:text-5xl">Your process, not a template.</h2>
-      <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-        {builds.map(({ icon: Icon, title, body }) => <article key={title} className="bg-background p-7"><Icon className="size-5 text-primary" /><h3 className="mt-8 font-display text-xl font-bold">{title}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{body}</p></article>)}
-      </div>
-    </div></section>
+    <BuildShowcase />
 
     <section className="section-space bg-secondary"><div className="site-container">
       <p className="eyebrow">How a custom build works</p>
