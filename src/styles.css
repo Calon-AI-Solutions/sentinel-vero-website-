@@ -194,6 +194,8 @@
 @keyframes logo-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* Site header */
+/* Anchor jumps (such as /platform#quoting) land below the sticky header. */
+html { scroll-padding-top: 96px; }
 .vh-header { transition: background-color .2s ease, backdrop-filter .2s ease, -webkit-backdrop-filter .2s ease; }
 .vh-header[data-scrolled] { background-color: rgba(3,23,22,.8); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 /* A backdrop filter would trap the fixed mobile sheet inside the header. */
@@ -201,7 +203,7 @@
 .vh-rule { background: linear-gradient(90deg, transparent, rgba(0,211,154,.5), transparent); }
 .vh-focus:focus-visible { outline: 2px solid var(--color-mint); outline-offset: 3px; }
 .vh-eyebrow { font-family: var(--font-label); font-size: 11px; line-height: 16px; letter-spacing: .14em; text-transform: uppercase; }
-.vh-nav { font-size: 15px; font-weight: 500; color: var(--color-muted-ink); transition: color .2s ease; }
+.vh-nav { white-space: nowrap; font-size: 15px; font-weight: 500; color: var(--color-muted-ink); transition: color .2s ease; }
 .vh-nav:hover, .vh-nav[data-active] { color: var(--color-bone); }
 .vh-nav-label { padding: 8px 0; border-bottom: 1px solid transparent; }
 .vh-nav[data-active] .vh-nav-label { border-bottom-color: var(--color-mint); }
