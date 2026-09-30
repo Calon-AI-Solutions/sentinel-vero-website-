@@ -11,12 +11,14 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import type { Plugin } from "vite";
 
 /**
- * `[[...]]` in /content marks a fact the owner has not confirmed yet. Production builds fail
- * while any remain, so unconfirmed claims (the Security page especially) can never go live.
- * Vercel preview deployments are exempt so the pages can still be reviewed before sign-off.
+ * `[[...]]` in /content marks a fact the owner has not confirmed yet. Production builds list
+ * every one that remains. The owner chose to publish with placeholders highlighted for now, so
+ * this warns; set STRICT_CONTENT=1 in the Vercel project to make production builds fail again
+ * until every placeholder is resolved. Vercel preview deployments are never checked.
  */
 function contentPlaceholderGuard(): Plugin {
   let enforce = false;
+  const strict = process.env["STRICT_CONTENT"] === "1";
   return {
     name: "content-placeholder-guard",
     apply: "build",
@@ -44,10 +46,10 @@ function contentPlaceholderGuard(): Plugin {
               : [],
           ),
       );
-      if (hits.length)
-        this.error(
-          `${hits.length} line(s) in /content still have unconfirmed [[...]] placeholders. Replace or delete each one before a production build:\n${hits.join("\n")}`,
-        );
+      if (!hits.length) return;
+      const message = `${hits.length} line(s) in /content still have unconfirmed [[...]] placeholders:\n${hits.join("\n")}`;
+      if (strict) this.error(`${message}\nReplace or delete each one before a production build.`);
+      else this.warn(message);
     },
   };
 }
