@@ -15,9 +15,12 @@ import {
 const overlayPaths = new Set(["/", "/custom-build", "/platform", "/about"]);
 
 const bookHref = "mailto:hello@sentinelvero.com?subject=Book%20a%20Discovery";
-// Placeholder until the demo video and resource pages exist.
+// Placeholder until the demo video exists.
 const placeholderHref = "#";
 const demoHref = placeholderHref;
+
+// Pages reached from the Resources menu, so its button shows as active on them.
+const resourcePaths = ["/about", "/leak-report-2026", "/guides", "/blog", "/security"];
 
 // Features and Resources are dropdown menus; these are the plain links between them.
 const navItems = [
@@ -26,7 +29,12 @@ const navItems = [
 ];
 
 type MenuLink = { title: string; description: string } & (
-  { to: "/about" | "/proof" | "/platform"; hash?: string } | { href: string }
+  | {
+      to:
+        "/about" | "/proof" | "/platform" | "/leak-report-2026" | "/guides" | "/blog" | "/security";
+      hash?: string;
+    }
+  | { href: string }
 );
 type MenuColumn = { label: string; links: MenuLink[] };
 type Featured = { eyebrow: string; title: string; cta: string; href: string };
@@ -98,17 +106,17 @@ const resourcesMenu: Menu = {
         {
           title: "Leak Report 2026",
           description: "Where contractors lose margin",
-          href: placeholderHref,
+          to: "/leak-report-2026",
         },
-        { title: "Guides", description: "Quoting, scheduling, payroll", href: placeholderHref },
-        { title: "Blog", description: "Notes from the field", href: placeholderHref },
+        { title: "Guides", description: "Quoting, scheduling, payroll", to: "/guides" },
+        { title: "Blog", description: "Notes from the field", to: "/blog" },
       ],
     },
     {
       label: "Company",
       links: [
         { title: "Case studies", description: "Real numbers from real firms", to: "/proof" },
-        { title: "Security & compliance", description: "BAFE, NSI, GDPR", href: placeholderHref },
+        { title: "Security & compliance", description: "BAFE, NSI, GDPR", to: "/security" },
         { title: "About", description: "Who builds Vero", to: "/about" },
       ],
     },
@@ -501,7 +509,12 @@ export function SiteHeader() {
               <span className="vh-nav-label">{item.label}</span>
             </Link>
           ))}
-          <MegaMenu {...menuProps(resourcesMenu, pathname === "/about")} />
+          <MegaMenu
+            {...menuProps(
+              resourcesMenu,
+              resourcePaths.some((p) => pathname.startsWith(p)),
+            )}
+          />
         </nav>
         <div className="flex items-center gap-2">
           <a

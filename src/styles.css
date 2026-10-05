@@ -212,3 +212,66 @@ html { scroll-padding-top: 96px; }
 .vh-panel { transform: translateX(-50%); animation: vh-panel-in .18s ease-out both; }
 @keyframes vh-panel-in { from { opacity: 0; transform: translate(-50%, -6px); } to { opacity: 1; transform: translate(-50%, 0); } }
 @media (prefers-reduced-motion: reduce) { .vh-panel { animation: none; } }
+
+/* Long-form content (/content markdown) on the dark surface. */
+.prose-vero { max-width: 68ch; font-size: 1.0625rem; line-height: 1.65; color: rgba(240,239,234,.86); }
+.prose-vero > :first-child { margin-top: 0; }
+.prose-vero > * + * { margin-top: 1.1em; }
+.prose-vero h2, .prose-vero h3 { color: var(--color-bone); font-family: var(--font-display); font-weight: 600; scroll-margin-top: 110px; }
+.prose-vero h2 { margin-top: 2.4em; font-size: 1.75rem; line-height: 1.2; }
+.prose-vero h3 { margin-top: 2em; font-size: 1.25rem; line-height: 1.3; }
+.prose-vero :is(h2, h3) + * { margin-top: .75em; }
+.prose-vero strong { color: var(--color-bone); font-weight: 600; }
+.prose-vero ul { list-style: disc; padding-left: 1.25em; }
+.prose-vero ol { list-style: decimal; padding-left: 1.4em; }
+.prose-vero li + li { margin-top: .45em; }
+.prose-vero li::marker { color: var(--color-mint); }
+.prose-vero li:has(> .task-box) { list-style: none; margin-left: -1.25em; }
+.prose-vero .task-box { display: inline-block; width: .9em; height: .9em; margin-right: .6em; vertical-align: -.1em; border: 1.5px solid var(--color-mint); border-radius: 3px; }
+.prose-vero code { font-family: var(--font-label); font-size: .9em; }
+.prose-vero pre { overflow-x: auto; border-radius: 10px; background: var(--color-panel); padding: 1em; }
+.prose-table { overflow-x: auto; border: 1px solid rgba(240,239,234,.1); border-radius: 12px; }
+.prose-table:focus-visible { outline: 2px solid var(--color-mint); outline-offset: 3px; }
+.prose-table table { width: 100%; min-width: 32rem; border-collapse: collapse; font-size: .95rem; line-height: 1.5; }
+.prose-table th, .prose-table td { padding: .7rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid rgba(240,239,234,.08); }
+.prose-table tr:last-child td { border-bottom: 0; }
+.prose-table th { color: var(--color-bone); font-weight: 600; background: var(--color-panel); }
+.prose-table th:empty { display: none; }
+
+/* `[[...]]` in content: a fact the owner must confirm. The production build fails while any remain. */
+mark.placeholder { background: #FDE047; color: #1C1917; padding: 0 .2em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+.prose-vero a { color: var(--color-mint); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.prose-vero a:hover { text-decoration-thickness: 2px; }
+.prose-vero a:focus-visible { outline: 2px solid var(--color-mint); outline-offset: 3px; border-radius: 2px; }
+/* Section anchors: hidden until the heading is hovered or the anchor is focused. */
+.prose-vero .heading-anchor { margin-left: .35em; color: var(--color-dim); text-decoration: none; opacity: 0; transition: opacity .15s ease; }
+.prose-vero h2:hover .heading-anchor, .prose-vero .heading-anchor:focus-visible { opacity: 1; }
+@media (hover: none) { .prose-vero .heading-anchor { opacity: 1; } }
+/* Site map: the link groups stack, then sit side by side as four columns on wide screens. */
+.site-map .prose-vero { max-width: none; }
+.site-map .prose-vero ul { list-style: none; padding-left: 0; }
+.site-map .prose-vero ul ul { padding-left: 1rem; margin-top: .45em; border-left: 1px solid rgba(240,239,234,.12); }
+.site-map .prose-vero > h2 { font-size: 1.1rem; }
+@media (min-width: 1100px) {
+  .site-map .prose-vero { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 3rem; }
+  .site-map .prose-vero > h2 { grid-row: 1; margin-top: 0; }
+  .site-map .prose-vero > ul { grid-row: 2; margin-top: .9em; }
+}
+
+/* Printing a page: content only, dark text on white. */
+@media print {
+  .print-hide, header.vh-header, .heading-anchor { display: none !important; }
+  *, *::before, *::after { color: #000 !important; background: transparent !important; box-shadow: none !important; }
+  body, main { background: #fff !important; }
+  .hero-grid { padding-top: 0 !important; background-image: none !important; }
+  .hero-grid > div, .hero-grid + div { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .prose-vero { max-width: none; }
+  .prose-vero a { text-decoration: underline; }
+  .prose-table { overflow: visible; border-color: #999; }
+  .prose-table table { min-width: 0; }
+  .prose-table th, .prose-table td { border-color: #ccc; }
+  mark.placeholder { background: #FDE047 !important; }
+  h1, h2, h3 { break-after: avoid; }
+  tr, li { break-inside: avoid; }
+}

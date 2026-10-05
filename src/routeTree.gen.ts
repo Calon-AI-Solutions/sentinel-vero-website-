@@ -12,7 +12,17 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CustomBuildRouteImport } from './routes/custom-build'
+import { Route as LeakReport2026RouteImport } from './routes/leak-report-2026'
 import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as SecurityRouteImport } from './routes/security'
+import { Route as SiteMapRouteImport } from './routes/site-map'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as GuidesIndexRouteImport } from './routes/guides.index'
+import { Route as GuidesSlugRouteImport } from './routes/guides.$slug'
+import { Route as LegalIndexRouteImport } from './routes/legal.index'
+import { Route as LegalSlugRouteImport } from './routes/legal.$slug'
 import { Route as ProofIndexRouteImport } from './routes/proof.index'
 import { Route as ProofSlugRouteImport } from './routes/proof.$slug'
 
@@ -31,9 +41,59 @@ const CustomBuildRoute = CustomBuildRouteImport.update({
   path: '/custom-build',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LeakReport2026Route = LeakReport2026RouteImport.update({
+  id: '/leak-report-2026',
+  path: '/leak-report-2026',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PlatformRoute = PlatformRouteImport.update({
   id: '/platform',
   path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteMapRoute = SiteMapRouteImport.update({
+  id: '/site-map',
+  path: '/site-map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesIndexRoute = GuidesIndexRouteImport.update({
+  id: '/guides/',
+  path: '/guides/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesSlugRoute = GuidesSlugRouteImport.update({
+  id: '/guides/$slug',
+  path: '/guides/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalIndexRoute = LegalIndexRouteImport.update({
+  id: '/legal/',
+  path: '/legal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalSlugRoute = LegalSlugRouteImport.update({
+  id: '/legal/$slug',
+  path: '/legal/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProofIndexRoute = ProofIndexRouteImport.update({
@@ -51,16 +111,36 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/custom-build': typeof CustomBuildRoute
+  '/leak-report-2026': typeof LeakReport2026Route
   '/platform': typeof PlatformRoute
+  '/security': typeof SecurityRoute
+  '/site-map': typeof SiteMapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/guides/$slug': typeof GuidesSlugRoute
+  '/legal/$slug': typeof LegalSlugRoute
   '/proof/$slug': typeof ProofSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/guides/': typeof GuidesIndexRoute
+  '/legal/': typeof LegalIndexRoute
   '/proof/': typeof ProofIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/custom-build': typeof CustomBuildRoute
+  '/leak-report-2026': typeof LeakReport2026Route
   '/platform': typeof PlatformRoute
+  '/security': typeof SecurityRoute
+  '/site-map': typeof SiteMapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/guides/$slug': typeof GuidesSlugRoute
+  '/legal/$slug': typeof LegalSlugRoute
   '/proof/$slug': typeof ProofSlugRoute
+  '/blog': typeof BlogIndexRoute
+  '/guides': typeof GuidesIndexRoute
+  '/legal': typeof LegalIndexRoute
   '/proof': typeof ProofIndexRoute
 }
 export interface FileRoutesById {
@@ -68,23 +148,74 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/custom-build': typeof CustomBuildRoute
+  '/leak-report-2026': typeof LeakReport2026Route
   '/platform': typeof PlatformRoute
+  '/security': typeof SecurityRoute
+  '/site-map': typeof SiteMapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/guides/$slug': typeof GuidesSlugRoute
+  '/legal/$slug': typeof LegalSlugRoute
   '/proof/$slug': typeof ProofSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/guides/': typeof GuidesIndexRoute
+  '/legal/': typeof LegalIndexRoute
   '/proof/': typeof ProofIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/custom-build' | '/platform' | '/proof/$slug' | '/proof/'
+    | '/'
+    | '/about'
+    | '/custom-build'
+    | '/leak-report-2026'
+    | '/platform'
+    | '/security'
+    | '/site-map'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/guides/$slug'
+    | '/legal/$slug'
+    | '/proof/$slug'
+    | '/blog/'
+    | '/guides/'
+    | '/legal/'
+    | '/proof/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/custom-build' | '/platform' | '/proof/$slug' | '/proof'
+  to:
+    | '/'
+    | '/about'
+    | '/custom-build'
+    | '/leak-report-2026'
+    | '/platform'
+    | '/security'
+    | '/site-map'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/guides/$slug'
+    | '/legal/$slug'
+    | '/proof/$slug'
+    | '/blog'
+    | '/guides'
+    | '/legal'
+    | '/proof'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/custom-build'
+    | '/leak-report-2026'
     | '/platform'
+    | '/security'
+    | '/site-map'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/guides/$slug'
+    | '/legal/$slug'
     | '/proof/$slug'
+    | '/blog/'
+    | '/guides/'
+    | '/legal/'
     | '/proof/'
   fileRoutesById: FileRoutesById
 }
@@ -92,8 +223,18 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CustomBuildRoute: typeof CustomBuildRoute
+  LeakReport2026Route: typeof LeakReport2026Route
   PlatformRoute: typeof PlatformRoute
+  SecurityRoute: typeof SecurityRoute
+  SiteMapRoute: typeof SiteMapRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  GuidesSlugRoute: typeof GuidesSlugRoute
+  LegalSlugRoute: typeof LegalSlugRoute
   ProofSlugRoute: typeof ProofSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  GuidesIndexRoute: typeof GuidesIndexRoute
+  LegalIndexRoute: typeof LegalIndexRoute
   ProofIndexRoute: typeof ProofIndexRoute
 }
 
@@ -120,11 +261,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CustomBuildRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/leak-report-2026': {
+      id: '/leak-report-2026'
+      path: '/leak-report-2026'
+      fullPath: '/leak-report-2026'
+      preLoaderRoute: typeof LeakReport2026RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/platform': {
       id: '/platform'
       path: '/platform'
       fullPath: '/platform'
       preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/site-map': {
+      id: '/site-map'
+      path: '/site-map'
+      fullPath: '/site-map'
+      preLoaderRoute: typeof SiteMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/': {
+      id: '/guides/'
+      path: '/guides'
+      fullPath: '/guides/'
+      preLoaderRoute: typeof GuidesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/$slug': {
+      id: '/guides/$slug'
+      path: '/guides/$slug'
+      fullPath: '/guides/$slug'
+      preLoaderRoute: typeof GuidesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/': {
+      id: '/legal/'
+      path: '/legal'
+      fullPath: '/legal/'
+      preLoaderRoute: typeof LegalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/$slug': {
+      id: '/legal/$slug'
+      path: '/legal/$slug'
+      fullPath: '/legal/$slug'
+      preLoaderRoute: typeof LegalSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/proof/': {
@@ -148,8 +359,18 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CustomBuildRoute: CustomBuildRoute,
+  LeakReport2026Route: LeakReport2026Route,
   PlatformRoute: PlatformRoute,
+  SecurityRoute: SecurityRoute,
+  SiteMapRoute: SiteMapRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  GuidesSlugRoute: GuidesSlugRoute,
+  LegalSlugRoute: LegalSlugRoute,
   ProofSlugRoute: ProofSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  GuidesIndexRoute: GuidesIndexRoute,
+  LegalIndexRoute: LegalIndexRoute,
   ProofIndexRoute: ProofIndexRoute,
 }
 export const routeTree = rootRouteImport
