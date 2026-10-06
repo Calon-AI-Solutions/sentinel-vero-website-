@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Linkedin } from "lucide-react";
+import { ArrowDown, ArrowRight, Linkedin } from "lucide-react";
 import { type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -50,6 +50,21 @@ export function SiteFooter() {
           <p className="mt-2 max-w-sm text-sm text-background/65">
             Operational truth, made visible for fire and security contractors.
           </p>
+          <a
+            href="/downloads/sentinel-vero-company-deck.pdf"
+            download
+            className="vh-focus group mt-6 inline-flex items-center gap-4 rounded-full"
+          >
+            <span className="grid size-12 shrink-0 place-items-center rounded-full bg-mint text-ink transition-colors group-hover:bg-mint-hover">
+              <ArrowDown aria-hidden="true" className="size-5" />
+            </span>
+            <span>
+              <span className="block font-display text-lg font-semibold leading-tight text-background">
+                Company Deck
+              </span>
+              <span className="block text-sm text-background/60">PDF, 82 KB</span>
+            </span>
+          </a>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-background/70">
           {navItems.map((item) => (
