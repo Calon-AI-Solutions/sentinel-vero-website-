@@ -1,21 +1,21 @@
 ---
 title: "Privacy policy"
 slug: privacy
-summary: "How Calon AI Solutions collects, uses and protects personal information through our website and Vero."
+summary: "How Sentinel Vero collects, uses and protects personal information through our website and Vero."
 metaTitle: "Privacy Policy | Vero"
-metaDescription: "How Calon AI Solutions Ltd collects, uses, shares and protects personal information through the Vero website and platform, and your rights under UK GDPR."
-lastReviewed: "[[REVIEW DATE]]"
+metaDescription: "How Sentinel Vero Ltd collects, uses, shares and protects personal information through the Vero website and platform, and your rights under UK GDPR."
+lastReviewed: "2026-10-03"
 ---
 
 # Privacy policy
 
-This policy explains how Calon AI Solutions Ltd ("we", "us") collects, uses and protects personal information through our website and our Vero platform, and the rights you have over it.
+This policy explains how Sentinel Vero Ltd ("we", "us") collects, uses and protects personal information through our website and our Vero platform, and the rights you have over it.
 
 ## Who we are
 
-Calon AI Solutions Ltd builds and operates Vero. We are registered in England and Wales, company number 15984397, with our registered office at [[FULL REGISTERED ADDRESS WITH POSTCODE]]. Our ICO registration number is [[ICO NUMBER]].
+Sentinel Vero Ltd operates Vero. We are registered in England and Wales, company number 17492624. The Vero technology is built and maintained by our partner, Calon AI Solutions Ltd (company number 15984397), which acts as our processor.
 
-For any privacy question, email [[PRIVACY EMAIL]].
+For any privacy question, email [hello@sentinelvero.com](mailto:hello@sentinelvero.com). Our founder, Mahbubul Alom, is ISO certified in data processing.
 
 ## Two roles we play
 
@@ -71,12 +71,12 @@ Some of our subprocessors process information outside the UK. Where they do, we 
 
 | Information | How long |
 |---|---|
-| Enquiries and demo requests that do not lead to a contract | [[2 years]] from our last contact |
-| Vero account information | For as long as your employer's contract continues, then [[90 days]] |
+| Enquiries and demo requests that do not lead to a contract | 2 years from our last contact |
+| Vero account information | For as long as your employer's contract continues, then 90 days |
 | Contract, invoicing and tax records | 6 years after the end of the financial year they relate to |
-| Support conversations | [[3 years]] from the conversation |
+| Support conversations | 3 years from the conversation |
 | Marketing records | Until you opt out, after which we keep only what we need to respect your opt out |
-| Website analytics | [[14 months]] |
+| Website analytics | 14 months |
 
 ## How we protect it
 
@@ -94,7 +94,7 @@ Under UK data protection law you can ask us to:
 - Give you your information in a portable format, where the law allows
 - Withdraw your consent at any time, where we rely on consent
 
-To use any of these rights, email [[PRIVACY EMAIL]]. We will reply within one month. We may need to confirm your identity first. There is normally no charge.
+To use any of these rights, email [hello@sentinelvero.com](mailto:hello@sentinelvero.com). We will reply within one month. We may need to confirm your identity first. There is normally no charge.
 
 ## Complaints
 

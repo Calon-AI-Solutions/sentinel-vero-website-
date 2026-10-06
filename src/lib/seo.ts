@@ -5,7 +5,7 @@ type JsonLd = Record<string, unknown>;
 
 const publisher = {
   "@type": "Organization",
-  name: "Calon AI Solutions Ltd",
+  name: "Sentinel Vero Ltd",
   brand: { "@type": "Brand", name: "Vero" },
 };
 
@@ -44,15 +44,11 @@ export const articleLd = (doc: Doc): JsonLd => ({
 export const organizationLd: JsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Calon AI Solutions Ltd",
-  legalName: "Calon AI Solutions Ltd",
+  name: "Sentinel Vero Ltd",
+  legalName: "Sentinel Vero Ltd",
   brand: { "@type": "Brand", name: "Vero" },
-  identifier: { "@type": "PropertyValue", name: "Company number", value: "15984397" },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Ty Merlin, Caerphilly Business Park",
-    addressCountry: "GB",
-  },
+  identifier: { "@type": "PropertyValue", name: "Company number", value: "17492624" },
+  address: { "@type": "PostalAddress", addressCountry: "GB" },
 };
 
 export function docHead(doc: Doc, crumbs: Crumb[], jsonLd: JsonLd[] = []) {
