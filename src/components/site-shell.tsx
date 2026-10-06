@@ -44,7 +44,10 @@ export function SiteFooter() {
       <div className="site-container grid gap-10 py-12 md:grid-cols-[1fr_auto] md:items-end">
         <div>
           <BrandMark />
-          <p className="mt-5 max-w-sm text-sm text-background/65">
+          <p className="mt-5 font-display text-base font-semibold text-background">
+            Eliminate the graft, elevate the craft.
+          </p>
+          <p className="mt-2 max-w-sm text-sm text-background/65">
             Operational truth, made visible for fire and security contractors.
           </p>
         </div>
