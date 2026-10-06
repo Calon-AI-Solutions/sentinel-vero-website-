@@ -102,7 +102,7 @@ export function CtaBlock({ cta }: { cta: Cta }) {
         </div>
         <div className="flex shrink-0 flex-col items-start gap-2">
           <a
-            href="#watch-demo"
+            href="mailto:hello@sentinelvero.com?subject=Book%20a%20demo"
             className="vh-focus inline-flex h-12 items-center gap-2 rounded-[10px] bg-mint px-6 text-[15px] font-semibold text-ink transition-colors hover:bg-mint-hover"
           >
             {cta.label} <ArrowRight aria-hidden="true" className="size-4" />
