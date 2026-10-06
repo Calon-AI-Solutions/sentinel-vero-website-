@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Linkedin } from "lucide-react";
+import { ArrowDown, ArrowRight, Linkedin } from "lucide-react";
 import { type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -44,9 +44,27 @@ export function SiteFooter() {
       <div className="site-container grid gap-10 py-12 md:grid-cols-[1fr_auto] md:items-end">
         <div>
           <BrandMark />
-          <p className="mt-5 max-w-sm text-sm text-background/65">
+          <p className="mt-5 font-display text-base font-semibold text-background">
+            Eliminate the graft, elevate the craft.
+          </p>
+          <p className="mt-2 max-w-sm text-sm text-background/65">
             Operational truth, made visible for fire and security contractors.
           </p>
+          <a
+            href="/downloads/sentinel-vero-company-deck.pdf"
+            download
+            className="vh-focus group mt-6 inline-flex items-center gap-4 rounded-full"
+          >
+            <span className="grid size-12 shrink-0 place-items-center rounded-full bg-mint text-ink transition-colors group-hover:bg-mint-hover">
+              <ArrowDown aria-hidden="true" className="size-5" />
+            </span>
+            <span>
+              <span className="block font-display text-lg font-semibold leading-tight text-background">
+                Company Deck
+              </span>
+              <span className="block text-sm text-background/60">PDF, 82 KB</span>
+            </span>
+          </a>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-background/70">
           {navItems.map((item) => (
@@ -109,8 +127,8 @@ export function SiteFooter() {
       </div>
       <div className="site-container flex flex-col gap-2 border-t border-background/15 py-5 text-xs text-background/65 sm:flex-row sm:justify-between">
         <span>
-          © {__BUILD_YEAR__} Calon AI Solutions Ltd. Registered in England and Wales, company number
-          15984397.
+          © {__BUILD_YEAR__} Sentinel Vero Ltd. Registered in England and Wales, company number
+          17492624. Technology built by our partner Calon AI Solutions Ltd.
         </span>
         <span>See the leaks. Fix the system.</span>
       </div>

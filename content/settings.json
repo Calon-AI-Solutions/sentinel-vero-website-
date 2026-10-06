@@ -1,10 +1,10 @@
 {
   "siteUrl": "https://vero-sight-flow.vercel.app",
-  "demoUrl": "[[DEMO URL]]",
-  "legalEmail": "[[LEGAL EMAIL]]",
-  "developerCentreUrl": "[[DEVELOPER CENTRE URL]]",
+  "demoUrl": "",
+  "legalEmail": "hello@sentinelvero.com",
+  "developerCentreUrl": "",
   "social": {
-    "linkedin": "[[LINKEDIN URL]]"
+    "linkedin": ""
   },
   "optionalCookieCategories": []
 }

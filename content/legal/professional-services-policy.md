@@ -3,8 +3,8 @@ title: "Professional services policy"
 slug: professional-services
 summary: "How we scope, price and deliver onboarding, data migration, training and custom work."
 metaTitle: "Professional Services Policy | Vero"
-metaDescription: "How Calon AI Solutions scopes, prices and delivers professional services for Vero customers: onboarding, data migration, training, templates, integrations and custom work."
-lastReviewed: "[[REVIEW DATE]]"
+metaDescription: "How Sentinel Vero Ltd scopes, prices and delivers professional services for Vero customers: onboarding, data migration, training, templates, integrations and custom work."
+lastReviewed: "2026-09-23"
 ---
 
 # Professional services policy
@@ -35,7 +35,7 @@ We do not start chargeable work without your written approval.
 
 ## Pricing
 
-Work is priced either as a fixed fee for a clearly defined scope, or by time at our day rate of [[DAY RATE]] plus VAT. The statement of work says which.
+Work is priced either as a fixed fee for a clearly defined scope, or by time at the day rate set out in the statement of work, plus VAT. The statement of work says which.
 
 Travel and accommodation for on site work are charged at cost, and agreed in advance.
 
@@ -55,11 +55,11 @@ If you want to change what was agreed, we will set out the effect on price and t
 
 ## Acceptance
 
-When we complete a deliverable, you have [[5 business days]] to check it against the statement of work and tell us about anything that does not match. We will fix those points at no extra cost. If we hear nothing in that time, the deliverable is treated as accepted.
+When we complete a deliverable, you have 5 business days to check it against the statement of work and tell us about anything that does not match. We will fix those points at no extra cost. If we hear nothing in that time, the deliverable is treated as accepted.
 
 ## Rescheduling and cancellation
 
-Training or on site sessions cancelled with less than [[2 business days]] notice may be charged in full, plus any travel costs already incurred.
+Training or on site sessions cancelled with less than 2 business days notice may be charged in full, plus any travel costs already incurred.
 
 ## Ownership
 

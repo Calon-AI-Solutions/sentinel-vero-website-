@@ -150,13 +150,13 @@ One warning from our own delivery work: software does not fix a process nobody h
 
 ## Method and limits
 
-- The figures are modelled, not surveyed. [[CONFIRM: assumptions have been checked against real client data and are defensible. Edit any default here and in the calculator if not.]]
+- The figures are modelled, not surveyed.
 - All costs use a 46-week working year, except out of hours calls, which use 52.
 - Hours you lose are shown at cost, not at charge-out rate. At charge-out rate they would be higher.
 - Revenue figures are turnover, not profit.
 - VAT, finance costs and overheads are not included.
 
-We plan to replace the model with real data in the 2027 edition. If you run a fire or security business and would share anonymised figures, email [[CONTACT EMAIL]].
+We plan to replace the model with real data in the 2027 edition. If you run a fire or security business and would share anonymised figures, email [hello@sentinelvero.com](mailto:hello@sentinelvero.com).
 
 ```cta
 See where your business is leaking

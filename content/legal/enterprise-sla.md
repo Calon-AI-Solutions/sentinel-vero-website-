@@ -4,7 +4,7 @@ slug: enterprise-sla
 summary: "The uptime commitment and service credits available to enterprise customers."
 metaTitle: "Enterprise Service Level Agreement | Vero"
 metaDescription: "Vero's Enterprise Service Level Agreement: the monthly uptime commitment, how uptime is measured, exclusions, and the service credits available."
-lastReviewed: "[[REVIEW DATE]]"
+lastReviewed: "2026-09-24"
 ---
 
 # Enterprise SLA
@@ -13,13 +13,13 @@ Enterprise customers can agree a Service Level Agreement ("SLA") with a monthly 
 
 ## Our commitment
 
-We aim for Vero to be available at least [[UPTIME PERCENTAGE]] of the time in each calendar month.
+We aim for Vero to be available at least 99.5% of the time in each calendar month.
 
 ## How we measure it
 
 **Available** means your users can sign in to Vero and use its core functions: viewing and updating jobs, scheduling, and issuing certificates.
 
-We check availability from outside our hosting environment every [[1 minute]]. A minute counts as unavailable if Vero fails every check in that minute.
+We check availability from outside our hosting environment every minute. A minute counts as unavailable if Vero fails every check in that minute.
 
 **Monthly uptime** is calculated as:
 
@@ -27,7 +27,7 @@ We check availability from outside our hosting environment every [[1 minute]]. A
 
 ## What does not count as downtime
 
-- Planned maintenance we have announced at least [[5 business days]] in advance, within the window in our [Product update policy](/legal/product-updates)
+- Planned maintenance we have announced at least 5 business days in advance, within the window in our [Product update policy](/legal/product-updates)
 - Emergency maintenance to fix a serious security problem, limited to what is needed
 - Problems caused by your devices, networks, internet connection or third party software, or by your breach of our terms
 - Problems with an integration you have chosen to connect, where the fault is with that third party
@@ -40,21 +40,21 @@ If monthly uptime falls below our commitment, you can claim a credit against you
 
 | Monthly uptime | Service credit |
 |---|---|
-| Below [[UPTIME PERCENTAGE]] but at or above [[99.0%]] | [[5%]] |
-| Below [[99.0%]] but at or above [[95.0%]] | [[10%]] |
-| Below [[95.0%]] | [[25%]] |
+| Below 99.5% but at or above 99.0% | 5% |
+| Below 99.0% but at or above 95.0% | 10% |
+| Below 95.0% | 25% |
 
 ## How to claim
 
-Email [[SUPPORT EMAIL]] within 30 days of the end of the month concerned, with the dates and times you were affected. We will confirm the credit, or explain why it does not apply, within [[10]] business days.
+Email [hello@sentinelvero.com](mailto:hello@sentinelvero.com) within 30 days of the end of the month concerned, with the dates and times you were affected. We will confirm the credit, or explain why it does not apply, within 10 business days.
 
 ## Limits
 
 - Credits are the only remedy for missing the uptime commitment, unless your agreement says otherwise.
-- Credits in any month cannot exceed [[25%]] of that month's subscription fee.
+- Credits in any month cannot exceed 25% of that month's subscription fee.
 - Credits are applied to future invoices. They are not paid in cash and cannot be transferred.
 - You cannot claim credits for a month in which your account was overdue.
 
 ## Status and incidents
 
-Current availability and any incidents are shown at [[STATUS PAGE URL]]. For Priority 1 incidents, we will also contact your nominated contacts directly.
+We tell account administrators about incidents by email. For Priority 1 incidents, we will also contact your nominated contacts directly.
