@@ -4,7 +4,7 @@ slug: devices
 summary: "The browsers, phones and tablets Vero supports, and how to keep them secure."
 metaTitle: "Devices Policy: Supported Browsers and Devices | Vero"
 metaDescription: "The browsers, computers, phones and tablets Vero supports for office staff and engineers, the permissions the engineer app needs, and how to keep devices secure."
-lastReviewed: "[[REVIEW DATE]]"
+lastReviewed: "2026-10-06"
 ---
 
 # Devices policy
@@ -24,14 +24,12 @@ We recommend a screen of at least 1280 by 720 pixels. Scheduling and reporting s
 
 ## Engineer phones and tablets
 
-[[CONFIRM THE MINIMUM VERSIONS YOU TEST ON]]
-
 | Platform | Minimum version | Browser used by the app |
 |---|---|---|
-| iPhone and iPad | iOS [[17]] or later | Safari |
-| Android | Android [[12]] or later | Chrome |
+| iPhone and iPad | iOS 17 or later | Safari |
+| Android | Android 12 or later | Chrome |
 
-The engineer app is installed from the browser to the home screen. [[CONFIRM INSTALL STEPS OR LINK TO A HELP ARTICLE]]
+The engineer app is installed from the browser to the home screen. We walk your engineers through it during onboarding.
 
 ## Permissions the engineer app needs
 
@@ -39,14 +37,10 @@ The engineer app is installed from the browser to the home screen. [[CONFIRM INS
 |---|---|
 | Camera | Photo evidence of work and scanning asset tags |
 | Microphone | Recording voice notes for site reports |
-| Location | Confirming arrival at site and calculating travel [[CONFIRM WHETHER LOCATION COMES FROM THE PHONE, THE VEHICLE TRACKER, OR BOTH]] |
+| Location | Confirming arrival at site and calculating travel, using the phone's location |
 | Notifications | New jobs, changes and reminders |
 
 If a permission is turned off, the related feature will not work, but the rest of the app will.
-
-## Working without signal
-
-[[CONFIRM OFFLINE BEHAVIOUR. For example: "Engineers can view today's jobs and record notes and photos without signal. Everything is sent when the connection returns." Delete this section if offline use is not supported.]]
 
 ## Keeping devices secure
 

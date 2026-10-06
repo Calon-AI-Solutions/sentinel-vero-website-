@@ -18,7 +18,7 @@ metaDescription: "A full list of pages on the Vero website."
   - [Why an engineer with 17 years on the tools finished with paperwork](/proof/volt-secure-field-team)
   - [Why JOC Security Growth recommended a platform built for security firms](/proof/joc-security-growth)
 - [About](/about)
-- [Book a demo]([[DEMO URL]])
+- [Book a demo](#watch-demo)
 
 ## Learn
 

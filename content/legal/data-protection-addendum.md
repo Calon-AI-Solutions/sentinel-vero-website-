@@ -4,7 +4,7 @@ slug: data-protection-addendum
 summary: "The terms under which we process personal data on behalf of our customers under UK GDPR."
 metaTitle: "UK Data Protection Addendum (UK GDPR) | Vero"
 metaDescription: "Vero's UK Data Protection Addendum: the terms under which Calon AI Solutions Ltd processes personal data as a processor for customers under UK GDPR and the Data Protection Act 2018."
-lastReviewed: "[[REVIEW DATE]]"
+lastReviewed: "2026-10-06"
 ---
 
 # UK Data Protection Addendum
@@ -48,7 +48,7 @@ We will implement and maintain appropriate technical and organisational measures
 
 You give us general authorisation to engage subprocessors. Our current subprocessors are listed on our [subprocessors page](/legal/subprocessors).
 
-Before we add or replace a subprocessor, we will give you at least [[30]] days notice by [[email to your account administrator / a subscription on the subprocessors page]]. You may object on reasonable data protection grounds within that period. If we cannot resolve the objection, you may end the affected part of the service and we will refund any prepaid fees for the period after termination.
+Before we add or replace a subprocessor, we will give you at least 30 days notice by email to your account administrator. You may object on reasonable data protection grounds within that period. If we cannot resolve the objection, you may end the affected part of the service and we will refund any prepaid fees for the period after termination.
 
 We will put a written contract in place with each subprocessor that gives Customer Personal Data the same level of protection as this Addendum. We remain responsible to you for our subprocessors' performance.
 
@@ -66,7 +66,7 @@ We will give you reasonable help with data protection impact assessments, prior 
 
 ## 10. Personal data breaches
 
-We will notify you without undue delay, and in any event within [[48]] hours, after becoming aware of a personal data breach affecting Customer Personal Data. Our notice will include, as far as we then know:
+We will notify you without undue delay, and in any event within 48 hours, after becoming aware of a personal data breach affecting Customer Personal Data. Our notice will include, as far as we then know:
 
 - What happened, and when
 - The categories and approximate number of data subjects and records affected
@@ -77,13 +77,13 @@ We will provide further information as it becomes available, and cooperate with 
 
 ## 11. End of the service
 
-When the Agreement ends, you may export your Customer Personal Data using Vero's export features for [[30]] days. After that, we will delete Customer Personal Data within [[90]] days, including from backups on their normal rotation, unless the law requires us to keep it. If the law requires us to keep it, we will protect it and process it only for that purpose.
+When the Agreement ends, you may export your Customer Personal Data using Vero's export features for 30 days. After that, we will delete Customer Personal Data within 90 days, including from backups on their normal rotation, unless the law requires us to keep it. If the law requires us to keep it, we will protect it and process it only for that purpose.
 
 ## 12. Audits
 
 We will make available the information reasonably needed to show that we comply with this Addendum. This will normally be our written answers to your security questionnaire and our current security documentation.
 
-If that information is not enough, or a regulator requires it, you may carry out an audit, or appoint an independent auditor bound by confidentiality, once in any 12 month period, with at least [[30]] days notice, during normal business hours, and in a way that does not disrupt our business or compromise other customers' data. You will bear the costs of any audit unless it reveals a material breach of this Addendum.
+If that information is not enough, or a regulator requires it, you may carry out an audit, or appoint an independent auditor bound by confidentiality, once in any 12 month period, with at least 30 days notice, during normal business hours, and in a way that does not disrupt our business or compromise other customers' data. You will bear the costs of any audit unless it reveals a material breach of this Addendum.
 
 ## 13. Liability
 

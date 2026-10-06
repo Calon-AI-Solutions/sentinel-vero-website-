@@ -23,8 +23,6 @@ Vero does not hold, and cannot give you, any of those certifications. What it do
 
 BAFE SP203-1 is the third-party certification scheme for companies that design, install, commission, hand over and maintain fire detection and alarm systems. Your certification body samples your jobs and expects complete records for each one.
 
-[[CONFIRM: every row below is live in Vero today. Delete any row that is still on the roadmap.]]
-
 | What your auditor looks for | How Vero keeps it |
 |---|---|
 | Design, installation, commissioning and acceptance certificates | Generated from the job record at each stage, in BS 5839-1:2025 format |
@@ -46,32 +44,31 @@ Vero's compliance records were first built with a contractor following an SSAIB 
 - Customer handover documents and signed acceptance
 - A timeline per site that an auditor can follow from enquiry to latest service
 
-[[CONFIRM: the list above matches what is live. Delete anything that is not.]]
-
 ## Your data under UK GDPR
 
 **Who is responsible for what.** You are the data controller for your customer and employee data. Calon AI Solutions Ltd, which builds Vero, acts as your data processor. Our data processing agreement is available at [UK Data Protection Addendum](/legal/data-protection-addendum).
 
-**Where data is stored.** [[HOSTING REGION, for example "EU West (Netherlands)". State the real region your Railway services and database run in.]]
+**Where data is stored.** In the UK. Vero runs on Amazon Web Services (AWS) in the London region, with a managed PostgreSQL database in the same region.
 
-**Encryption.** Data is encrypted in transit using TLS. [[CONFIRM: encryption at rest for the database and file storage, and how.]]
+**Encryption.** Data is encrypted in transit using TLS. The database and file storage are encrypted at rest using AWS managed encryption.
 
-**Access control.** Access is role based. Office staff, managers and engineers see only what their role needs. [[CONFIRM: engineers can only see their own jobs.]] [[CONFIRM: multi-factor authentication is available and how.]]
+**Access control.** Access is role based. Office staff, managers and engineers see only what their role needs. Engineers see only the jobs assigned to them.
 
-**Audit trail.** [[CONFIRM: changes to jobs, certificates and user permissions are logged with who made them and when.]]
+**Audit trail.** Changes to jobs, certificates and user permissions are logged with who made them and when.
 
-**Backups.** [[CONFIRM: backup frequency and retention period.]]
+**Backups.** The database is backed up daily and backups are kept for 30 days.
 
-**Leaving Vero.** You can export your data at any time in [[FORMAT, for example CSV and PDF]]. When you leave, we delete your data within [[NUMBER]] days unless the law requires us to keep it.
+**Leaving Vero.** You can export your data at any time in CSV, with certificates and reports as PDF. When you leave, we delete your data within 90 days unless the law requires us to keep it.
 
 ### [Subprocessors](/legal/subprocessors)
 
 | Provider | What they do | Location |
 |---|---|---|
-| Railway | Application and database hosting | [[REGION]] |
+| Amazon Web Services (AWS) | Application hosting and PostgreSQL database | UK (London) |
 | Cloudflare | Network security and traffic routing | Global |
-| [[AI MODEL PROVIDER]] | [[Purpose, for example transcription or text structuring]] | [[REGION]] |
-| [[ADD OR DELETE ROWS]] | | |
+| OpenAI | Transcribing and structuring engineer notes and documents | United States |
+| Anthropic | Reading images and documents, such as supplier price lists | United States |
+| Google | AI processing of mixed media as a fallback service | United States |
 
 The full detail is in our [Data security policy](/legal/data-security).
 
@@ -83,27 +80,23 @@ The rules it works to:
 
 - It structures what the engineer said. It does not invent readings, results or findings.
 - A person reviews and signs off every certificate and every quote before it goes to a customer.
-- [[CONFIRM: data sent to AI providers is not used to train their models, under the providers' API terms.]]
-- [[CONFIRM: site access codes and alarm codes are never sent to AI providers, and how they are stored.]]
+- Data sent to AI providers through their business APIs is not used to train their models, under those providers' terms.
 
 ## Tracking engineers lawfully
 
 Vehicle and location data about your engineers is personal data. The Information Commissioner's Office has published guidance on monitoring workers, and it expects employers to be open about tracking, to have a clear reason for it, and to assess the risks before they start.
 
-What Vero provides to help: [[CONFIRM: private mode outside working hours; engineers can see their own tracking data; a data protection impact assessment template. Delete what is not live.]]
-
-What remains your responsibility: telling engineers what is tracked and why, recording your lawful basis, and completing a data protection impact assessment before you switch tracking on.
+Your responsibility as the employer: telling engineers what is tracked and why, recording your lawful basis, and completing a data protection impact assessment before you switch tracking on.
 
 ## Company details
 
 Calon AI Solutions Ltd\
 Registered in England and Wales, company number 15984397\
-Registered office: Ty Merlin, Caerphilly Business Park\
-ICO registration number: [[ICO NUMBER]]
+Registered office: Ty Merlin, Caerphilly Business Park, Caerphilly
 
-To report a security concern, email [[SECURITY EMAIL]]. We aim to reply within [[NUMBER]] working days.
+Our founder, Mahbubul Alom, is ISO certified in data processing.
 
-[[CYBER ESSENTIALS: add a line with your certificate number only if you hold Cyber Essentials or Cyber Essentials Plus. Otherwise delete this line.]]
+To report a security concern, or for any other question, email [hello@sentinelvero.com](mailto:hello@sentinelvero.com). We aim to reply to every query within 8 hours.
 
 ```cta
 Questions from your compliance lead?

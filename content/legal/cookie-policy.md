@@ -4,7 +4,7 @@ slug: cookies
 summary: "Which cookies our website uses, why, and how to change your choices."
 metaTitle: "Cookie Policy | Vero"
 metaDescription: "The cookies the Vero website uses, what each one does, how long it lasts, and how to accept, reject or change your choices."
-lastReviewed: "[[REVIEW DATE]]"
+lastReviewed: "2026-10-06"
 ---
 
 # Cookie policy
@@ -25,18 +25,13 @@ You can change your mind at any time using the **Cookie settings** link in the f
 
 **Strictly necessary.** These make the website work, keep it secure, and remember your cookie choices. They are always on, because the site cannot function without them.
 
-**Analytics.** These tell us which pages are visited and how people move around the site, so we can improve it. They are only set if you agree. [[DELETE THIS CATEGORY IF THE SITE USES NO ANALYTICS]]
-
-**Marketing.** These help us measure whether our advertising works. They are only set if you agree. [[DELETE THIS CATEGORY IF THE SITE USES NO MARKETING COOKIES]]
+We do not currently use analytics or marketing cookies. If we add them, we will update this policy and ask for your consent before setting them.
 
 ## Cookies on this website
-
-[[COMPLETE FROM THE COOKIE AUDIT THE CODING AGENT PROVIDES. ONE ROW PER COOKIE ACTUALLY SET.]]
 
 | Cookie name | Provider | Category | What it does | How long it lasts |
 |---|---|---|---|---|
 | vero_consent | Vero | Strictly necessary | Remembers your cookie choices | 6 months |
-| [[NAME]] | [[PROVIDER]] | [[CATEGORY]] | [[PURPOSE]] | [[DURATION]] |
 
 ## Cookies inside the Vero platform
 
@@ -48,4 +43,4 @@ We update this policy when the cookies on our website change. The date at the to
 
 ## Contact
 
-Questions about cookies can be sent to [[PRIVACY EMAIL]].
+Questions about cookies can be sent to [hello@sentinelvero.com](mailto:hello@sentinelvero.com).
