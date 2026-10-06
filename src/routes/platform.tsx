@@ -17,6 +17,7 @@ import {
   Wand2,
 } from "lucide-react";
 
+import { demoHref } from "@/components/demo-request-dialog";
 import {
   Accordion,
   AccordionContent,
@@ -454,7 +455,7 @@ function PlatformPage() {
                 Book a Discovery <ArrowRight className="size-4" />
               </a>
               <a
-                href="#"
+                href={demoHref}
                 className="vh-focus vh-ghost inline-flex h-12 items-center gap-2 rounded-[10px] px-6 font-medium"
               >
                 <Play className="size-4 fill-current" /> Watch demo

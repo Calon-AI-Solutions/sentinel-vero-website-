@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DiscoveryCta } from "@/components/site-shell";
+import { demoHref } from "@/components/demo-request-dialog";
 import { DashboardVisual, FieldVisual } from "@/components/platform-visuals";
 
 export const Route = createFileRoute("/")({
@@ -92,7 +93,7 @@ function HomePage() {
         <p className="mt-7 max-w-2xl text-lg leading-8 text-background/70">You know the leaks are there. You just can’t see them all at once. Sentinel Vero puts every enquiry, quote, job, site and payroll run in one place, with AI already working in the background, so you stop finding out too late.</p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Button asChild variant="signal" size="xl"><a href="mailto:hello@sentinelvero.com?subject=Book%20a%20Discovery">Book a Discovery <ArrowRight /></a></Button>
-          <Button variant="outline" size="xl" className="border-background/30 bg-transparent text-background hover:bg-background/10 hover:text-background"><Play className="fill-current" /> Watch Demo</Button>
+          <Button asChild variant="outline" size="xl" className="border-background/30 bg-transparent text-background hover:bg-background/10 hover:text-background"><a href={demoHref}><Play className="fill-current" /> Watch Demo</a></Button>
         </div>
         <p className="mt-4 max-w-md text-xs leading-5 text-background/50">We don’t publish a price. Because we don’t sell software. We sell control.</p>
       </div>

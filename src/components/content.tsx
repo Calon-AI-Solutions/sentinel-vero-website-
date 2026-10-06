@@ -2,6 +2,7 @@ import { Link, useRouter } from "@tanstack/react-router";
 import type { MouseEvent } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
+import { demoHref } from "@/components/demo-request-dialog";
 import { LeakCalculator } from "@/components/leak-calculator";
 import {
   formatDate,
@@ -91,7 +92,6 @@ export function Callout({ html }: { html: string }) {
 }
 
 export function CtaBlock({ cta }: { cta: Cta }) {
-  const pending = isPlaceholder(settings.demoUrl);
   return (
     <section className="border-t border-bone/10 bg-panel">
       <div className="site-container flex flex-col gap-6 py-14 md:flex-row md:items-end md:justify-between md:py-16">
@@ -103,16 +103,11 @@ export function CtaBlock({ cta }: { cta: Cta }) {
         </div>
         <div className="flex shrink-0 flex-col items-start gap-2">
           <a
-            href={pending ? "#" : settings.demoUrl}
+            href={demoHref}
             className="vh-focus inline-flex h-12 items-center gap-2 rounded-[10px] bg-mint px-6 text-[15px] font-semibold text-ink transition-colors hover:bg-mint-hover"
           >
             {cta.label} <ArrowRight aria-hidden="true" className="size-4" />
           </a>
-          {pending && (
-            <span className="text-xs text-muted-ink">
-              Links to <mark className="placeholder">{settings.demoUrl}</mark>
-            </span>
-          )}
         </div>
       </div>
     </section>

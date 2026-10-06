@@ -11,13 +11,12 @@ import {
   type ReactNode,
 } from "react";
 
+import { demoHref } from "./demo-request-dialog";
+
 // Pages that open on a dark hero. The header overlays these and stays transparent until scrolled.
 const overlayPaths = new Set(["/", "/custom-build", "/platform", "/about"]);
 
 const bookHref = "mailto:hello@sentinelvero.com?subject=Book%20a%20Discovery";
-// Placeholder until the demo video exists.
-const placeholderHref = "#";
-const demoHref = placeholderHref;
 
 // Pages reached from the Resources menu, so its button shows as active on them.
 const resourcePaths = ["/about", "/leak-report-2026", "/guides", "/blog", "/security"];

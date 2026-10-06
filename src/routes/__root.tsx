@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteFooter } from "../components/site-shell";
 import { SiteHeader } from "../components/site-header";
 import { CookieConsent } from "../components/cookie-consent";
+import { DemoRequestDialog } from "../components/demo-request-dialog";
 
 function NotFoundComponent() {
   return (
@@ -136,6 +137,7 @@ function RootComponent() {
         </main>
         <SiteFooter />
         <CookieConsent />
+        <DemoRequestDialog />
       </div>
     </QueryClientProvider>
   );
