@@ -6,7 +6,7 @@ metaTitle: "Security and Compliance: BAFE, NSI, SSAIB and GDPR | Vero"
 metaDescription: "How Vero protects customer and engineer data under UK GDPR, and how it helps fire and security contractors keep audit-ready records for BAFE SP203-1, NSI and SSAIB."
 published: 2026-10-05
 updated: 2026-10-05
-author: "Calon AI Solutions"
+author: "Sentinel Vero"
 ---
 
 # Security and compliance
@@ -46,7 +46,7 @@ Vero's compliance records were first built with a contractor following an SSAIB 
 
 ## Your data under UK GDPR
 
-**Who is responsible for what.** You are the data controller for your customer and employee data. Calon AI Solutions Ltd, which builds Vero, acts as your data processor. Our data processing agreement is available at [UK Data Protection Addendum](/legal/data-protection-addendum).
+**Who is responsible for what.** You are the data controller for your customer and employee data. Sentinel Vero Ltd, which operates Vero, acts as your data processor. The technology is built by our partner Calon AI Solutions Ltd. Our data processing agreement is available at [UK Data Protection Addendum](/legal/data-protection-addendum).
 
 **Where data is stored.** In the UK. Vero runs on Amazon Web Services (AWS) in the London region, with a managed PostgreSQL database in the same region.
 
@@ -64,6 +64,7 @@ Vero's compliance records were first built with a contractor following an SSAIB 
 
 | Provider | What they do | Location |
 |---|---|---|
+| Calon AI Solutions Ltd | Building and supporting the Vero technology | UK |
 | Amazon Web Services (AWS) | Application hosting and PostgreSQL database | UK (London) |
 | Cloudflare | Network security and traffic routing | Global |
 | OpenAI | Transcribing and structuring engineer notes and documents | United States |
@@ -90,9 +91,9 @@ Your responsibility as the employer: telling engineers what is tracked and why, 
 
 ## Company details
 
-Calon AI Solutions Ltd\
-Registered in England and Wales, company number 15984397\
-Registered office: Ty Merlin, Caerphilly Business Park, Caerphilly
+Sentinel Vero Ltd\
+Registered in England and Wales, company number 17492624\
+Technology built by our partner Calon AI Solutions Ltd
 
 Our founder, Mahbubul Alom, is ISO certified in data processing.
 

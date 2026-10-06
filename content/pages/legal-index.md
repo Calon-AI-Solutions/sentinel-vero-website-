@@ -12,7 +12,7 @@ Clear records are the point of Vero, so we hold ourselves to the same standard. 
 
 Policies in display order:
 
-1. Privacy policy (`/legal/privacy`): How Calon AI Solutions collects, uses and protects personal information through our website and Vero.
+1. Privacy policy (`/legal/privacy`): How Sentinel Vero collects, uses and protects personal information through our website and Vero.
 2. Cookie policy (`/legal/cookies`): Which cookies our website uses, why, and how to change your choices.
 3. UK Data Protection Addendum (`/legal/data-protection-addendum`): The terms under which we process personal data on behalf of our customers under UK GDPR.
 4. UK list of subprocessors (`/legal/subprocessors`): The third parties that help us run Vero, what they do and where they process data.

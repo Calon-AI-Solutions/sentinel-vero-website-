@@ -3,8 +3,8 @@ title: "UK list of subprocessors"
 slug: subprocessors
 summary: "The third parties that help us run Vero, what they do and where they process data."
 metaTitle: "UK List of Subprocessors (UK GDPR) | Vero"
-metaDescription: "The subprocessors Calon AI Solutions Ltd uses to provide Vero, the purpose of each, where they process data, and the transfer safeguards in place."
-lastReviewed: "2026-10-06"
+metaDescription: "The subprocessors Sentinel Vero Ltd uses to provide Vero, the purpose of each, where they process data, and the transfer safeguards in place."
+lastReviewed: "2026-10-01"
 ---
 
 # UK list of subprocessors
@@ -17,6 +17,7 @@ Each subprocessor is bound by a written contract that protects personal data to 
 
 | Subprocessor | Purpose | Data processed | Location | Transfer safeguard |
 |---|---|---|---|---|
+| Calon AI Solutions Ltd | Building, maintaining and supporting the Vero technology | All Customer Personal Data, where needed to maintain and support Vero | United Kingdom | Not needed, data stays in the UK |
 | Amazon Web Services (AWS) | Application hosting, PostgreSQL database and file storage | All Customer Personal Data | United Kingdom (London) | Not needed, data stays in the UK |
 | Cloudflare, Inc. | Network security, traffic routing and protection against attacks | Traffic data, IP addresses | Global network | UK Addendum to the EU Standard Contractual Clauses |
 | OpenAI | AI text extraction and structuring of notes and documents | Content submitted for processing, which may include personal data | United States | UK Addendum to the EU Standard Contractual Clauses |

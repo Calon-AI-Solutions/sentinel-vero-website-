@@ -3,8 +3,8 @@ title: "Professional services policy"
 slug: professional-services
 summary: "How we scope, price and deliver onboarding, data migration, training and custom work."
 metaTitle: "Professional Services Policy | Vero"
-metaDescription: "How Calon AI Solutions scopes, prices and delivers professional services for Vero customers: onboarding, data migration, training, templates, integrations and custom work."
-lastReviewed: "2026-10-06"
+metaDescription: "How Sentinel Vero Ltd scopes, prices and delivers professional services for Vero customers: onboarding, data migration, training, templates, integrations and custom work."
+lastReviewed: "2026-09-23"
 ---
 
 # Professional services policy

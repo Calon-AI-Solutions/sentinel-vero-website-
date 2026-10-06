@@ -109,8 +109,8 @@ export function SiteFooter() {
       </div>
       <div className="site-container flex flex-col gap-2 border-t border-background/15 py-5 text-xs text-background/65 sm:flex-row sm:justify-between">
         <span>
-          © {__BUILD_YEAR__} Calon AI Solutions Ltd. Registered in England and Wales, company number
-          15984397.
+          © {__BUILD_YEAR__} Sentinel Vero Ltd. Registered in England and Wales, company number
+          17492624. Technology built by our partner Calon AI Solutions Ltd.
         </span>
         <span>See the leaks. Fix the system.</span>
       </div>

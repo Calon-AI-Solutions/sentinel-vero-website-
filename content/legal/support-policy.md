@@ -4,7 +4,7 @@ slug: support
 summary: "How to reach us, when we are available, and how quickly we respond."
 metaTitle: "Support Policy | Vero"
 metaDescription: "How Vero customers get support: contact channels, support hours, priority levels and response targets."
-lastReviewed: "2026-10-06"
+lastReviewed: "2026-09-25"
 ---
 
 # Support policy

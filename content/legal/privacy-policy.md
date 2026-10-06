@@ -1,19 +1,19 @@
 ---
 title: "Privacy policy"
 slug: privacy
-summary: "How Calon AI Solutions collects, uses and protects personal information through our website and Vero."
+summary: "How Sentinel Vero collects, uses and protects personal information through our website and Vero."
 metaTitle: "Privacy Policy | Vero"
-metaDescription: "How Calon AI Solutions Ltd collects, uses, shares and protects personal information through the Vero website and platform, and your rights under UK GDPR."
-lastReviewed: "2026-10-06"
+metaDescription: "How Sentinel Vero Ltd collects, uses, shares and protects personal information through the Vero website and platform, and your rights under UK GDPR."
+lastReviewed: "2026-10-03"
 ---
 
 # Privacy policy
 
-This policy explains how Calon AI Solutions Ltd ("we", "us") collects, uses and protects personal information through our website and our Vero platform, and the rights you have over it.
+This policy explains how Sentinel Vero Ltd ("we", "us") collects, uses and protects personal information through our website and our Vero platform, and the rights you have over it.
 
 ## Who we are
 
-Calon AI Solutions Ltd builds and operates Vero. We are registered in England and Wales, company number 15984397, with our registered office at Ty Merlin, Caerphilly Business Park, Caerphilly.
+Sentinel Vero Ltd operates Vero. We are registered in England and Wales, company number 17492624. The Vero technology is built and maintained by our partner, Calon AI Solutions Ltd (company number 15984397), which acts as our processor.
 
 For any privacy question, email [hello@sentinelvero.com](mailto:hello@sentinelvero.com). Our founder, Mahbubul Alom, is ISO certified in data processing.
 

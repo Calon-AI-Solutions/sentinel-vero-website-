@@ -3,17 +3,17 @@ title: "Data security at Vero"
 slug: data-security
 summary: "How we protect your data across our infrastructure, application and team."
 metaTitle: "Data Security at Vero | Vero"
-metaDescription: "How Calon AI Solutions protects customer data in Vero: hosting, encryption, access control, backups, monitoring, AI processing and incident response."
-lastReviewed: "2026-10-06"
+metaDescription: "How Sentinel Vero Ltd protects customer data in Vero: hosting, encryption, access control, backups, monitoring, AI processing and incident response."
+lastReviewed: "2026-09-30"
 ---
 
 # Data security at Vero
 
-Vero holds your customer sites, access arrangements, engineer records and compliance paperwork. This policy explains how we protect it. It is part of the technical and organisational measures referred to in our [UK Data Protection Addendum](/legal/data-protection-addendum).
+Vero holds your customer sites, access arrangements, engineer records and compliance paperwork. This policy explains how we protect it. Vero is operated by Sentinel Vero Ltd and built by our technology partner, Calon AI Solutions Ltd. This policy is part of the technical and organisational measures referred to in our [UK Data Protection Addendum](/legal/data-protection-addendum).
 
 ## Our people
 
-- Everyone at Calon with access to customer data is bound by confidentiality terms.
+- Everyone at Sentinel Vero and Calon AI Solutions with access to customer data is bound by confidentiality terms.
 - Our founder, Mahbubul Alom, is ISO certified in data processing.
 - Access to production systems is limited to the people who need it for their role, and reviewed every quarter.
 - When someone leaves or changes role, their access is removed on their last working day.

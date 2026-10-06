@@ -4,7 +4,7 @@ slug: enterprise-sla
 summary: "The uptime commitment and service credits available to enterprise customers."
 metaTitle: "Enterprise Service Level Agreement | Vero"
 metaDescription: "Vero's Enterprise Service Level Agreement: the monthly uptime commitment, how uptime is measured, exclusions, and the service credits available."
-lastReviewed: "2026-10-06"
+lastReviewed: "2026-09-24"
 ---
 
 # Enterprise SLA

@@ -4,7 +4,7 @@ slug: product-updates
 summary: "How and when we release changes to Vero, and how we tell you about them."
 metaTitle: "Product Update Policy | Vero"
 metaDescription: "How Vero releases updates, when planned maintenance happens, how much notice you get of significant changes, and where to find release notes."
-lastReviewed: "2026-10-06"
+lastReviewed: "2026-09-26"
 ---
 
 # Product update policy

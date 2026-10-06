@@ -3,13 +3,13 @@ title: "UK Data Protection Addendum"
 slug: data-protection-addendum
 summary: "The terms under which we process personal data on behalf of our customers under UK GDPR."
 metaTitle: "UK Data Protection Addendum (UK GDPR) | Vero"
-metaDescription: "Vero's UK Data Protection Addendum: the terms under which Calon AI Solutions Ltd processes personal data as a processor for customers under UK GDPR and the Data Protection Act 2018."
-lastReviewed: "2026-10-06"
+metaDescription: "Vero's UK Data Protection Addendum: the terms under which Sentinel Vero Ltd processes personal data as a processor for customers under UK GDPR and the Data Protection Act 2018."
+lastReviewed: "2026-09-29"
 ---
 
 # UK Data Protection Addendum
 
-This Data Protection Addendum ("Addendum") forms part of the agreement between Calon AI Solutions Ltd ("Calon", "we") and the customer named in that agreement ("Customer", "you") for the use of Vero (the "Agreement"). It applies whenever we process personal data on your behalf in providing Vero.
+This Data Protection Addendum ("Addendum") forms part of the agreement between Sentinel Vero Ltd ("Sentinel Vero", "we") and the customer named in that agreement ("Customer", "you") for the use of Vero (the "Agreement"). It applies whenever we process personal data on your behalf in providing Vero.
 
 If this Addendum and the Agreement conflict on data protection, this Addendum takes priority.
 

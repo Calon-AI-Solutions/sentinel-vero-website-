@@ -4,7 +4,7 @@ slug: referral
 summary: "Full terms for our customer referral scheme."
 metaTitle: "Referral Scheme Terms | Vero"
 metaDescription: "Full terms and conditions for the Vero referral scheme: who can refer, what counts as a qualifying referral, the reward, and when it is paid."
-lastReviewed: "2026-10-06"
+lastReviewed: "2026-09-22"
 ---
 
 # Referral policy
@@ -13,7 +13,7 @@ If you know a fire, security or electrical business that would benefit from Vero
 
 ## Who can refer
 
-The scheme is open to existing Vero customers and approved partners based in the UK. Calon AI Solutions staff and their immediate families cannot take part.
+The scheme is open to existing Vero customers and approved partners based in the UK. Sentinel Vero and Calon AI Solutions staff and their immediate families cannot take part.
 
 ## How to refer
 

@@ -4,12 +4,12 @@ slug: cookies
 summary: "Which cookies our website uses, why, and how to change your choices."
 metaTitle: "Cookie Policy | Vero"
 metaDescription: "The cookies the Vero website uses, what each one does, how long it lasts, and how to accept, reject or change your choices."
-lastReviewed: "2026-10-06"
+lastReviewed: "2026-10-03"
 ---
 
 # Cookie policy
 
-This policy explains the cookies used on the Vero website, run by Calon AI Solutions Ltd. It should be read with our [Privacy policy](/legal/privacy).
+This policy explains the cookies used on the Vero website, run by Sentinel Vero Ltd. It should be read with our [Privacy policy](/legal/privacy).
 
 ## What cookies are
 
