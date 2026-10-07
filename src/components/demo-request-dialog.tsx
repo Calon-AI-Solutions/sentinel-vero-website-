@@ -1,14 +1,77 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { useServerFn } from "@tanstack/react-start";
 import { ArrowRight, Check, Play, X } from "lucide-react";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
-import { demoLink, demoRequestSchema, submitDemoRequest } from "@/lib/demo-request";
+import {
+  demoErrors,
+  demoLink,
+  demoRequestSchema,
+  submitDemoRequest,
+  turnstileSiteKey,
+} from "@/lib/demo-request";
 
 /** Any link to this hash opens the Watch the demo form instead of jumping. */
 export const demoHref = "#watch-demo";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "saved" | "error";
+
+type Turnstile = {
+  render: (el: HTMLElement, options: Record<string, unknown>) => string;
+  reset: (id: string) => void;
+  remove: (id: string) => void;
+};
+declare global {
+  interface Window {
+    turnstile?: Turnstile;
+  }
+}
+
+let turnstileScript: Promise<Turnstile> | undefined;
+function loadTurnstile() {
+  turnstileScript ??= new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.onload = () => (window.turnstile ? resolve(window.turnstile) : reject());
+    script.onerror = () => {
+      turnstileScript = undefined;
+      reject(new Error("Turnstile failed to load"));
+    };
+    document.head.appendChild(script);
+  });
+  return turnstileScript;
+}
+
+/** Cloudflare Turnstile bot check. It adds a hidden cf-turnstile-response field to the form. */
+function TurnstileWidget({ resetKey }: { resetKey: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const widget = useRef<string | undefined>(undefined);
+  useEffect(() => {
+    if (!turnstileSiteKey) return;
+    let cancelled = false;
+    loadTurnstile()
+      .then((turnstile) => {
+        if (cancelled || !ref.current) return;
+        widget.current = turnstile.render(ref.current, {
+          sitekey: turnstileSiteKey,
+          theme: "dark",
+          size: "flexible",
+        });
+      })
+      .catch((error: unknown) => console.error(error));
+    return () => {
+      cancelled = true;
+      if (widget.current) window.turnstile?.remove(widget.current);
+      widget.current = undefined;
+    };
+  }, []);
+  useEffect(() => {
+    if (resetKey && widget.current) window.turnstile?.reset(widget.current);
+  }, [resetKey]);
+  if (!turnstileSiteKey) return null;
+  return <div ref={ref} className="min-h-[65px]" />;
+}
 type Errors = Partial<Record<"name" | "email" | "company", string | undefined>>;
 
 const fieldClass =
@@ -20,6 +83,9 @@ export function DemoRequestDialog() {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Errors>({});
   const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  // A Turnstile token works once, so the widget is reset after every failed attempt.
+  const [attempt, setAttempt] = useState(0);
   const submit = useServerFn(submitDemoRequest);
 
   useEffect(() => {
@@ -55,6 +121,7 @@ export function DemoRequestDialog() {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const values = Object.fromEntries(new FormData(event.currentTarget)) as Record<string, string>;
+    values["page"] = window.location.pathname;
     const parsed = demoRequestSchema.safeParse(values);
     if (!parsed.success) {
       const fieldErrors = parsed.error.flatten().fieldErrors;
@@ -69,11 +136,20 @@ export function DemoRequestDialog() {
     setEmail(parsed.data.email);
     setStatus("sending");
     try {
-      await submit({ data: parsed.data });
-      setStatus("sent");
+      const result = await submit({ data: parsed.data });
+      setStatus(result.emailed ? "sent" : "saved");
     } catch (error) {
       console.error(error);
+      const message = error instanceof Error ? error.message : "";
+      setErrorMessage(
+        message === demoErrors.bot
+          ? "We couldn’t confirm you’re not a bot. Please complete the check above and try again."
+          : message === demoErrors.rateLimited
+            ? "We’ve had a few requests from you already. Please wait a few minutes, or email"
+            : "Something went wrong sending your demo. Please try again, or email",
+      );
       setStatus("error");
+      setAttempt((n) => n + 1);
     }
   }
 
@@ -87,7 +163,19 @@ export function DemoRequestDialog() {
             <span className="sr-only">Close</span>
           </DialogPrimitive.Close>
 
-          {status === "sent" ? (
+          {status === "saved" ? (
+            <div className="text-center">
+              <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-mint/15 text-mint">
+                <Check className="size-6" />
+              </span>
+              <DialogPrimitive.Title className="mt-5 font-display text-2xl font-semibold">
+                Thanks, we’ve got your details
+              </DialogPrimitive.Title>
+              <DialogPrimitive.Description className="mt-3 text-[15px] leading-7 text-muted-ink">
+                We’ll send the demo to <span className="text-bone">{email}</span> shortly.
+              </DialogPrimitive.Description>
+            </div>
+          ) : status === "sent" ? (
             <div className="text-center">
               <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-mint/15 text-mint">
                 <Check className="size-6" />
@@ -160,16 +248,23 @@ export function DemoRequestDialog() {
                   className="absolute -left-[9999px] h-0 w-0 opacity-0"
                 />
 
+                <TurnstileWidget resetKey={attempt} />
+
                 {status === "error" && (
                   <p
                     role="alert"
                     className="rounded-[10px] border border-red-400/30 bg-red-400/10 px-3.5 py-2.5 text-sm text-red-200"
                   >
-                    Something went wrong sending your demo. Please try again, or email{" "}
-                    <a className="underline" href="mailto:hello@sentinelvero.com">
-                      hello@sentinelvero.com
-                    </a>
-                    .
+                    {errorMessage}
+                    {errorMessage.endsWith("email") && (
+                      <>
+                        {" "}
+                        <a className="underline" href="mailto:hello@sentinelvero.com">
+                          hello@sentinelvero.com
+                        </a>
+                        .
+                      </>
+                    )}
                   </p>
                 )}
 

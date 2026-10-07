@@ -3,11 +3,17 @@ import { z } from "zod";
 
 import { isSet, settings } from "./content";
 
-// Watch the demo form. On submit the visitor gets an auto-reply with the demo link and the team
-// gets a notification. Mail goes through Resend (https://resend.com); set these in Vercel:
-//   RESEND_API_KEY   required, the Resend API key
-//   DEMO_FROM_EMAIL  optional, sender on a domain verified in Resend
-//   DEMO_TEAM_EMAIL  optional, where new requests are sent
+// Watch the demo form. Each request is checked for bots (Cloudflare Turnstile, a honeypot and a
+// rate limit), saved to PostgreSQL, then the visitor gets an auto-reply with the demo link and the
+// team gets a notification. Mail goes through Resend (https://resend.com). Set these in Vercel:
+//   RESEND_API_KEY           the Resend API key
+//   DEMO_FROM_EMAIL          optional, sender on a domain verified in Resend
+//   DEMO_TEAM_EMAIL          optional, where new requests are sent
+//   DATABASE_URL             PostgreSQL connection string (see demo-request.server.ts)
+//   VITE_TURNSTILE_SITE_KEY  Turnstile site key, shown in the form
+//   TURNSTILE_SECRET_KEY     Turnstile secret key, checked on the server
+// Every part is optional: whatever is configured runs, but at least one of the database or Resend
+// must be set or the form reports an error.
 
 const defaultFrom = "Sentinel Vero <hello@sentinelvero.com>";
 const defaultTeam = "hello@sentinelvero.com";
@@ -20,9 +26,20 @@ export const demoRequestSchema = z.object({
   teamSize: z.string().trim().max(40).optional().default(""),
   // Honeypot: real visitors never see or fill this field.
   website: z.string().max(200).optional().default(""),
+  // Filled in by the Cloudflare Turnstile widget.
+  "cf-turnstile-response": z.string().max(4096).optional().default(""),
+  page: z.string().max(300).optional().default(""),
 });
 
 export type DemoRequest = z.input<typeof demoRequestSchema>;
+
+/** Error messages the form recognises and explains to the visitor. */
+export const demoErrors = {
+  bot: "Bot check failed",
+  rateLimited: "Too many requests",
+} as const;
+
+export const turnstileSiteKey = import.meta.env["VITE_TURNSTILE_SITE_KEY"] as string | undefined;
 
 export const demoLink = isSet(settings.demoUrl) ? settings.demoUrl : null;
 
@@ -65,16 +82,40 @@ ${link}
 }
 
 export const submitDemoRequest = createServerFn({ method: "POST" })
-  .inputValidator((data: DemoRequest) => demoRequestSchema.parse(data))
+  .validator((data: DemoRequest) => demoRequestSchema.parse(data))
   .handler(async ({ data }) => {
-    // Bots that fill the honeypot get a normal-looking success and no email.
-    if (data.website) return { ok: true as const };
+    // Bots that fill the honeypot get a normal-looking success and nothing is stored or sent.
+    if (data.website) return { ok: true as const, emailed: true };
+
+    const server = await import("./demo-request.server");
+    const { ip, userAgent } = server.requestInfo();
+    if (!(await server.verifyTurnstile(data["cf-turnstile-response"], ip))) {
+      throw new Error(demoErrors.bot);
+    }
+    const ipHash = await server.hashIp(ip);
+    if (await server.isRateLimited(ipHash, data.email)) throw new Error(demoErrors.rateLimited);
 
     const apiKey = process.env["RESEND_API_KEY"];
-    if (!apiKey) {
-      console.error("Demo request not emailed: RESEND_API_KEY is not set", data.email);
-      throw new Error("Email is not configured yet");
+    if (!apiKey && !server.hasDatabase()) {
+      console.error("Demo request dropped: set DATABASE_URL or RESEND_API_KEY", data.email);
+      throw new Error("Demo form is not configured yet");
     }
+
+    const id = await server.saveRequest({
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      phone: data.phone,
+      teamSize: data.teamSize,
+      page: data.page,
+      userAgent,
+      ipHash,
+    });
+    if (!apiKey) {
+      console.warn("Demo request saved but not emailed: RESEND_API_KEY is not set", id);
+      return { ok: true as const, emailed: false };
+    }
+
     const from = process.env["DEMO_FROM_EMAIL"] || defaultFrom;
     const team = process.env["DEMO_TEAM_EMAIL"] || defaultTeam;
 
@@ -84,20 +125,31 @@ export const submitDemoRequest = createServerFn({ method: "POST" })
       ["Company", data.company],
       ["Phone", data.phone || "Not given"],
       ["Team size", data.teamSize || "Not given"],
+      ["Page", data.page || "Not given"],
     ];
 
-    await Promise.all([
-      sendEmail(apiKey, { from, to: data.email, reply_to: team, ...autoReply(data.name) }),
-      sendEmail(apiKey, {
-        from,
-        to: team,
-        reply_to: data.email,
-        subject: `Demo request: ${data.name}, ${data.company}`,
-        html: `<p>New Watch the demo request from the website.</p><table>${rows
-          .map(([k, v]) => `<tr><td><b>${k}</b></td><td>${escapeHtml(v ?? "")}</td></tr>`)
-          .join("")}</table>`,
-        text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
-      }),
-    ]);
-    return { ok: true as const };
+    try {
+      await Promise.all([
+        sendEmail(apiKey, { from, to: data.email, reply_to: team, ...autoReply(data.name) }),
+        sendEmail(apiKey, {
+          from,
+          to: team,
+          reply_to: data.email,
+          subject: `Demo request: ${data.name}, ${data.company}`,
+          html: `<p>New Watch the demo request from the website.</p><table>${rows
+            .map(([k, v]) => `<tr><td><b>${k}</b></td><td>${escapeHtml(v ?? "")}</td></tr>`)
+            .join("")}</table>`,
+          text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
+        }),
+      ]);
+    } catch (error) {
+      // The request is already saved, so the team still has it; tell the visitor honestly.
+      if (id) {
+        console.error("Demo request saved but email failed", id, error);
+        return { ok: true as const, emailed: false };
+      }
+      throw error;
+    }
+    if (id) await server.markEmailed(id);
+    return { ok: true as const, emailed: true };
   });
