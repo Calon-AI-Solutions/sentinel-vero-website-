@@ -84,6 +84,7 @@ export function DemoRequestDialog() {
   const [errors, setErrors] = useState<Errors>({});
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [errorCode, setErrorCode] = useState("");
   // A Turnstile token works once, so the widget is reset after every failed attempt.
   const [attempt, setAttempt] = useState(0);
   const submit = useServerFn(submitDemoRequest);
@@ -141,6 +142,8 @@ export function DemoRequestDialog() {
     } catch (error) {
       console.error(error);
       const message = error instanceof Error ? error.message : "";
+      // Short codes like NOT_CONFIGURED or EMAIL_403 tell the team what to fix; no secrets.
+      setErrorCode(/^[A-Z][A-Z0-9_ a-z]{2,80}$/.test(message) ? message : "");
       setErrorMessage(
         message === demoErrors.bot
           ? "We couldn’t confirm you’re not a bot. Please complete the check above and try again."
@@ -264,6 +267,11 @@ export function DemoRequestDialog() {
                         </a>
                         .
                       </>
+                    )}
+                    {errorCode && (
+                      <span className="mt-1 block font-label text-[11px] text-red-200/60">
+                        Error code: {errorCode}
+                      </span>
                     )}
                   </p>
                 )}

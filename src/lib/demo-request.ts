@@ -56,7 +56,11 @@ async function sendEmail(apiKey: string, message: Record<string, unknown>) {
     body: JSON.stringify(message),
   });
   if (!response.ok) {
-    throw new Error(`Resend responded ${response.status}: ${await response.text()}`);
+    const body = await response.text();
+    console.error(`Resend responded ${response.status}: ${body}`);
+    // Resend's error name (e.g. validation_error) is safe to show; the message stays in the log.
+    const name = /"name"\s*:\s*"([a-z_]+)"/.exec(body)?.[1] ?? "";
+    throw new Error(`EMAIL_${response.status}${name ? `_${name}` : ""}`);
   }
 }
 
@@ -93,25 +97,37 @@ export const submitDemoRequest = createServerFn({ method: "POST" })
       throw new Error(demoErrors.bot);
     }
     const ipHash = await server.hashIp(ip);
-    if (await server.isRateLimited(ipHash, data.email)) throw new Error(demoErrors.rateLimited);
 
     const apiKey = process.env["RESEND_API_KEY"];
     if (!apiKey && !server.hasDatabase()) {
       console.error("Demo request dropped: set DATABASE_URL or RESEND_API_KEY", data.email);
-      throw new Error("Demo form is not configured yet");
+      throw new Error("NOT_CONFIGURED");
     }
 
-    const id = await server.saveRequest({
-      name: data.name,
-      email: data.email,
-      company: data.company,
-      phone: data.phone,
-      teamSize: data.teamSize,
-      page: data.page,
-      userAgent,
-      ipHash,
-    });
+    // A database problem must not lose the lead: log it and still send the emails.
+    let dbError = "";
+    let id: string | null = null;
+    try {
+      if (await server.isRateLimited(ipHash, data.email)) {
+        throw new Error(demoErrors.rateLimited);
+      }
+      id = await server.saveRequest({
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        phone: data.phone,
+        teamSize: data.teamSize,
+        page: data.page,
+        userAgent,
+        ipHash,
+      });
+    } catch (error) {
+      if (error instanceof Error && error.message === demoErrors.rateLimited) throw error;
+      console.error("Demo request could not be saved to the database", error);
+      dbError = `DB_${(error as { code?: string }).code ?? "ERROR"}`;
+    }
     if (!apiKey) {
+      if (dbError) throw new Error(dbError);
       console.warn("Demo request saved but not emailed: RESEND_API_KEY is not set", id);
       return { ok: true as const, emailed: false };
     }
@@ -148,7 +164,8 @@ export const submitDemoRequest = createServerFn({ method: "POST" })
         console.error("Demo request saved but email failed", id, error);
         return { ok: true as const, emailed: false };
       }
-      throw error;
+      const emailError = error instanceof Error ? error.message : "EMAIL_ERROR";
+      throw new Error(dbError ? `${dbError} ${emailError}` : emailError);
     }
     if (id) await server.markEmailed(id);
     return { ok: true as const, emailed: true };
