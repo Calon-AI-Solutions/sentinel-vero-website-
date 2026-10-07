@@ -8,17 +8,20 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DiscoveryCta } from "@/components/site-shell";
 import { demoHref } from "@/components/demo-request-dialog";
 import { DashboardVisual, FieldVisual } from "@/components/platform-visuals";
+import { faqLd, pageHead, softwareLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [
-    { title: "Sentinel Vero | Operational control for fire & security contractors" },
-    { name: "description", content: "Connect every enquiry, quote, job, site and payroll run in one operational system built for fire and security contractors." },
-    { property: "og:title", content: "Sentinel Vero | See the leaks. Fix the system." },
-    { property: "og:description", content: "Operational control for fire and security contractors who have outgrown fragmented systems." },
-    { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
-  ], links: [{ rel: "canonical", href: "/" }] }), component: HomePage,
+  head: () => pageHead({
+    path: "/",
+    title: "Sentinel Vero | Operational software for fire & security contractors",
+    description: "Sentinel Vero is operational software for UK fire and security contractors: enquiries, AI quoting, jobs, field app, compliance records and payroll in one system.",
+    ogTitle: "Sentinel Vero | See the leaks. Fix the system.",
+    ogDescription: "Operational control for fire and security contractors who have outgrown fragmented systems.",
+    jsonLd: [softwareLd, faqLd(homeFaqs)],
+  }), component: HomePage,
 });
 
+const homeFaqs = [['How long does this take?','Depends on your data and your team. You’ll get a real timeline on the Discovery call, not a guess now.'],['What does it run on?','Browser, for the office. A dedicated app, for the field. Apple and Android.'],['How is this different from generic job software?','It’s built around how fire and security businesses actually quote, schedule and prove compliance.'],['We already pay for Simpro, Uptick or Out On Site. Why bother?','Because paying for software and using it properly are two different things. If you’re still running half your workflow through spreadsheets, that’s the gap we close.'],['How does pricing actually work?','Per user, plus a one-off setup and migration fee. Real numbers come after a Discovery call, because your business isn’t generic, and neither is your quote.']] as const;
 const issues = [['The Stack','Timesheets in one app. Job tracking in another. Pricing living in someone’s head.'],['The Guess','Profit isn’t measured. It’s estimated, or patched together by pasting numbers into ChatGPT or Claude and hoping for a clean answer.'],['The Headcount Fix','Compliance gets complicated, so the answer is always “hire another person”, never “build a system that handles it.”']];
 const chain = ['Customer','Quote','Job','Field','Review','Advisory','Invoice','Payroll'];
 const promises = [['See','Every record, in context.'],['Verify','A trail you can trust, not a guess you hope is right.'],['Surface','The stuff that matters, first.'],['Improve','Decisions stay human. The system makes them easier to get right.']];
@@ -30,8 +33,8 @@ const partnerLogos: Array<{ name: string; src: string; iconOnly?: boolean }> = [
   { name: 'Caerphilly Business Club', src: '/partners/caerphilly-business-club.png', iconOnly: true },
 ];
 const testimonials = [
-  { quote: 'We used to spend hours checking timesheets and mileage before payroll. Volt verifies it for us, so by the time it reaches Xero, it’s already right.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-award.png' },
-  { quote: 'Quoting, compliance and payroll used to live in different places. Now it’s all in one system, and the AI advisory analyses photos from our engineers on site to spot new work, so we win more revenue, faster.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-desk.png' },
+  { quote: 'We used to spend hours checking timesheets and mileage before payroll. Volt verifies it for us, so by the time it reaches Xero, it’s already right.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-award.webp' },
+  { quote: 'Quoting, compliance and payroll used to live in different places. Now it’s all in one system, and the AI advisory analyses photos from our engineers on site to spot new work, so we win more revenue, faster.', name: 'Cai', role: 'Founder & Managing Director', company: 'Volt Secure', photo: '/testimonials/cai-desk.webp' },
   { quote: 'In 17 years as an engineer, this is the easiest app I’ve used. Time and mileage log automatically, photos and notes go in on site, and I’m done. No paperwork at the end of the day.', name: '', role: 'Engineer', company: 'Volt Secure', photo: '/testimonials/volt-engineer.webp' },
   { quote: 'My client looked at the big platforms, but this was built around how security companies actually work. It was set up quickly, the team listens, and new features arrive when we need them.', name: 'John O’Connell', role: 'Senior Security Partner', company: 'JOC Security Growth', photo: '/testimonials/john-oconnell.webp' },
 ];
@@ -90,7 +93,7 @@ function HomePage() {
       <div className="site-container flex flex-col items-center py-16 text-center lg:py-24">
         <p className="eyebrow text-primary">For fire & security contractors who are done guessing</p>
         <h1 className="mt-5 max-w-4xl text-balance font-display text-5xl font-semibold leading-[0.98] md:text-7xl">You can’t measure what you can’t see.</h1>
-        <p className="mt-7 max-w-2xl text-lg leading-8 text-background/70">You know the leaks are there. You just can’t see them all at once. Sentinel Vero puts every enquiry, quote, job, site and payroll run in one place, with AI already working in the background, so you stop finding out too late.</p>
+        <p className="mt-7 max-w-2xl text-lg leading-8 text-background/70">You know the leaks are there. You just can’t see them all at once. Sentinel Vero is operational software for UK fire and security contractors: every enquiry, quote, job, site and payroll run in one place, with AI already working in the background, so you stop finding out too late.</p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Button asChild variant="signal" size="xl"><a href="mailto:hello@sentinelvero.com?subject=Book%20a%20Discovery">Book a Discovery <ArrowRight /></a></Button>
           <Button asChild variant="outline" size="xl" className="border-background/30 bg-transparent text-background hover:bg-background/10 hover:text-background"><a href={demoHref}><Play className="fill-current" /> Watch Demo</a></Button>
@@ -150,7 +153,7 @@ function HomePage() {
       <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-3">{[['A 12-month partnership','Not a subscription you forget you’re paying for.'],['Implementation & migration, scoped to you','Not a flat fee that ignores how messy your data actually is.'],['Room to grow','Add what you need later, properly scoped, not bolted on.']].map(([title,body],i) => <article key={title} className="bg-background p-7"><span className="step-number">0{i+1}</span><h3 className="mt-8 font-display text-xl font-bold">{title}.</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{body}</p></article>)}</div>
     </div></section>
 
-    <section className="section-space"><div className="site-container grid gap-12 lg:grid-cols-[.65fr_1.35fr]"><SectionHeading eyebrow="FAQ" title="Straight answers."/><Accordion type="single" collapsible className="border-t border-border">{[['How long does this take?','Depends on your data and your team. You’ll get a real timeline on the Discovery call, not a guess now.'],['What does it run on?','Browser, for the office. A dedicated app, for the field. Apple and Android.'],['How is this different from generic job software?','It’s built around how fire and security businesses actually quote, schedule and prove compliance.'],['We already pay for Simpro, Uptick or Out On Site. Why bother?','Because paying for software and using it properly are two different things. If you’re still running half your workflow through spreadsheets, that’s the gap we close.'],['How does pricing actually work?','Per user, plus a one-off setup and migration fee. Real numbers come after a Discovery call, because your business isn’t generic, and neither is your quote.']].map(([q,a],i) => <AccordionItem value={`item-${i}`} key={q}><AccordionTrigger className="py-6 text-left text-base">{q}</AccordionTrigger><AccordionContent className="max-w-2xl pb-6 leading-7 text-muted-foreground">{a}</AccordionContent></AccordionItem>)}</Accordion></div></section>
+    <section className="section-space"><div className="site-container grid gap-12 lg:grid-cols-[.65fr_1.35fr]"><SectionHeading eyebrow="FAQ" title="Straight answers."/><Accordion type="single" collapsible className="border-t border-border">{homeFaqs.map(([q,a],i) => <AccordionItem value={`item-${i}`} key={q}><AccordionTrigger className="py-6 text-left text-base">{q}</AccordionTrigger><AccordionContent className="max-w-2xl pb-6 leading-7 text-muted-foreground">{a}</AccordionContent></AccordionItem>)}</Accordion></div></section>
     <DiscoveryCta />
   </>;
 }

@@ -4,8 +4,8 @@ slug: ai-should-not-write-your-certificates
 description: "Where AI genuinely helps a fire and security business, and the lines we will not let it cross."
 metaTitle: "AI Should Not Write Your Fire Alarm Certificates | Vero Blog"
 metaDescription: "Where AI helps fire and security contractors with reports, pricing and quotes, and why a qualified person must always sign off certificates and compliance documents."
-published: 2026-10-19
-updated: 2026-10-19
+published: 2026-10-07
+updated: 2026-10-07
 author: "Alom, Founder, Calon AI Solutions"
 ---
 

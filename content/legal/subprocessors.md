@@ -2,7 +2,7 @@
 title: "UK list of subprocessors"
 slug: subprocessors
 summary: "The third parties that help us run Vero, what they do and where they process data."
-metaTitle: "UK List of Subprocessors (UK GDPR) | Vero"
+metaTitle: "UK List of Subprocessors (UK GDPR) | Sentinel Vero"
 metaDescription: "The subprocessors Sentinel Vero Ltd uses to provide Vero, the purpose of each, where they process data, and the transfer safeguards in place."
 lastReviewed: "2026-10-01"
 ---

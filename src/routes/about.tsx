@@ -1,26 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Code2, Headset, MapPin, Quote } from "lucide-react";
+import { absoluteUrl } from "@/lib/content";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About us | Sentinel Vero" },
-      {
-        name: "description",
-        content:
-          "Sentinel Vero started in 2025 in Caerphilly. Meet Joc, Alom, Fabrizio and Cai, the team building operational software for fire and security businesses.",
-      },
-      { property: "og:title", content: "Our story | Sentinel Vero" },
-      {
-        property: "og:description",
-        content:
-          "Four people in Caerphilly, one solution, and a live fire and security business to test every idea against.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/about",
+      title: "About Sentinel Vero | The team behind Vero",
+      description:
+        "Sentinel Vero started in 2025 in Caerphilly. Meet Joc, Alom, Fabrizio and Cai, the team building operational software for fire and security businesses.",
+      ogTitle: "Our story | Sentinel Vero",
+      ogDescription:
+        "Four people in Caerphilly, one solution, and a live fire and security business to test every idea against.",
+      jsonLd: [
+        {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          url: absoluteUrl("/about"),
+          about: { "@id": `${absoluteUrl("/")}#organization` },
+          mainEntity: team.map((m) => ({
+            "@type": "Person",
+            name: m.name,
+            jobTitle: m.role,
+            image: absoluteUrl(m.photo),
+            worksFor: { "@id": `${absoluteUrl("/")}#organization` },
+          })),
+        },
+      ],
+    }),
   component: AboutPage,
 });
 

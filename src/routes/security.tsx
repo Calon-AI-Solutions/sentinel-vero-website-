@@ -2,20 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { CtaBlock, DocBody, DocHero } from "@/components/content";
 import { getPage } from "@/lib/content";
-import { docHead, organizationLd } from "@/lib/seo";
+import { docHead } from "@/lib/seo";
 
 const doc = getPage("security")!;
 
 export const Route = createFileRoute("/security")({
   head: () =>
-    docHead(
-      doc,
-      [
-        { name: "Home", path: "/" },
-        { name: doc.title, path: doc.path },
-      ],
-      [organizationLd],
-    ),
+    docHead(doc, [
+      { name: "Home", path: "/" },
+      { name: doc.title, path: doc.path },
+    ]),
   component: SecurityPage,
 });
 

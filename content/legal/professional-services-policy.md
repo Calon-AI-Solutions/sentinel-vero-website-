@@ -2,7 +2,7 @@
 title: "Professional services policy"
 slug: professional-services
 summary: "How we scope, price and deliver onboarding, data migration, training and custom work."
-metaTitle: "Professional Services Policy | Vero"
+metaTitle: "Professional Services Policy | Sentinel Vero"
 metaDescription: "How Sentinel Vero Ltd scopes, prices and delivers professional services for Vero customers: onboarding, data migration, training, templates, integrations and custom work."
 lastReviewed: "2026-09-23"
 ---

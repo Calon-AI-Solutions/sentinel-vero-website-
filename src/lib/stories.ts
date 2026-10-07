@@ -41,7 +41,7 @@ export const stories: Story[] = [
     person: {
       name: "Cai",
       role: "Founder & Managing Director",
-      photo: "/testimonials/cai-award.png",
+      photo: "/testimonials/cai-award.webp",
     },
     quote:
       "Quoting, compliance and payroll used to live in different places. Now it’s all in one system.",

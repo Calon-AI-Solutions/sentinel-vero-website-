@@ -37,15 +37,25 @@ AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Content
-    ref={ref}
-    className="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
-    {...props}
-  >
-    <div className={cn("pb-4 pt-0", className)}>{children}</div>
-  </AccordionPrimitive.Content>
-));
+>(({ className, children, ...props }, ref) => {
+  // Radix only renders the content of an open item, so closed answers would be missing from the
+  // server HTML that search engines and AI crawlers read. Until hydration, a hidden copy keeps
+  // them in the page; it is removed on the client so the text never appears twice.
+  const [hydrated, setHydrated] = React.useState(false);
+  React.useEffect(() => setHydrated(true), []);
+  return (
+    <>
+      <AccordionPrimitive.Content
+        ref={ref}
+        className="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+        {...props}
+      >
+        <div className={cn("pb-4 pt-0", className)}>{children}</div>
+      </AccordionPrimitive.Content>
+      {!hydrated && <div hidden>{children}</div>}
+    </>
+  );
+});
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

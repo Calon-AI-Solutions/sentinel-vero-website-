@@ -16,10 +16,14 @@ import { SiteFooter } from "../components/site-shell";
 import { SiteHeader } from "../components/site-header";
 import { CookieConsent } from "../components/cookie-consent";
 import { DemoRequestDialog } from "../components/demo-request-dialog";
+import { organizationLd, websiteLd } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      {/* React hoists these into <head>. */}
+      <title>Page not found | Sentinel Vero</title>
+      <meta name="robots" content="noindex" />
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
@@ -88,6 +92,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Sentinel Vero" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [organizationLd, websiteLd].map((ld) => ({
+      type: "application/ld+json",
+      children: JSON.stringify(ld),
+    })),
     links: [
       {
         rel: "stylesheet",
@@ -113,7 +121,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <head>
         <HeadContent />
       </head>

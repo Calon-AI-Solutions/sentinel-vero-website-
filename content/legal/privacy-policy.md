@@ -2,7 +2,7 @@
 title: "Privacy policy"
 slug: privacy
 summary: "How Sentinel Vero collects, uses and protects personal information through our website and Vero."
-metaTitle: "Privacy Policy | Vero"
+metaTitle: "Privacy Policy | Sentinel Vero"
 metaDescription: "How Sentinel Vero Ltd collects, uses, shares and protects personal information through the Vero website and platform, and your rights under UK GDPR."
 lastReviewed: "2026-10-03"
 ---

@@ -2,7 +2,7 @@
 title: "Leak Report 2026"
 slug: leak-report-2026
 description: "Where fire and security contractors lose margin, with every assumption shown."
-metaTitle: "Leak Report 2026: Where Fire and Security Contractors Lose Margin | Vero"
+metaTitle: "Leak Report 2026: Where Contractors Lose Margin | Sentinel Vero"
 metaDescription: "A modelled breakdown of nine places a UK fire and security contractor loses margin each year, with the assumptions shown and a calculator to run your own numbers."
 published: 2026-10-05
 updated: 2026-10-05

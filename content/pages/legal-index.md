@@ -2,7 +2,7 @@
 title: "Policies"
 slug: legal
 summary: "The terms, policies and commitments behind Vero."
-metaTitle: "Policies and Legal | Vero"
+metaTitle: "Policies and Legal | Sentinel Vero"
 metaDescription: "Vero's privacy, cookie, data protection, security, support, service level and product policies, in plain English."
 ---
 

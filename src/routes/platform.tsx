@@ -24,27 +24,21 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { faqLd, pageHead, softwareLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/platform")({
-  head: () => ({
-    meta: [
-      { title: "Features | Sentinel Vero" },
-      {
-        name: "description",
-        content:
-          "See every Sentinel Vero feature screen by screen: field app, AI quoting, AI advisory, jobs, time and payroll for fire and security contractors.",
-      },
-      { property: "og:title", content: "Features | Sentinel Vero" },
-      {
-        property: "og:description",
-        content:
-          "The real office and field screens behind Sentinel Vero, from first enquiry to payroll.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/platform" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/platform",
+      title: "Features: Fire & Security Job Management Software | Sentinel Vero",
+      description:
+        "See every Sentinel Vero feature screen by screen: field app, AI quoting, AI advisory, jobs, time and payroll for fire and security contractors.",
+      ogTitle: "Features | Sentinel Vero",
+      ogDescription:
+        "The real office and field screens behind Sentinel Vero, from first enquiry to payroll.",
+      image: "/screens/dashboard.webp",
+      jsonLd: [softwareLd, faqLd(faqs)],
+    }),
   component: PlatformPage,
 });
 
@@ -131,7 +125,7 @@ const groups: Group[] = [
           quote:
             "Quoting, compliance and payroll used to live in different places. Now it’s all in one system.",
           who: "Cai, Volt Secure",
-          photo: "/testimonials/cai-desk.png",
+          photo: "/testimonials/cai-desk.webp",
         },
       },
       {
@@ -189,7 +183,7 @@ const groups: Group[] = [
           quote:
             "The AI advisory analyses photos from our engineers on site to spot new work, so we win more revenue, faster.",
           who: "Cai, Volt Secure",
-          photo: "/testimonials/cai-award.png",
+          photo: "/testimonials/cai-award.webp",
         },
       },
     ],
@@ -229,7 +223,7 @@ const groups: Group[] = [
           quote:
             "We used to spend hours checking timesheets and mileage before payroll. Volt verifies it for us, so by the time it reaches Xero, it’s already right.",
           who: "Cai, Volt Secure",
-          photo: "/testimonials/cai-award.png",
+          photo: "/testimonials/cai-award.webp",
         },
       },
     ],

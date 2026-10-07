@@ -2,7 +2,7 @@
 title: "Referral policy"
 slug: referral
 summary: "Full terms for our customer referral scheme."
-metaTitle: "Referral Scheme Terms | Vero"
+metaTitle: "Referral Scheme Terms | Sentinel Vero"
 metaDescription: "Full terms and conditions for the Vero referral scheme: who can refer, what counts as a qualifying referral, the reward, and when it is paid."
 lastReviewed: "2026-09-22"
 ---

@@ -3,6 +3,8 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 
 import { bookHref, DiscoveryClose, Stat, StoryCard, Tag } from "@/components/stories";
 import { getStory, stories } from "@/lib/stories";
+import { absoluteUrl } from "@/lib/content";
+import { defaultOgImage, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/proof/$slug")({
   loader: ({ params }) => {
@@ -13,17 +15,25 @@ export const Route = createFileRoute("/proof/$slug")({
   head: ({ loaderData, params }) => {
     const story = loaderData?.story;
     if (!story) return { meta: [{ title: "Customer story | Sentinel Vero" }] };
-    return {
-      meta: [
-        { title: `${story.company} customer story | Sentinel Vero` },
-        { name: "description", content: story.summary },
-        { property: "og:title", content: story.headline },
-        { property: "og:description", content: story.summary },
-        { property: "og:type", content: "article" },
-        { name: "twitter:card", content: "summary_large_image" },
+    return pageHead({
+      path: `/proof/${params.slug}`,
+      title: story.headline,
+      description: story.summary,
+      ogTitle: story.headline,
+      ogType: "article",
+      jsonLd: [
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: story.headline,
+          description: story.summary,
+          about: { "@type": "Organization", name: story.company },
+          publisher: { "@id": `${absoluteUrl("/")}#organization` },
+          mainEntityOfPage: absoluteUrl(`/proof/${params.slug}`),
+          image: absoluteUrl(defaultOgImage),
+        },
       ],
-      links: [{ rel: "canonical", href: `/proof/${params.slug}` }],
-    };
+    });
   },
   component: StoryPage,
 });

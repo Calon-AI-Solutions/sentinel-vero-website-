@@ -4,8 +4,8 @@ slug: payroll-from-verified-data
 description: "How to replace end-of-week timesheets with verified time and mileage, lawfully and without losing your engineers' trust."
 metaTitle: "Engineer Payroll from Verified Timesheets and Mileage | Vero Guides"
 metaDescription: "How fire and security contractors can build engineer timesheets from telematics and job data, handle mileage correctly, and meet UK GDPR expectations on tracking workers."
-published: 2026-10-19
-updated: 2026-10-19
+published: 2026-10-07
+updated: 2026-10-07
 author: "Alom, Founder, Calon AI Solutions"
 ---
 
