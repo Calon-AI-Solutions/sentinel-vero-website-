@@ -2,7 +2,7 @@
 title: "Notes from the field"
 slug: blog
 description: "What we learn building operations software with UK fire and security contractors."
-metaTitle: "Blog: Notes from the Field | Vero"
+metaTitle: "Blog: Notes from the Field | Sentinel Vero"
 metaDescription: "Short, practical writing on pricing, scheduling, compliance and AI for UK fire and security contractors, from the team that builds Vero."
 ---
 

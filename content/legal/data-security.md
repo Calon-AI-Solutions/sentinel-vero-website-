@@ -2,7 +2,7 @@
 title: "Data security at Vero"
 slug: data-security
 summary: "How we protect your data across our infrastructure, application and team."
-metaTitle: "Data Security at Vero | Vero"
+metaTitle: "Data Security | Sentinel Vero"
 metaDescription: "How Sentinel Vero Ltd protects customer data in Vero: hosting, encryption, access control, backups, monitoring, AI processing and incident response."
 lastReviewed: "2026-09-30"
 ---

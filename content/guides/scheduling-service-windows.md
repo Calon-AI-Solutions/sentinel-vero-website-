@@ -4,8 +4,8 @@ slug: scheduling-service-windows
 description: "How to track the five to seven month service window per system, match engineers to work, and book two-engineer jobs without double booking."
 metaTitle: "Scheduling Fire Alarm Servicing Under BS 5839-1:2025 | Vero Guides"
 metaDescription: "A practical scheduling method for fire alarm contractors: tracking the 5 to 7 month service window per system, skills matching, two-engineer jobs and protecting reactive capacity."
-published: 2026-10-12
-updated: 2026-10-12
+published: 2026-10-07
+updated: 2026-10-07
 author: "Alom, Founder, Calon AI Solutions"
 ---
 

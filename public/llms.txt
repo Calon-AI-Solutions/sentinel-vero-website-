@@ -1,0 +1,33 @@
+# Sentinel Vero
+
+> Sentinel Vero builds Vero, operational software for UK fire and security contractors. Vero connects enquiries, quotes, jobs, the engineer field app, service scheduling, compliance records, timesheets and payroll in one system, with AI that drafts quotes and turns site photos into new work. It is built for firms of roughly 10 to 50 people that have outgrown spreadsheets and generic job software.
+
+Sentinel Vero Ltd (company number 17492624, registered in England and Wales) operates the site and product. The team started in 2025 in Caerphilly, Wales, and tests every feature at Volt Secure, a working fire and security business. Technology is built with partner Calon AI Solutions Ltd. Contact: hello@sentinelvero.com.
+
+Pricing is per user, plus a one-off setup and migration fee, quoted after a Discovery call.
+
+## Product
+
+- [Features](https://sentinelvero.com/platform): every screen from enquiry to payroll, including the field app, AI quoting, AI advisory, jobs, time and payroll
+- [Custom Build](https://sentinelvero.com/custom-build): how Vero is configured around an existing business (forms, pricing, integrations, reporting, automation)
+- [Security and compliance](https://sentinelvero.com/security): UK GDPR, and the records Vero keeps for BAFE SP203-1, NSI and SSAIB audits
+
+## Customers
+
+- [Customer stories](https://sentinelvero.com/proof): fire and security operators using Vero, in their own words
+- [Volt Secure](https://sentinelvero.com/proof/volt-secure): quoting, compliance and payroll in one system
+- [Volt Secure field team](https://sentinelvero.com/proof/volt-secure-field-team): engineers capturing time, photos and notes on site
+- [JOC Security Growth](https://sentinelvero.com/proof/joc-security-growth): why a security growth adviser recommended Vero
+
+## Guides and research
+
+- [Leak Report 2026](https://sentinelvero.com/leak-report-2026): nine places a UK fire and security contractor loses margin, with a calculator
+- [How to quote fire and security work with visible margin](https://sentinelvero.com/guides/quoting-with-visible-margin)
+- [Scheduling fire alarm servicing under BS 5839-1:2025](https://sentinelvero.com/guides/scheduling-service-windows)
+- [Engineer payroll from verified timesheets and mileage](https://sentinelvero.com/guides/payroll-from-verified-data)
+- [Blog](https://sentinelvero.com/blog): notes on pricing, scheduling, compliance and AI for contractors
+
+## Company
+
+- [About](https://sentinelvero.com/about): the team behind Vero
+- [Policies](https://sentinelvero.com/legal): privacy, data protection, support, SLA and product policies

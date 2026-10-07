@@ -4,8 +4,8 @@ slug: five-to-seven-months
 description: "BS 5839-1:2025 gave fire alarm servicing more flexibility. Here is how to use it without losing visits or compliance."
 metaTitle: "BS 5839-1:2025: The 5 to 7 Month Service Window Explained | Vero Blog"
 metaDescription: "BS 5839-1:2025 allows a fire alarm service between five and seven months after the last one. Why treating seven months as the norm costs you visits, revenue and compliance."
-published: 2026-10-12
-updated: 2026-10-12
+published: 2026-10-07
+updated: 2026-10-07
 author: "Alom, Founder, Calon AI Solutions"
 ---
 

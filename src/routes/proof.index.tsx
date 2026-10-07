@@ -4,26 +4,18 @@ import { useMemo, useState } from "react";
 
 import { bookHref, DiscoveryClose, StoryCard, StoryTags } from "@/components/stories";
 import { featuredSlug, getStory, stories, type Story } from "@/lib/stories";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/proof/")({
-  head: () => ({
-    meta: [
-      { title: "Customer stories | Sentinel Vero" },
-      {
-        name: "description",
-        content:
-          "How fire and security operators run their jobs, quotes and payroll on Sentinel Vero, in their own words.",
-      },
-      { property: "og:title", content: "Customer stories | Sentinel Vero" },
-      {
-        property: "og:description",
-        content: "Real operators. Real jobs. Their words, and the evidence behind them.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/proof" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/proof",
+      title: "Fire & Security Customer Stories | Sentinel Vero",
+      description:
+        "How fire and security operators run their jobs, quotes and payroll on Sentinel Vero, in their own words.",
+      ogTitle: "Customer stories | Sentinel Vero",
+      ogDescription: "Real operators. Real jobs. Their words, and the evidence behind them.",
+    }),
   component: ProofPage,
 });
 

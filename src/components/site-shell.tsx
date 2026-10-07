@@ -75,6 +75,15 @@ export function SiteFooter() {
           <Link to="/about" hash="story" className="hover:text-primary">
             Our story
           </Link>
+          <Link to="/leak-report-2026" className="hover:text-primary">
+            Leak Report 2026
+          </Link>
+          <Link to="/guides" className="hover:text-primary">
+            Guides
+          </Link>
+          <Link to="/blog" className="hover:text-primary">
+            Blog
+          </Link>
           <a href={supportHref} className="hover:text-primary">
             Customer support
           </a>

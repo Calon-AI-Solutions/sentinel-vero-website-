@@ -2,7 +2,7 @@
 title: "UK Data Protection Addendum"
 slug: data-protection-addendum
 summary: "The terms under which we process personal data on behalf of our customers under UK GDPR."
-metaTitle: "UK Data Protection Addendum (UK GDPR) | Vero"
+metaTitle: "UK Data Protection Addendum (UK GDPR) | Sentinel Vero"
 metaDescription: "Vero's UK Data Protection Addendum: the terms under which Sentinel Vero Ltd processes personal data as a processor for customers under UK GDPR and the Data Protection Act 2018."
 lastReviewed: "2026-09-29"
 ---

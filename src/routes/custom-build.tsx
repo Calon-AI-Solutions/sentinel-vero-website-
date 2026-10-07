@@ -5,19 +5,19 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { BuildShowcase } from "@/components/build-showcase";
 import { Button } from "@/components/ui/button";
 import { DiscoveryCta } from "@/components/site-shell";
+import { faqLd, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/custom-build")({
-  head: () => ({
-    meta: [
-      { title: "Custom Build | Sentinel Vero" },
-      { name: "description", content: "Sentinel Vero is configured and extended around how your fire and security business already works: forms, pricing, integrations, reporting and automation." },
-      { property: "og:title", content: "Custom Build | Sentinel Vero" },
-      { property: "og:description", content: "Most platforms make you bend to fit them. We bend to fit you." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/custom-build" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/custom-build",
+      title: "Custom Build for Fire & Security Firms | Sentinel Vero",
+      description:
+        "Sentinel Vero is configured and extended around how your fire and security business already works: forms, pricing, integrations, reporting and automation.",
+      ogTitle: "Custom Build | Sentinel Vero",
+      ogDescription: "Most platforms make you bend to fit them. We bend to fit you.",
+      jsonLd: [faqLd(faqs)],
+    }),
   component: CustomBuildPage,
 });
 

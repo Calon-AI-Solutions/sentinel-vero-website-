@@ -2,7 +2,7 @@
 title: "Devices policy"
 slug: devices
 summary: "The browsers, phones and tablets Vero supports, and how to keep them secure."
-metaTitle: "Devices Policy: Supported Browsers and Devices | Vero"
+metaTitle: "Devices Policy: Supported Browsers and Devices | Sentinel Vero"
 metaDescription: "The browsers, computers, phones and tablets Vero supports for office staff and engineers, the permissions the engineer app needs, and how to keep devices secure."
 lastReviewed: "2026-09-27"
 ---

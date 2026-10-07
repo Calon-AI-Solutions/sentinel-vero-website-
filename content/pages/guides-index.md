@@ -2,7 +2,7 @@
 title: "Guides"
 slug: guides
 description: "Practical guides for running a fire and security business: quoting, scheduling and payroll."
-metaTitle: "Guides for Fire and Security Contractors: Quoting, Scheduling, Payroll | Vero"
+metaTitle: "Guides for Fire and Security Contractors | Sentinel Vero"
 metaDescription: "Step-by-step guides for UK fire and security contractors on pricing quotes with visible margin, scheduling BS 5839-1:2025 service windows, and running payroll from verified data."
 ---
 

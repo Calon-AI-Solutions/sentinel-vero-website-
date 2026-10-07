@@ -2,7 +2,7 @@
 title: "Cookie policy"
 slug: cookies
 summary: "Which cookies our website uses, why, and how to change your choices."
-metaTitle: "Cookie Policy | Vero"
+metaTitle: "Cookie Policy | Sentinel Vero"
 metaDescription: "The cookies the Vero website uses, what each one does, how long it lasts, and how to accept, reject or change your choices."
 lastReviewed: "2026-10-03"
 ---

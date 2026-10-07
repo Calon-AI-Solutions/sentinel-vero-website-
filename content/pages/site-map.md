@@ -2,7 +2,7 @@
 title: "Site map"
 slug: site-map
 summary: "Every page on the Vero website."
-metaTitle: "Site Map | Vero"
+metaTitle: "Site Map | Sentinel Vero"
 metaDescription: "A full list of pages on the Vero website."
 ---
 

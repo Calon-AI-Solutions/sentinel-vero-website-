@@ -2,7 +2,7 @@
 title: "Security and compliance"
 slug: security
 description: "How Vero protects your data and helps you keep the records BAFE, NSI and SSAIB audits ask for."
-metaTitle: "Security and Compliance: BAFE, NSI, SSAIB and GDPR | Vero"
+metaTitle: "Security and Compliance: BAFE, NSI, SSAIB, GDPR | Sentinel Vero"
 metaDescription: "How Vero protects customer and engineer data under UK GDPR, and how it helps fire and security contractors keep audit-ready records for BAFE SP203-1, NSI and SSAIB."
 published: 2026-10-05
 updated: 2026-10-05
