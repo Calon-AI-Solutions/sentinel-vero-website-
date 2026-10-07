@@ -3,7 +3,8 @@ import postgres from "postgres";
 
 // Server-only helpers for the Watch the demo form: storage in PostgreSQL, Cloudflare Turnstile
 // verification and rate limiting. Configure in Vercel:
-//   DATABASE_URL          PostgreSQL connection string; the table is created on first use
+//   DATABASE_URL          PostgreSQL connection string; the table is created on first use.
+//                         Vercel Storage (Neon) sets this; POSTGRES_URL also works.
 //   TURNSTILE_SECRET_KEY  Cloudflare Turnstile secret key (pairs with VITE_TURNSTILE_SITE_KEY)
 
 export type StoredRequest = {
@@ -25,7 +26,7 @@ let tableReady: Promise<unknown> | undefined;
 
 function db() {
   if (sql !== undefined) return sql;
-  const url = process.env["DATABASE_URL"];
+  const url = process.env["DATABASE_URL"] || process.env["POSTGRES_URL"];
   if (!url) return (sql = null);
   const local = /@(localhost|127\.0\.0\.1)[:/]/.test(url);
   sql = postgres(url, {
